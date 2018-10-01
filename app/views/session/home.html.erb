@@ -1,0 +1,38 @@
+<title>New Session</title>
+
+<body>
+<div class="container">
+
+  <nav class="nav nav-pills flex-column">
+    <ul class="nav nav-tabs nav-fill">
+      <li class="nav-item">
+        <a class="nav-link <%= @nosession%>" href="#new">New Session</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link <%= @iscurrent%>" href="#current">Current Session</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#archive">Archive</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#settings">Settings</a>
+      </li>
+    </ul>
+  </nav>
+
+<div class="new">
+
+    <%= simple_form_for @session, :url => sessions_path(@session), :method => :post, :action => :create  do |f| %>
+      <div class="form-group">
+      <%= f.input :name, label: 'Subject', error: 'Please provide a Title', input_html:{class:'form-control'} %><br>
+      <% ##concat datetime or use default %>
+      <%= f.input :time, label: 'When?', :as => :date, :input_html => { class: 'form-control'}, error: 'Please provide a date' %><br>
+      <%= f.input :details, label: 'Details (example: Quaterly Shareholder Meeting)', input_html:{class:'form-control'} %><br>
+      <%= f.input :invite, label: 'Invite:', input_html:{class:'form-control disabled'} %><br>
+      </div>
+      <%= f.button :submit, input_html:{ class:'btn btn-success'} %>
+    <% end %>
+</div>
+
+</div>
+</body>

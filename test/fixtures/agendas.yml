@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  session: one
+  tasks: 
+
+two:
+  title: MyString
+  session: two
+  tasks: 
