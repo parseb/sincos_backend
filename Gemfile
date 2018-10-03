@@ -71,3 +71,8 @@ end
 
 gem 'simple_form'
 
+gem 'jquery-rails'
+
+#dev
+gem 'byebug'
+
