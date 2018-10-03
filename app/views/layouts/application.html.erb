@@ -9,7 +9,49 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
+
+<body>
+  <% flash.each do |key, value| %>
+        <div class="alert alert-<%= key %>"><%= value %></div>
+      <% end %>
+
+    <nav class="nav nav-pills flex-column">
+      <ul class="nav nav-tabs nav-fill">
+        <li class="nav-item">
+          <a class="nav-link <%=@nosession%>" href="#new" data-toggle="tab">New Session</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link <%=@iscurrent%>" href="#current" data-toggle="tab">Current Session</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#archive" data-toggle="tab">Archive</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#settings" data-toggle="tab">Settings</a>
+        </li>
+      </ul>
+    </nav>
+    <div class="tab-content">
+    <div id="archive" class="tab-pane fade-in">
+        <p>text atchive</p>
+    </div>
+
+    <div id="settings" class="tab-pane fade-in">
+      <p>settings</p>
+    </div>
     <%= yield %>
-  </body>
+
+  </div>
+</body>
+
+
+
+
+<script type="text/javascript">
+//move
+$(".alert").delay(4000).slideUp(200, function() {
+    $(this).alert('close');
+});
+
+</script>
 </html>

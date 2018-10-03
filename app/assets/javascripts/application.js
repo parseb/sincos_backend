@@ -17,3 +17,7 @@
 //= require tether
 //= require bootstrap-sprockets
 //= require_tree .
+
+$(".alert").delay(4000).slideUp(200, function() {
+    $(this).alert('close');
+});

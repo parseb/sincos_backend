@@ -44397,3 +44397,1197 @@ Processing by SessionsController#home as HTML
 Completed 200 OK in 463ms (Views: 447.1ms | ActiveRecord: 0.6ms)
 
 
+Started GET "/" for 127.0.0.1 at 2018-10-03 14:22:53 +0300
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /usr/local/lib/ruby/gems/2.5.0/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Processing by SessionsController#home as HTML
+  Rendering sessions/home.html.erb within layouts/application
+  Rendered sessions/home.html.erb within layouts/application (19.3ms)
+Completed 200 OK in 259ms (Views: 237.4ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-10-03 14:26:26 +0300
+Processing by SessionsController#home as HTML
+  Rendering sessions/home.html.erb within layouts/application
+  Rendered sessions/home.html.erb within layouts/application (7.3ms)
+Completed 200 OK in 43ms (Views: 41.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-10-03 14:27:59 +0300
+Processing by SessionsController#home as HTML
+  Rendering sessions/home.html.erb within layouts/application
+  Rendered sessions/home.html.erb within layouts/application (1.3ms)
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 0.0ms)
+
+
+  
+SyntaxError (/home/pb/Sincos/app/views/sessions/home.html.erb:12: syntax error, unexpected tIDENTIFIER, expecting ')'
+...='nav-link #{@iscurrent}'" href="#current" data-toggle="tab"...
+...                           ^~~~
+/home/pb/Sincos/app/views/sessions/home.html.erb:12: syntax error, unexpected tIDENTIFIER, expecting ')'
+...current}'" href="#current" data-toggle="tab">Current Session...
+...                           ^~~~
+/home/pb/Sincos/app/views/sessions/home.html.erb:12: syntax error, unexpected tCONSTANT, expecting keyword_do or '{' or '('
+...ta-toggle="tab">Current Session</a> );@output_buffer.safe_ap...
+...                        ^~~~~~~
+/home/pb/Sincos/app/views/sessions/home.html.erb:13: unknown regexp option - l
+/home/pb/Sincos/app/views/sessions/home.html.erb:13: unmatched close parenthesis: /a> );@output_buffer.safe_append='
+      </i
+/home/pb/Sincos/app/views/sessions/home.html.erb:14: syntax error, unexpected '<'
+      <li class="nav-item">
+      ^
+/home/pb/Sincos/app/views/sessions/home.html.erb:15: syntax error, unexpected '<'
+        <a class="nav-link" href="#arc...
+        ^
+/home/pb/Sincos/app/views/sessions/home.html.erb:15: syntax error, unexpected tIDENTIFIER, expecting ')'
+...       <a class="nav-link" href="#archive" data-toggle="tab"...
+...                           ^~~~
+/home/pb/Sincos/app/views/sessions/home.html.erb:15: syntax error, unexpected tIDENTIFIER, expecting ')'
+..."nav-link" href="#archive" data-toggle="tab">Archive</a>
+...                           ^~~~
+/home/pb/Sincos/app/views/sessions/home.html.erb:16: unknown regexp option - l
+/home/pb/Sincos/app/views/sessions/home.html.erb:17: syntax error, unexpected '<'
+      <li class="nav-item">
+      ^
+/home/pb/Sincos/app/views/sessions/home.html.erb:18: syntax error, unexpected '<'
+        <a class="nav-link" href="#set...
+        ^
+/home/pb/Sincos/app/views/sessions/home.html.erb:18: syntax error, unexpected tIDENTIFIER, expecting ')'
+...       <a class="nav-link" href="#settings" data-toggle="tab...
+...                           ^~~~
+/home/pb/Sincos/app/views/sessions/home.html.erb:18: syntax error, unexpected tIDENTIFIER, expecting ')'
+...nav-link" href="#settings" data-toggle="tab">Settings</a>
+...                           ^~~~
+/home/pb/Sincos/app/views/sessions/home.html.erb:19: unknown regexp option - l
+/home/pb/Sincos/app/views/sessions/home.html.erb:20: syntax error, unexpected '<'
+    </ul>
+    ^
+/home/pb/Sincos/app/views/sessions/home.html.erb:21: unknown regexp options - av
+/home/pb/Sincos/app/views/sessions/home.html.erb:22: syntax error, unexpected '<'
+<div class="tab-content">
+^
+/home/pb/Sincos/app/views/sessions/home.html.erb:24: syntax error, unexpected '<'
+<div id="new" class="tab-pane ...
+^
+/home/pb/Sincos/app/views/sessions/home.html.erb:24: syntax error, unexpected keyword_class, expecting ')'
+<div id="new" class="tab-pane fade-in">
+              ^~~~~
+/home/pb/Sincos/app/views/sessions/home.html.erb:27: syntax error, unexpected '<', expecting ')'
+      <div class="form-group">
+      ^
+/home/pb/Sincos/app/views/sessions/home.html.erb:28: syntax error, unexpected tIDENTIFIER, expecting ')'
+... :input_html => { class: 'alert-danger'});@output_buffer.saf...
+...                          ^~~~~
+/home/pb/Sincos/app/views/sessions/home.html.erb:28: syntax error, unexpected tSTRING_BEG, expecting keyword_do or '{' or '('
+...html => { class: 'alert-danger'});@output_buffer.safe_append...
+...                              ^
+/home/pb/Sincos/app/views/sessions/home.html.erb:29: syntax error, unexpected tCONSTANT, expecting ')'
+... f.input :name, label: 'Subject', error: 'Please provide a T...
+...                        ^~~~~~~
+/home/pb/Sincos/app/views/sessions/home.html.erb:29: syntax error, unexpected tCONSTANT, expecting ')'
+...abel: 'Subject', error: 'Please provide a Title', input_html...
+...                         ^~~~~~
+/home/pb/Sincos/app/views/sessions/home.html.erb:29: syntax error, unexpected tIDENTIFIER, expecting ')'
+...Title', input_html:{class:'form-control'} );@output_buffer.s...
+...                           ^~~~
+/home/pb/Sincos/app/views/sessions/home.html.erb:29: syntax error, unexpected tSTRING_BEG, expecting keyword_do or '{' or '('
+...nput_html:{class:'form-control'} );@output_buffer.safe_appen...
+...                              ^
+/home/pb/Sincos/app/views/sessions/home.html.erb:31: syntax error, unexpected tFID, expecting ')'
+...=( f.input :time, label: 'When?', :as => :date, :input_html ...
+...                          ^~~~~
+/home/pb/Sincos/app/views/sessions/home.html.erb:31: syntax error, unexpected tIDENTIFIER, expecting ')'
+...e, :input_html => {class: 'form-control'}, error: 'Please pr...
+...                           ^~~~
+/home/pb/Sincos/app/views/sessions/home.html.erb:31: syntax error, unexpected tSTRING_BEG, expecting keyword_do or '{' or '('
+..._html => {class: 'form-control'}, error: 'Please provide a d...
+...                              ^
+/home/pb/Sincos/app/views/sessions/home.html.erb:31: syntax error, unexpected tCONSTANT, expecting ')'
+...'form-control'}, error: 'Please provide a date' );@output_bu...
+...                         ^~~~~~
+/home/pb/Sincos/app/views/sessions/home.html.erb:32: syntax error, unexpected tCONSTANT, expecting ')'
+...input :details, label: 'Details (example: Quaterly Sharehold...
+...                        ^~~~~~~
+/home/pb/Sincos/app/views/sessions/home.html.erb:32: syntax error, unexpected tCONSTANT, expecting keyword_do or '{' or '('
+... (example: Quaterly Shareholder Meeting)', input_html:{class...
+...                    ^~~~~~~~~~~
+/home/pb/Sincos/app/views/sessions/home.html.erb:32: syntax error, unexpected tSTRING_BEG, expecting keyword_end
+... Quaterly Shareholder Meeting)', input_html:{class:'form-con...
+...                              ^
+/home/pb/Sincos/app/views/sessions/home.html.erb:32: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+...ting)', input_html:{class:'form-control'} );@output_buffer.s...
+...                           ^~~~
+/home/pb/Sincos/app/views/sessions/home.html.erb:32: syntax error, unexpected tSTRING_BEG, expecting keyword_do or '{' or '('
+...nput_html:{class:'form-control'} );@output_buffer.safe_appen...
+...                              ^
+/home/pb/Sincos/app/views/sessions/home.html.erb:33: syntax error, unexpected tCONSTANT, expecting keyword_end
+...f.input :invite, label: 'Invite:', input_html:{class:'form-c...
+...                         ^~~~~~
+/home/pb/Sincos/app/views/sessions/home.html.erb:33: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+...vite:', input_html:{class:'form-control disabled'} );@output...
+...                           ^~~~
+/home/pb/Sincos/app/views/sessions/home.html.erb:33: syntax error, unexpected tIDENTIFIER, expecting keyword_do or '{' or '('
+...l:{class:'form-control disabled'} );@output_buffer.safe_appe...
+...                       ^~~~~~~~
+/home/pb/Sincos/app/views/sessions/home.html.erb:34: syntax error, unexpected '<'
+      </div>
+      ^
+/home/pb/Sincos/app/views/sessions/home.html.erb:37: unknown regexp options - dv
+/home/pb/Sincos/app/views/sessions/home.html.erb:39: syntax error, unexpected '<'
+<div id="current" class="tab-p...
+^
+/home/pb/Sincos/app/views/sessions/home.html.erb:39: syntax error, unexpected keyword_class, expecting keyword_end
+<div id="current" class="tab-pane fade-in">
+                  ^~~~~
+/home/pb/Sincos/app/views/sessions/home.html.erb:40: syntax error, unexpected '<'
+  <p>text Current</p>
+  ^
+/home/pb/Sincos/app/views/sessions/home.html.erb:40: syntax error, unexpected tCONSTANT, expecting keyword_do or '{' or '('
+  <p>text Current</p>
+          ^~~~~~~
+/home/pb/Sincos/app/views/sessions/home.html.erb:41: unknown regexp options - dv
+/home/pb/Sincos/app/views/sessions/home.html.erb:43: syntax error, unexpected '<'
+<div id="archive" class="tab-p...
+^
+/home/pb/Sincos/app/views/sessions/home.html.erb:43: syntax error, unexpected keyword_class, expecting keyword_end
+<div id="archive" class="tab-pane fade-in">
+                  ^~~~~
+/home/pb/Sincos/app/views/sessions/home.html.erb:44: syntax error, unexpected '<'
+    <p>text atchive</p>
+    ^
+/home/pb/Sincos/app/views/sessions/home.html.erb:44: syntax error, unexpected tIDENTIFIER, expecting keyword_do or '{' or '('
+    <p>text atchive</p>
+            ^~~~~~~
+/home/pb/Sincos/app/views/sessions/home.html.erb:45: unknown regexp options - dv
+/home/pb/Sincos/app/views/sessions/home.html.erb:47: syntax error, unexpected '<'
+<div id="settings" class="tab-...
+^
+/home/pb/Sincos/app/views/sessions/home.html.erb:47: syntax error, unexpected keyword_class, expecting keyword_end
+<div id="settings" class="tab-pane fade-in">
+                   ^~~~~
+/home/pb/Sincos/app/views/sessions/home.html.erb:48: syntax error, unexpected '<'
+  <p>settings</p>
+  ^
+/home/pb/Sincos/app/views/sessions/home.html.erb:49: unknown regexp options - dv
+/home/pb/Sincos/app/views/sessions/home.html.erb:51: syntax error, unexpected '<'
+</div>
+^
+/home/pb/Sincos/app/views/sessions/home.html.erb:52: unknown regexp options - dv
+/home/pb/Sincos/app/views/sessions/home.html.erb:53: syntax error, unexpected '<'
+</body>
+^
+/home/pb/Sincos/app/views/sessions/home.html.erb:58: unterminated regexp meets end of file
+          end
+             ^
+/home/pb/Sincos/app/views/sessions/home.html.erb:58: syntax error, unexpected end-of-input, expecting keyword_end
+          end
+             ^):
+  
+app/views/sessions/home.html.erb:12: syntax error, unexpected tIDENTIFIER, expecting ')'
+app/views/sessions/home.html.erb:12: syntax error, unexpected tIDENTIFIER, expecting ')'
+app/views/sessions/home.html.erb:12: syntax error, unexpected tCONSTANT, expecting keyword_do or '{' or '('
+app/views/sessions/home.html.erb:13: unknown regexp option - l
+app/views/sessions/home.html.erb:13: unmatched close parenthesis: /a> );@output_buffer.safe_append='
+app/views/sessions/home.html.erb:14: syntax error, unexpected '<'
+app/views/sessions/home.html.erb:15: syntax error, unexpected '<'
+app/views/sessions/home.html.erb:15: syntax error, unexpected tIDENTIFIER, expecting ')'
+app/views/sessions/home.html.erb:15: syntax error, unexpected tIDENTIFIER, expecting ')'
+app/views/sessions/home.html.erb:16: unknown regexp option - l
+app/views/sessions/home.html.erb:17: syntax error, unexpected '<'
+app/views/sessions/home.html.erb:18: syntax error, unexpected '<'
+app/views/sessions/home.html.erb:18: syntax error, unexpected tIDENTIFIER, expecting ')'
+app/views/sessions/home.html.erb:18: syntax error, unexpected tIDENTIFIER, expecting ')'
+app/views/sessions/home.html.erb:19: unknown regexp option - l
+app/views/sessions/home.html.erb:20: syntax error, unexpected '<'
+app/views/sessions/home.html.erb:21: unknown regexp options - av
+app/views/sessions/home.html.erb:22: syntax error, unexpected '<'
+app/views/sessions/home.html.erb:24: syntax error, unexpected '<'
+app/views/sessions/home.html.erb:24: syntax error, unexpected keyword_class, expecting ')'
+app/views/sessions/home.html.erb:27: syntax error, unexpected '<', expecting ')'
+app/views/sessions/home.html.erb:28: syntax error, unexpected tIDENTIFIER, expecting ')'
+app/views/sessions/home.html.erb:28: syntax error, unexpected tSTRING_BEG, expecting keyword_do or '{' or '('
+app/views/sessions/home.html.erb:29: syntax error, unexpected tCONSTANT, expecting ')'
+app/views/sessions/home.html.erb:29: syntax error, unexpected tCONSTANT, expecting ')'
+app/views/sessions/home.html.erb:29: syntax error, unexpected tIDENTIFIER, expecting ')'
+app/views/sessions/home.html.erb:29: syntax error, unexpected tSTRING_BEG, expecting keyword_do or '{' or '('
+app/views/sessions/home.html.erb:31: syntax error, unexpected tFID, expecting ')'
+app/views/sessions/home.html.erb:31: syntax error, unexpected tIDENTIFIER, expecting ')'
+app/views/sessions/home.html.erb:31: syntax error, unexpected tSTRING_BEG, expecting keyword_do or '{' or '('
+app/views/sessions/home.html.erb:31: syntax error, unexpected tCONSTANT, expecting ')'
+app/views/sessions/home.html.erb:32: syntax error, unexpected tCONSTANT, expecting ')'
+app/views/sessions/home.html.erb:32: syntax error, unexpected tCONSTANT, expecting keyword_do or '{' or '('
+app/views/sessions/home.html.erb:32: syntax error, unexpected tSTRING_BEG, expecting keyword_end
+app/views/sessions/home.html.erb:32: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+app/views/sessions/home.html.erb:32: syntax error, unexpected tSTRING_BEG, expecting keyword_do or '{' or '('
+app/views/sessions/home.html.erb:33: syntax error, unexpected tCONSTANT, expecting keyword_end
+app/views/sessions/home.html.erb:33: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+app/views/sessions/home.html.erb:33: syntax error, unexpected tIDENTIFIER, expecting keyword_do or '{' or '('
+app/views/sessions/home.html.erb:34: syntax error, unexpected '<'
+app/views/sessions/home.html.erb:37: unknown regexp options - dv
+app/views/sessions/home.html.erb:39: syntax error, unexpected '<'
+app/views/sessions/home.html.erb:39: syntax error, unexpected keyword_class, expecting keyword_end
+app/views/sessions/home.html.erb:40: syntax error, unexpected '<'
+app/views/sessions/home.html.erb:40: syntax error, unexpected tCONSTANT, expecting keyword_do or '{' or '('
+app/views/sessions/home.html.erb:41: unknown regexp options - dv
+app/views/sessions/home.html.erb:43: syntax error, unexpected '<'
+app/views/sessions/home.html.erb:43: syntax error, unexpected keyword_class, expecting keyword_end
+app/views/sessions/home.html.erb:44: syntax error, unexpected '<'
+app/views/sessions/home.html.erb:44: syntax error, unexpected tIDENTIFIER, expecting keyword_do or '{' or '('
+app/views/sessions/home.html.erb:45: unknown regexp options - dv
+app/views/sessions/home.html.erb:47: syntax error, unexpected '<'
+app/views/sessions/home.html.erb:47: syntax error, unexpected keyword_class, expecting keyword_end
+app/views/sessions/home.html.erb:48: syntax error, unexpected '<'
+app/views/sessions/home.html.erb:49: unknown regexp options - dv
+app/views/sessions/home.html.erb:51: syntax error, unexpected '<'
+app/views/sessions/home.html.erb:52: unknown regexp options - dv
+app/views/sessions/home.html.erb:53: syntax error, unexpected '<'
+app/views/sessions/home.html.erb:58: unterminated regexp meets end of file
+app/views/sessions/home.html.erb:58: syntax error, unexpected end-of-input, expecting keyword_end
+Started GET "/" for 127.0.0.1 at 2018-10-03 14:28:51 +0300
+Processing by SessionsController#home as HTML
+  Rendering sessions/home.html.erb within layouts/application
+  Rendered sessions/home.html.erb within layouts/application (8.1ms)
+Completed 200 OK in 55ms (Views: 54.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-10-03 14:30:25 +0300
+Processing by SessionsController#home as HTML
+  Rendering sessions/home.html.erb within layouts/application
+  Rendered sessions/home.html.erb within layouts/application (0.9ms)
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 0.0ms)
+
+
+  
+SyntaxError (/home/pb/Sincos/app/views/sessions/home.html.erb:13: syntax error, unexpected '<', expecting ')'
+      </li>
+      ^
+/home/pb/Sincos/app/views/sessions/home.html.erb:15: unknown regexp option - a
+/home/pb/Sincos/app/views/sessions/home.html.erb:16: syntax error, unexpected '<'
+      </li>
+      ^
+/home/pb/Sincos/app/views/sessions/home.html.erb:18: unknown regexp option - a
+/home/pb/Sincos/app/views/sessions/home.html.erb:19: syntax error, unexpected '<'
+      </li>
+      ^
+/home/pb/Sincos/app/views/sessions/home.html.erb:20: unknown regexp option - l
+/home/pb/Sincos/app/views/sessions/home.html.erb:21: syntax error, unexpected '<'
+  </nav>
+  ^
+/home/pb/Sincos/app/views/sessions/home.html.erb:34: unknown regexp options - dv
+/home/pb/Sincos/app/views/sessions/home.html.erb:35: syntax error, unexpected tIDENTIFIER, expecting ')'
+...submit, input_html:{ class:'btn btn-success'} );@output_buff...
+...                            ^~~
+/home/pb/Sincos/app/views/sessions/home.html.erb:35: syntax error, unexpected tSTRING_BEG, expecting keyword_do or '{' or '('
+..._html:{ class:'btn btn-success'} );@output_buffer.safe_appen...
+...                              ^
+/home/pb/Sincos/app/views/sessions/home.html.erb:40: unknown regexp option - p
+/home/pb/Sincos/app/views/sessions/home.html.erb:41: syntax error, unexpected '<'
+</div>
+^
+/home/pb/Sincos/app/views/sessions/home.html.erb:44: unknown regexp option - p
+/home/pb/Sincos/app/views/sessions/home.html.erb:45: syntax error, unexpected '<'
+</div>
+^
+/home/pb/Sincos/app/views/sessions/home.html.erb:48: unknown regexp option - p
+/home/pb/Sincos/app/views/sessions/home.html.erb:49: syntax error, unexpected '<'
+</div>
+^
+/home/pb/Sincos/app/views/sessions/home.html.erb:51: unknown regexp options - dv
+/home/pb/Sincos/app/views/sessions/home.html.erb:52: syntax error, unexpected '<'
+</div>
+^
+/home/pb/Sincos/app/views/sessions/home.html.erb:53: unknown regexp options - bdy
+/home/pb/Sincos/app/views/sessions/home.html.erb:58: unterminated string meets end of file
+          end
+             ^
+/home/pb/Sincos/app/views/sessions/home.html.erb:58: syntax error, unexpected end-of-input, expecting ')'
+          end
+             ^):
+  
+app/views/sessions/home.html.erb:13: syntax error, unexpected '<', expecting ')'
+app/views/sessions/home.html.erb:15: unknown regexp option - a
+app/views/sessions/home.html.erb:16: syntax error, unexpected '<'
+app/views/sessions/home.html.erb:18: unknown regexp option - a
+app/views/sessions/home.html.erb:19: syntax error, unexpected '<'
+app/views/sessions/home.html.erb:20: unknown regexp option - l
+app/views/sessions/home.html.erb:21: syntax error, unexpected '<'
+app/views/sessions/home.html.erb:34: unknown regexp options - dv
+app/views/sessions/home.html.erb:35: syntax error, unexpected tIDENTIFIER, expecting ')'
+app/views/sessions/home.html.erb:35: syntax error, unexpected tSTRING_BEG, expecting keyword_do or '{' or '('
+app/views/sessions/home.html.erb:40: unknown regexp option - p
+app/views/sessions/home.html.erb:41: syntax error, unexpected '<'
+app/views/sessions/home.html.erb:44: unknown regexp option - p
+app/views/sessions/home.html.erb:45: syntax error, unexpected '<'
+app/views/sessions/home.html.erb:48: unknown regexp option - p
+app/views/sessions/home.html.erb:49: syntax error, unexpected '<'
+app/views/sessions/home.html.erb:51: unknown regexp options - dv
+app/views/sessions/home.html.erb:52: syntax error, unexpected '<'
+app/views/sessions/home.html.erb:53: unknown regexp options - bdy
+app/views/sessions/home.html.erb:58: unterminated string meets end of file
+app/views/sessions/home.html.erb:58: syntax error, unexpected end-of-input, expecting ')'
+Started GET "/" for 127.0.0.1 at 2018-10-03 14:30:55 +0300
+Processing by SessionsController#home as HTML
+  Rendering sessions/home.html.erb within layouts/application
+  Rendered sessions/home.html.erb within layouts/application (7.2ms)
+Completed 200 OK in 50ms (Views: 42.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-10-03 14:32:05 +0300
+Processing by SessionsController#home as HTML
+  Rendering sessions/home.html.erb within layouts/application
+  [1m[36mSession Load (0.2ms)[0m  [1m[34mSELECT  "sessions".* FROM "sessions" LIMIT ?[0m  [["LIMIT", 11]]
+  ↳ /usr/local/lib/ruby/gems/2.5.0/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+  [1m[36mCACHE Session Load (0.0ms)[0m  [1m[34mSELECT  "sessions".* FROM "sessions" LIMIT ?[0m  [["LIMIT", 11]]
+  ↳ /usr/local/lib/ruby/gems/2.5.0/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+  [1m[36mCACHE Session Load (0.0ms)[0m  [1m[34mSELECT  "sessions".* FROM "sessions" LIMIT ?[0m  [["LIMIT", 11]]
+  ↳ /usr/local/lib/ruby/gems/2.5.0/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+  [1m[36mCACHE Session Load (0.0ms)[0m  [1m[34mSELECT  "sessions".* FROM "sessions" LIMIT ?[0m  [["LIMIT", 11]]
+  ↳ /usr/local/lib/ruby/gems/2.5.0/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+  [1m[36mCACHE Session Load (0.0ms)[0m  [1m[34mSELECT  "sessions".* FROM "sessions" LIMIT ?[0m  [["LIMIT", 11]]
+  ↳ /usr/local/lib/ruby/gems/2.5.0/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+  [1m[36mCACHE Session Load (0.0ms)[0m  [1m[34mSELECT  "sessions".* FROM "sessions" LIMIT ?[0m  [["LIMIT", 11]]
+  ↳ /usr/local/lib/ruby/gems/2.5.0/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+  [1m[36mCACHE Session Load (0.0ms)[0m  [1m[34mSELECT  "sessions".* FROM "sessions" LIMIT ?[0m  [["LIMIT", 11]]
+  ↳ /usr/local/lib/ruby/gems/2.5.0/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+  [1m[36mCACHE Session Load (0.0ms)[0m  [1m[34mSELECT  "sessions".* FROM "sessions" LIMIT ?[0m  [["LIMIT", 11]]
+  ↳ /usr/local/lib/ruby/gems/2.5.0/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+  Rendered sessions/home.html.erb within layouts/application (317.2ms)
+Completed 500 Internal Server Error in 320ms (ActiveRecord: 0.3ms)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `iscurrent' for #<#<Class:0x00007f92000e2060>:0x00007f92102994c0>
+Did you mean?  @iscurrent):
+     9:         <a class="nav-link <%=@nosession%>" href="#new" data-toggle="tab">New Session</a>
+    10:       </li>
+    11:       <li class="nav-item">
+    12:         <a class=<%= "nav-link #{iscurrent}"%> href='#current' data-toggle='tab'>Current Session</a>
+    13:       </li>
+    14:       <li class="nav-item">
+    15:         <a class="nav-link" href="#archive" data-toggle="tab">Archive</a>
+  
+app/views/sessions/home.html.erb:12:in `_app_views_sessions_home_html_erb___3279132349798523761_70132656557860'
+Started GET "/" for 127.0.0.1 at 2018-10-03 14:33:14 +0300
+Processing by SessionsController#home as HTML
+  Rendering sessions/home.html.erb within layouts/application
+  Rendered sessions/home.html.erb within layouts/application (11.3ms)
+Completed 200 OK in 59ms (Views: 57.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-10-03 14:33:46 +0300
+Processing by SessionsController#home as HTML
+  Rendering sessions/home.html.erb within layouts/application
+  Rendered sessions/home.html.erb within layouts/application (1.7ms)
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (no implicit conversion of nil into String):
+     9:         <a class="nav-link <%=@nosession%>" href="#new" data-toggle="tab">New Session</a>
+    10:       </li>
+    11:       <li class="nav-item">
+    12:         <a class=<%= "nav-link"+ @iscurrent %> href='#current' data-toggle='tab'>Current Session</a>
+    13:       </li>
+    14:       <li class="nav-item">
+    15:         <a class="nav-link" href="#archive" data-toggle="tab">Archive</a>
+  
+app/views/sessions/home.html.erb:12:in `+'
+app/views/sessions/home.html.erb:12:in `_app_views_sessions_home_html_erb___3279132349798523761_70132535452860'
+Started GET "/" for 127.0.0.1 at 2018-10-03 14:34:42 +0300
+Processing by SessionsController#home as HTML
+  Rendering sessions/home.html.erb within layouts/application
+  Rendered sessions/home.html.erb within layouts/application (2.4ms)
+Completed 500 Internal Server Error in 1337ms (ActiveRecord: 0.6ms)
+
+
+  
+ActionView::Template::Error (no implicit conversion of nil into String):
+     9:         <a class="nav-link <%=@nosession%>" href="#new" data-toggle="tab">New Session</a>
+    10:       </li>
+    11:       <li class="nav-item">
+    12:         <a class=<%= "nav-link"+ @iscurrent %> href='#current' data-toggle='tab'>Current Session</a>
+    13:       </li>
+    14:       <li class="nav-item">
+    15:         <a class="nav-link" href="#archive" data-toggle="tab">Archive</a>
+  
+app/views/sessions/home.html.erb:12:in `+'
+app/views/sessions/home.html.erb:12:in `_app_views_sessions_home_html_erb___3279132349798523761_70132529835780'
+Started GET "/" for 127.0.0.1 at 2018-10-03 14:34:57 +0300
+Processing by SessionsController#home as HTML
+  [1m[36mSession Load (0.4ms)[0m  [1m[34mSELECT  "sessions".* FROM "sessions" LIMIT ?[0m  [["LIMIT", 11]]
+  ↳ app/controllers/sessions_controller.rb:15
+  [1m[36mCACHE Session Load (0.0ms)[0m  [1m[34mSELECT  "sessions".* FROM "sessions" LIMIT ?[0m  [["LIMIT", 11]]
+  ↳ app/controllers/sessions_controller.rb:15
+  Rendering sessions/home.html.erb within layouts/application
+  Rendered sessions/home.html.erb within layouts/application (3.7ms)
+Completed 500 Internal Server Error in 39419ms (ActiveRecord: 0.4ms)
+
+
+  
+ActionView::Template::Error (no implicit conversion of nil into String):
+     9:         <a class="nav-link <%=@nosession%>" href="#new" data-toggle="tab">New Session</a>
+    10:       </li>
+    11:       <li class="nav-item">
+    12:         <a class=<%= "nav-link"+ @iscurrent %> href='#current' data-toggle='tab'>Current Session</a>
+    13:       </li>
+    14:       <li class="nav-item">
+    15:         <a class="nav-link" href="#archive" data-toggle="tab">Archive</a>
+  
+app/views/sessions/home.html.erb:12:in `+'
+app/views/sessions/home.html.erb:12:in `_app_views_sessions_home_html_erb___3279132349798523761_70132542860740'
+Started GET "/" for 127.0.0.1 at 2018-10-03 14:35:40 +0300
+Processing by SessionsController#home as HTML
+  [1m[36mSession Load (0.2ms)[0m  [1m[34mSELECT  "sessions".* FROM "sessions" LIMIT ?[0m  [["LIMIT", 11]]
+  ↳ /usr/local/lib/ruby/gems/2.5.0/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+  [1m[36mCACHE Session Load (0.0ms)[0m  [1m[34mSELECT  "sessions".* FROM "sessions" LIMIT ?[0m  [["LIMIT", 11]]
+  ↳ /usr/local/lib/ruby/gems/2.5.0/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Completed 500 Internal Server Error in 186ms (ActiveRecord: 0.5ms)
+
+
+  
+  [1m[36mCACHE Session Load (0.0ms)[0m  [1m[34mSELECT  "sessions".* FROM "sessions" LIMIT ?[0m  [["LIMIT", 11]]
+  ↳ /usr/local/lib/ruby/gems/2.5.0/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+NameError (undefined local variable or method `state' for #<SessionsController:0x00007f92103f3280>
+Did you mean?  status
+               stale?):
+  
+app/controllers/sessions_controller.rb:13:in `home'
+Started GET "/" for 127.0.0.1 at 2018-10-03 14:36:09 +0300
+Processing by SessionsController#home as HTML
+  [1m[36mSession Load (0.2ms)[0m  [1m[34mSELECT  "sessions".* FROM "sessions" LIMIT ?[0m  [["LIMIT", 11]]
+  ↳ /usr/local/lib/ruby/gems/2.5.0/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+  [1m[36mCACHE Session Load (0.0ms)[0m  [1m[34mSELECT  "sessions".* FROM "sessions" LIMIT ?[0m  [["LIMIT", 11]]
+  ↳ /usr/local/lib/ruby/gems/2.5.0/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+  Rendering sessions/home.html.erb within layouts/application
+  Rendered sessions/home.html.erb within layouts/application (1.5ms)
+Completed 500 Internal Server Error in 52715ms (ActiveRecord: 0.7ms)
+
+
+  
+ActionView::Template::Error (no implicit conversion of nil into String):
+     9:         <a class="nav-link <%=@nosession%>" href="#new" data-toggle="tab">New Session</a>
+    10:       </li>
+    11:       <li class="nav-item">
+    12:         <a class=<%= "nav-link"+ @iscurrent %> href='#current' data-toggle='tab'>Current Session</a>
+    13:       </li>
+    14:       <li class="nav-item">
+    15:         <a class="nav-link" href="#archive" data-toggle="tab">Archive</a>
+  
+app/views/sessions/home.html.erb:12:in `+'
+app/views/sessions/home.html.erb:12:in `_app_views_sessions_home_html_erb___3279132349798523761_70132529903220'
+Started GET "/" for 127.0.0.1 at 2018-10-03 14:37:05 +0300
+Processing by SessionsController#home as HTML
+  Rendering sessions/home.html.erb within layouts/application
+  Rendered sessions/home.html.erb within layouts/application (8.6ms)
+Completed 200 OK in 12345ms (Views: 55.9ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-10-03 14:38:18 +0300
+Processing by SessionsController#home as HTML
+  Rendering sessions/home.html.erb within layouts/application
+  Rendered sessions/home.html.erb within layouts/application (10.6ms)
+Completed 200 OK in 2781ms (Views: 50.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-10-03 14:38:50 +0300
+Processing by SessionsController#home as HTML
+  Rendering sessions/home.html.erb within layouts/application
+  Rendered sessions/home.html.erb within layouts/application (9.1ms)
+Completed 200 OK in 2746ms (Views: 50.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-10-03 14:39:25 +0300
+Processing by SessionsController#home as HTML
+  Rendering sessions/home.html.erb within layouts/application
+  Rendered sessions/home.html.erb within layouts/application (14.9ms)
+Completed 200 OK in 1900ms (Views: 57.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-10-03 14:39:38 +0300
+Processing by SessionsController#home as HTML
+  Rendering sessions/home.html.erb within layouts/application
+  Rendered sessions/home.html.erb within layouts/application (9.1ms)
+Completed 200 OK in 2453ms (Views: 54.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-10-03 14:41:16 +0300
+Processing by SessionsController#home as HTML
+  Rendering sessions/home.html.erb within layouts/application
+  Rendered sessions/home.html.erb within layouts/application (13.0ms)
+Completed 200 OK in 7376ms (Views: 57.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-10-03 14:42:14 +0300
+Processing by SessionsController#home as HTML
+  Rendering sessions/home.html.erb within layouts/application
+  Rendered sessions/home.html.erb within layouts/application (8.8ms)
+Completed 200 OK in 2314ms (Views: 49.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-10-03 14:42:54 +0300
+Processing by SessionsController#home as HTML
+  Rendering sessions/home.html.erb within layouts/application
+  Rendered sessions/home.html.erb within layouts/application (9.7ms)
+Completed 200 OK in 2217ms (Views: 51.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-10-03 14:43:51 +0300
+Processing by SessionsController#home as HTML
+  Rendering sessions/home.html.erb within layouts/application
+  Rendered sessions/home.html.erb within layouts/application (13.9ms)
+Completed 200 OK in 2183ms (Views: 53.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-10-03 14:44:15 +0300
+Processing by SessionsController#home as HTML
+  Rendering sessions/home.html.erb within layouts/application
+  Rendered sessions/home.html.erb within layouts/application (12.7ms)
+Completed 200 OK in 1762ms (Views: 55.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-10-03 14:45:20 +0300
+Processing by SessionsController#home as HTML
+  Rendering sessions/home.html.erb within layouts/application
+  Rendered sessions/home.html.erb within layouts/application (13.1ms)
+Completed 200 OK in 4534ms (Views: 61.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-10-03 14:45:55 +0300
+Processing by SessionsController#home as HTML
+  Rendering sessions/home.html.erb within layouts/application
+  Rendered sessions/home.html.erb within layouts/application (8.1ms)
+Completed 200 OK in 2040ms (Views: 48.6ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/sessions" for 127.0.0.1 at 2018-10-03 14:48:23 +0300
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ZbU+wd/oLUigyn8W6Z4bFxMPfVejZ98CTXaV1ecDGBD1/a/OIXJyeXWxrxD6cfWOVGPUXzWwBNxRbGNa+NS8Gg==", "session"=>{"name"=>"Wehavetabs", "time(1i)"=>"2018", "time(2i)"=>"10", "time(3i)"=>"3", "details"=>"basic tabs", "invite"=>"none"}, "commit"=>"Create Session"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/sessions_controller.rb:25
+  [1m[36mSession Create (1.1ms)[0m  [1m[32mINSERT INTO "sessions" ("name", "time", "created_at", "updated_at", "details", "invite") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Wehavetabs"], ["time", "2018-10-03 00:00:00"], ["created_at", "2018-10-03 11:48:24.001110"], ["updated_at", "2018-10-03 11:48:24.001110"], ["details", "basic tabs"], ["invite", "none"]]
+  ↳ app/controllers/sessions_controller.rb:25
+  [1m[35m (73.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/sessions_controller.rb:25
+Redirected to http://localhost:3000/
+Completed 302 Found in 92ms (ActiveRecord: 75.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-10-03 14:48:24 +0300
+Processing by SessionsController#home as HTML
+  Rendering sessions/home.html.erb within layouts/application
+  Rendered sessions/home.html.erb within layouts/application (11.5ms)
+Completed 200 OK in 64ms (Views: 62.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-10-03 14:54:24 +0300
+Processing by SessionsController#home as HTML
+  Rendering sessions/home.html.erb within layouts/application
+  Rendered sessions/home.html.erb within layouts/application (8.5ms)
+Completed 200 OK in 60ms (Views: 48.7ms | ActiveRecord: 1.0ms)
+
+
+Started POST "/sessions" for 127.0.0.1 at 2018-10-03 14:56:49 +0300
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"A5F4Wq+kkY9jnAKD0IwyeoYVVFZkwPdjNGK76F+e4hyT2elVUT7Ovrbn0oXDY9zjwXn9XvIXLL0oeE1nQElGFg==", "session"=>{"name"=>"switch", "time(1i)"=>"2018", "time(2i)"=>"10", "time(3i)"=>"3", "details"=>"switching to current", "invite"=>"none"}, "commit"=>"Create Session"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/sessions_controller.rb:31
+  [1m[36mSession Create (0.3ms)[0m  [1m[32mINSERT INTO "sessions" ("name", "time", "created_at", "updated_at", "details", "invite") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "switch"], ["time", "2018-10-03 00:00:00"], ["created_at", "2018-10-03 11:56:49.632091"], ["updated_at", "2018-10-03 11:56:49.632091"], ["details", "switching to current"], ["invite", "none"]]
+  ↳ app/controllers/sessions_controller.rb:31
+  [1m[35m (98.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/sessions_controller.rb:31
+Redirected to http://localhost:3000/#current
+Completed 302 Found in 114ms (ActiveRecord: 100.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-10-03 14:56:49 +0300
+Processing by SessionsController#home as HTML
+  Rendering sessions/home.html.erb within layouts/application
+  Rendered sessions/home.html.erb within layouts/application (9.5ms)
+Completed 200 OK in 50ms (Views: 49.0ms | ActiveRecord: 0.0ms)
+
+
+  [1m[36mSession Load (0.1ms)[0m  [1m[34mSELECT  "sessions".* FROM "sessions" ORDER BY "sessions"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+Started POST "/sessions" for 127.0.0.1 at 2018-10-03 14:58:06 +0300
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"kIzjmZVvbmdsRBJyGGu2ZMC4No87+CKlbOsfHZc6IjsAxHKWa/UxVrk/wnQLhFj9h9Sfh60v+Xtw8emSiO2GMQ==", "session"=>{"name"=>"switch second", "time(1i)"=>"2018", "time(2i)"=>"10", "time(3i)"=>"3", "details"=>"second current", "invite"=>""}, "commit"=>"Create Session"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/sessions_controller.rb:34
+  [1m[36mSession Create (0.4ms)[0m  [1m[32mINSERT INTO "sessions" ("name", "time", "created_at", "updated_at", "details", "invite") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "switch second"], ["time", "2018-10-03 00:00:00"], ["created_at", "2018-10-03 11:58:06.962909"], ["updated_at", "2018-10-03 11:58:06.962909"], ["details", "second current"], ["invite", ""]]
+  ↳ app/controllers/sessions_controller.rb:34
+  [1m[35m (67.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/sessions_controller.rb:34
+Redirected to http://localhost:3000/#current
+Completed 302 Found in 83ms (ActiveRecord: 69.7ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-10-03 14:58:07 +0300
+Processing by SessionsController#home as HTML
+  Rendering sessions/home.html.erb within layouts/application
+  Rendered sessions/home.html.erb within layouts/application (9.3ms)
+Completed 200 OK in 69ms (Views: 66.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-10-03 15:03:29 +0300
+Processing by SessionsController#home as HTML
+  Rendering sessions/home.html.erb within layouts/application
+  Rendered sessions/home.html.erb within layouts/application (9.7ms)
+Completed 200 OK in 61ms (Views: 51.7ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/sessions" for 127.0.0.1 at 2018-10-03 15:03:46 +0300
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"4dlwzEKvUxiWsH1CzZvdHjfvo8Qzivk0+TI44cyeIMhxkeHDvDUMKUPLrUTedDOHcIMKzKVdIurlKM5u00mEwg==", "session"=>{"name"=>"third witch", "time(1i)"=>"2018", "time(2i)"=>"10", "time(3i)"=>"3", "details"=>"state to show", "invite"=>""}, "commit"=>"Create Session"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/sessions_controller.rb:35
+  [1m[36mSession Create (1.1ms)[0m  [1m[32mINSERT INTO "sessions" ("name", "time", "created_at", "updated_at", "details", "invite") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "third witch"], ["time", "2018-10-03 00:00:00"], ["created_at", "2018-10-03 12:03:46.410740"], ["updated_at", "2018-10-03 12:03:46.410740"], ["details", "state to show"], ["invite", ""]]
+  ↳ app/controllers/sessions_controller.rb:35
+  [1m[35m (56.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/sessions_controller.rb:35
+Redirected to http://localhost:3000/#current
+Completed 302 Found in 67ms (ActiveRecord: 57.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-10-03 15:03:46 +0300
+Processing by SessionsController#home as HTML
+  Rendering sessions/home.html.erb within layouts/application
+  Rendered sessions/home.html.erb within layouts/application (11.6ms)
+Completed 200 OK in 66ms (Views: 65.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/sessions" for 127.0.0.1 at 2018-10-03 15:05:53 +0300
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ZlYkkLp87SXrYktITEwLTUgqSadE5T0tiILoUL7ks5H2HrWfROayFD4Zm05fo+XUD0bgr9Iy5vOUmB7foTMXmw==", "session"=>{"name"=>"third witch", "time(1i)"=>"2018", "time(2i)"=>"10", "time(3i)"=>"3", "details"=>"state to show", "invite"=>""}, "commit"=>"Create Session"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/sessions_controller.rb:35
+  [1m[36mSession Create (0.5ms)[0m  [1m[32mINSERT INTO "sessions" ("name", "time", "created_at", "updated_at", "details", "invite") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "third witch"], ["time", "2018-10-03 00:00:00"], ["created_at", "2018-10-03 12:05:53.378089"], ["updated_at", "2018-10-03 12:05:53.378089"], ["details", "state to show"], ["invite", ""]]
+  ↳ app/controllers/sessions_controller.rb:35
+  [1m[35m (65.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/sessions_controller.rb:35
+Redirected to http://localhost:3000/#current
+Completed 302 Found in 80ms (ActiveRecord: 66.8ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-10-03 15:05:53 +0300
+Processing by SessionsController#home as HTML
+  Rendering sessions/home.html.erb within layouts/application
+  Rendered sessions/home.html.erb within layouts/application (11.6ms)
+Completed 200 OK in 60ms (Views: 58.6ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/sessions" for 127.0.0.1 at 2018-10-03 15:10:11 +0300
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"I7gZ/u5Gl+kmKlgeVUjAvS0wlzqQJZgQV68+2QoUqbyz8IjxENzI2PNRiBhGpy4kalw+MgbyQ85LtchWFcMNtg==", "session"=>{"name"=>"daDASasd", "time(1i)"=>"2018", "time(2i)"=>"9", "time(3i)"=>"3", "details"=>"sadfasdf", "invite"=>""}, "commit"=>"Create Session"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/sessions_controller.rb:35
+  [1m[36mSession Create (0.5ms)[0m  [1m[32mINSERT INTO "sessions" ("name", "time", "created_at", "updated_at", "details", "invite") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "daDASasd"], ["time", "2018-09-03 00:00:00"], ["created_at", "2018-10-03 12:10:11.561146"], ["updated_at", "2018-10-03 12:10:11.561146"], ["details", "sadfasdf"], ["invite", ""]]
+  ↳ app/controllers/sessions_controller.rb:35
+  [1m[35m (64.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/sessions_controller.rb:35
+Redirected to http://localhost:3000/sessions/14?alert=Session+Created&url=%2F%23current
+Completed 302 Found in 82ms (ActiveRecord: 65.7ms)
+
+
+Started GET "/sessions/14?alert=Session+Created&url=%2F%23current" for 127.0.0.1 at 2018-10-03 15:10:11 +0300
+Processing by SessionsController#show as HTML
+  Parameters: {"alert"=>"Session Created", "url"=>"/#current", "id"=>"14"}
+  [1m[36mSession Load (0.2ms)[0m  [1m[34mSELECT  "sessions".* FROM "sessions" ORDER BY "sessions"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:21
+Completed 406 Not Acceptable in 24807ms (ActiveRecord: 0.2ms)
+
+
+  
+ActionController::UnknownFormat (SessionsController#show is missing a template for this request format and variant.
+
+request.formats: ["text/html"]
+request.variant: []
+
+NOTE! For XHR/Ajax or API requests, this action would normally respond with 204 No Content: an empty white screen. Since you're loading it in a web browser, we assume that you expected to actually render a template, not nothing, so we're showing an error to be extra-clear. If you expect 204 No Content, carry on. That's what you'll get from an XHR or API request. Give it a shot.):
+  
+actionpack (5.2.1) lib/action_controller/metal/implicit_render.rb:55:in `default_render'
+actionpack (5.2.1) lib/action_controller/metal/basic_implicit_render.rb:6:in `block in send_action'
+actionpack (5.2.1) lib/action_controller/metal/basic_implicit_render.rb:6:in `tap'
+actionpack (5.2.1) lib/action_controller/metal/basic_implicit_render.rb:6:in `send_action'
+actionpack (5.2.1) lib/abstract_controller/base.rb:194:in `process_action'
+actionpack (5.2.1) lib/action_controller/metal/rendering.rb:30:in `process_action'
+actionpack (5.2.1) lib/abstract_controller/callbacks.rb:42:in `block in process_action'
+activesupport (5.2.1) lib/active_support/callbacks.rb:132:in `run_callbacks'
+actionpack (5.2.1) lib/abstract_controller/callbacks.rb:41:in `process_action'
+actionpack (5.2.1) lib/action_controller/metal/rescue.rb:22:in `process_action'
+actionpack (5.2.1) lib/action_controller/metal/instrumentation.rb:34:in `block in process_action'
+activesupport (5.2.1) lib/active_support/notifications.rb:168:in `block in instrument'
+activesupport (5.2.1) lib/active_support/notifications/instrumenter.rb:23:in `instrument'
+activesupport (5.2.1) lib/active_support/notifications.rb:168:in `instrument'
+actionpack (5.2.1) lib/action_controller/metal/instrumentation.rb:32:in `process_action'
+actionpack (5.2.1) lib/action_controller/metal/params_wrapper.rb:256:in `process_action'
+activerecord (5.2.1) lib/active_record/railties/controller_runtime.rb:24:in `process_action'
+actionpack (5.2.1) lib/abstract_controller/base.rb:134:in `process'
+actionview (5.2.1) lib/action_view/rendering.rb:32:in `process'
+actionpack (5.2.1) lib/action_controller/metal.rb:191:in `dispatch'
+actionpack (5.2.1) lib/action_controller/metal.rb:252:in `dispatch'
+actionpack (5.2.1) lib/action_dispatch/routing/route_set.rb:52:in `dispatch'
+actionpack (5.2.1) lib/action_dispatch/routing/route_set.rb:34:in `serve'
+actionpack (5.2.1) lib/action_dispatch/journey/router.rb:52:in `block in serve'
+actionpack (5.2.1) lib/action_dispatch/journey/router.rb:35:in `each'
+actionpack (5.2.1) lib/action_dispatch/journey/router.rb:35:in `serve'
+actionpack (5.2.1) lib/action_dispatch/routing/route_set.rb:840:in `call'
+rack (2.0.5) lib/rack/tempfile_reaper.rb:15:in `call'
+rack (2.0.5) lib/rack/etag.rb:25:in `call'
+rack (2.0.5) lib/rack/conditional_get.rb:25:in `call'
+rack (2.0.5) lib/rack/head.rb:12:in `call'
+actionpack (5.2.1) lib/action_dispatch/http/content_security_policy.rb:18:in `call'
+rack (2.0.5) lib/rack/session/abstract/id.rb:232:in `context'
+rack (2.0.5) lib/rack/session/abstract/id.rb:226:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/cookies.rb:670:in `call'
+activerecord (5.2.1) lib/active_record/migration.rb:559:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/callbacks.rb:28:in `block in call'
+activesupport (5.2.1) lib/active_support/callbacks.rb:98:in `run_callbacks'
+actionpack (5.2.1) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:61:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.1) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.5) lib/rack/method_override.rb:22:in `call'
+rack (2.0.5) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.5) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.1) lib/rails/engine.rb:524:in `call'
+puma (3.12.0) lib/puma/configuration.rb:225:in `call'
+puma (3.12.0) lib/puma/server.rb:658:in `handle_request'
+puma (3.12.0) lib/puma/server.rb:472:in `process_client'
+puma (3.12.0) lib/puma/server.rb:332:in `block in run'
+puma (3.12.0) lib/puma/thread_pool.rb:133:in `block in spawn_thread'
+Started GET "/" for 127.0.0.1 at 2018-10-03 15:12:57 +0300
+Processing by SessionsController#home as HTML
+  Rendering sessions/home.html.erb within layouts/application
+  Rendered sessions/home.html.erb within layouts/application (8.1ms)
+Completed 200 OK in 153ms (Views: 130.6ms | ActiveRecord: 0.7ms)
+
+
+Started POST "/sessions" for 127.0.0.1 at 2018-10-03 15:13:05 +0300
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"8vwpAraG7vCWhL13v7S++1EQdom7VaSadXH091+e3DVitLgNSByxwUP/bXGsW1BiFnzfgS2Cf0RpawJ4QEl4Pw==", "session"=>{"name"=>"subject", "time(1i)"=>"2018", "time(2i)"=>"10", "time(3i)"=>"3", "details"=>"adsads", "invite"=>""}, "commit"=>"Create Session"}
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/sessions_controller.rb:35
+  [1m[36mSession Create (1.5ms)[0m  [1m[32mINSERT INTO "sessions" ("name", "time", "created_at", "updated_at", "details", "invite") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "subject"], ["time", "2018-10-03 00:00:00"], ["created_at", "2018-10-03 12:13:05.599536"], ["updated_at", "2018-10-03 12:13:05.599536"], ["details", "adsads"], ["invite", ""]]
+  ↳ app/controllers/sessions_controller.rb:35
+  [1m[35m (65.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/sessions_controller.rb:35
+Redirected to http://localhost:3000/sessions/15?alert=Session+Created
+Completed 500 Internal Server Error in 76ms (ActiveRecord: 66.7ms)
+
+
+  
+AbstractController::DoubleRenderError (Render and/or redirect were called multiple times in this action. Please note that you may only call render OR redirect, and at most once per action. Also note that neither redirect nor render terminate execution of the action, so if you want to exit an action after redirecting, you need to do something like "redirect_to(...) and return".):
+  
+app/controllers/sessions_controller.rb:42:in `create'
+Started GET "/" for 127.0.0.1 at 2018-10-03 15:14:20 +0300
+Processing by SessionsController#home as HTML
+  Rendering sessions/home.html.erb within layouts/application
+  Rendered sessions/home.html.erb within layouts/application (9.8ms)
+Completed 200 OK in 54ms (Views: 53.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/sessions" for 127.0.0.1 at 2018-10-03 15:14:26 +0300
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"BEX13/fMJ1UfO+g6XZo86KBX4o0aQS0OqqKlh78VBgyUDWTQCVZ4ZMpAODxOddJx5ztLhYyW9tC2uFMIoMKiBg==", "session"=>{"name"=>"sdaf", "time(1i)"=>"2018", "time(2i)"=>"10", "time(3i)"=>"3", "details"=>"sdfsadf", "invite"=>""}, "commit"=>"Create Session"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/sessions_controller.rb:35
+  [1m[36mSession Create (2.3ms)[0m  [1m[32mINSERT INTO "sessions" ("name", "time", "created_at", "updated_at", "details", "invite") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "sdaf"], ["time", "2018-10-03 00:00:00"], ["created_at", "2018-10-03 12:14:26.106619"], ["updated_at", "2018-10-03 12:14:26.106619"], ["details", "sdfsadf"], ["invite", ""]]
+  ↳ app/controllers/sessions_controller.rb:35
+  [1m[35m (51.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/sessions_controller.rb:35
+Redirected to http://localhost:3000/sessions/16?alert=Session+Created
+Completed 500 Internal Server Error in 61ms (ActiveRecord: 53.4ms)
+
+
+  
+AbstractController::DoubleRenderError (Render and/or redirect were called multiple times in this action. Please note that you may only call render OR redirect, and at most once per action. Also note that neither redirect nor render terminate execution of the action, so if you want to exit an action after redirecting, you need to do something like "redirect_to(...) and return".):
+  
+app/controllers/sessions_controller.rb:42:in `create'
+Started POST "/sessions" for 127.0.0.1 at 2018-10-03 15:15:29 +0300
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"BEX13/fMJ1UfO+g6XZo86KBX4o0aQS0OqqKlh78VBgyUDWTQCVZ4ZMpAODxOddJx5ztLhYyW9tC2uFMIoMKiBg==", "session"=>{"name"=>"sdaf", "time(1i)"=>"2018", "time(2i)"=>"10", "time(3i)"=>"3", "details"=>"sdfsadf", "invite"=>""}, "commit"=>"Create Session"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/sessions_controller.rb:35
+  [1m[36mSession Create (0.4ms)[0m  [1m[32mINSERT INTO "sessions" ("name", "time", "created_at", "updated_at", "details", "invite") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "sdaf"], ["time", "2018-10-03 00:00:00"], ["created_at", "2018-10-03 12:15:29.732545"], ["updated_at", "2018-10-03 12:15:29.732545"], ["details", "sdfsadf"], ["invite", ""]]
+  ↳ app/controllers/sessions_controller.rb:35
+  [1m[35m (64.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/sessions_controller.rb:35
+Redirected to http://localhost:3000/sessions/17?alert=Session+Created
+Completed 302 Found in 80ms (ActiveRecord: 65.3ms)
+
+
+Started GET "/sessions/17?alert=Session+Created" for 127.0.0.1 at 2018-10-03 15:15:29 +0300
+Processing by SessionsController#show as HTML
+  Parameters: {"alert"=>"Session Created", "id"=>"17"}
+  [1m[36mSession Load (0.3ms)[0m  [1m[34mSELECT  "sessions".* FROM "sessions" ORDER BY "sessions"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:21
+  Rendering sessions/show.html.erb within layouts/application
+  Rendered sessions/show.html.erb within layouts/application (2.5ms)
+Completed 500 Internal Server Error in 6565ms (ActiveRecord: 0.3ms)
+
+
+  
+ActionView::Template::Error (Missing partial /_#current with {:locale=>[:en], :formats=>[:html], :variants=>[], :handlers=>[:raw, :erb, :html, :builder, :ruby, :coffee, :jbuilder]}. Searched in:
+  * "/home/pb/Sincos/app/views"
+):
+    1: 
+    2: <%= render "/#current" %>
+  
+app/views/sessions/show.html.erb:2:in `_app_views_sessions_show_html_erb__3869313871098091234_70132656615480'
+Started GET "/" for 127.0.0.1 at 2018-10-03 15:49:33 +0300
+  
+ActionController::RoutingError (undefined method `before_show' for SessionsController:Class
+Did you mean?  before_action):
+  
+app/controllers/sessions_controller.rb:3:in `<class:SessionsController>'
+app/controllers/sessions_controller.rb:1:in `<main>'
+Started GET "/" for 127.0.0.1 at 2018-10-03 15:49:59 +0300
+Processing by SessionsController#home as HTML
+  [1m[36mSession Load (0.1ms)[0m  [1m[34mSELECT  "sessions".* FROM "sessions" ORDER BY "sessions"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:15
+  Rendering sessions/home.html.erb within layouts/application
+Started GET "/" for 127.0.0.1 at 2018-10-03 15:52:14 +0300
+  Rendered sessions/home.html.erb within layouts/application (13.9ms)
+Completed 200 OK in 134751ms (Views: 61.4ms | ActiveRecord: 0.8ms)
+
+
+Processing by SessionsController#home as HTML
+  Rendering sessions/home.html.erb within layouts/application
+  Rendered sessions/home.html.erb within layouts/application (10.9ms)
+Completed 200 OK in 77ms (Views: 66.8ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-10-03 15:57:08 +0300
+  
+SyntaxError (/home/pb/Sincos/app/controllers/sessions_controller.rb:35: syntax error, unexpected '\n', expecting =>
+...s]="Session Created" #hardcoded
+...                               ^
+/home/pb/Sincos/app/controllers/sessions_controller.rb:48: syntax error, unexpected end-of-input, expecting keyword_end):
+  
+app/controllers/sessions_controller.rb:35: syntax error, unexpected '\n', expecting =>
+app/controllers/sessions_controller.rb:48: syntax error, unexpected end-of-input, expecting keyword_end
+Started GET "/" for 127.0.0.1 at 2018-10-03 15:58:33 +0300
+Processing by SessionsController#home as HTML
+  Rendering sessions/home.html.erb within layouts/application
+  Rendered sessions/home.html.erb within layouts/application (10.2ms)
+Completed 200 OK in 71ms (Views: 58.1ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-10-03 16:00:25 +0300
+Processing by SessionsController#home as HTML
+  Rendering sessions/home.html.erb within layouts/application
+  Rendered sessions/home.html.erb within layouts/application (9.0ms)
+Completed 200 OK in 74ms (Views: 64.3ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-10-03 16:01:01 +0300
+Processing by SessionsController#home as HTML
+  Rendering sessions/home.html.erb within layouts/application
+  Rendered sessions/home.html.erb within layouts/application (22.8ms)
+Completed 200 OK in 131ms (Views: 115.7ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-10-03 16:01:02 +0300
+Processing by SessionsController#home as HTML
+  Rendering sessions/home.html.erb within layouts/application
+  Rendered sessions/home.html.erb within layouts/application (9.4ms)
+Completed 200 OK in 57ms (Views: 55.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-10-03 16:01:03 +0300
+Processing by SessionsController#home as HTML
+  Rendering sessions/home.html.erb within layouts/application
+  Rendered sessions/home.html.erb within layouts/application (8.7ms)
+Completed 200 OK in 50ms (Views: 49.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-10-03 16:01:04 +0300
+Processing by SessionsController#home as HTML
+  Rendering sessions/home.html.erb within layouts/application
+  Rendered sessions/home.html.erb within layouts/application (12.4ms)
+Completed 200 OK in 66ms (Views: 64.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-10-03 16:01:05 +0300
+Processing by SessionsController#home as HTML
+  Rendering sessions/home.html.erb within layouts/application
+  Rendered sessions/home.html.erb within layouts/application (10.4ms)
+Completed 200 OK in 57ms (Views: 54.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-10-03 16:01:05 +0300
+Processing by SessionsController#home as HTML
+  Rendering sessions/home.html.erb within layouts/application
+  Rendered sessions/home.html.erb within layouts/application (10.0ms)
+Completed 200 OK in 64ms (Views: 62.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-10-03 16:01:06 +0300
+Processing by SessionsController#home as HTML
+  Rendering sessions/home.html.erb within layouts/application
+  Rendered sessions/home.html.erb within layouts/application (11.0ms)
+Completed 200 OK in 53ms (Views: 51.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-10-03 16:01:08 +0300
+Processing by SessionsController#home as HTML
+  Rendering sessions/home.html.erb within layouts/application
+  Rendered sessions/home.html.erb within layouts/application (11.1ms)
+Completed 200 OK in 56ms (Views: 54.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-10-03 16:12:58 +0300
+Processing by SessionsController#home as HTML
+  Rendering sessions/home.html.erb within layouts/application
+  Rendered sessions/home.html.erb within layouts/application (10.9ms)
+Completed 200 OK in 62ms (Views: 53.0ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/sessions" for 127.0.0.1 at 2018-10-03 16:16:03 +0300
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"k1/bXZIFcDodktSe0idaD4VZaSkfcpg3i0Vh+jIdAIcDF0pSbJ8vC8jpBJjByLSWwjXAIYmlQ+mXX5d1LcqkjQ==", "session"=>{"name"=>"creating ", "time(1i)"=>"2018", "time(2i)"=>"10", "time(3i)"=>"3", "details"=>"details", "invite"=>"inivets"}, "commit"=>"Create Session"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/sessions_controller.rb:29
+  [1m[36mSession Create (0.4ms)[0m  [1m[32mINSERT INTO "sessions" ("name", "time", "created_at", "updated_at", "details", "invite") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "creating "], ["time", "2018-10-03 00:00:00"], ["created_at", "2018-10-03 13:16:03.641693"], ["updated_at", "2018-10-03 13:16:03.641693"], ["details", "details"], ["invite", "inivets"]]
+  ↳ app/controllers/sessions_controller.rb:29
+  [1m[35m (60.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/sessions_controller.rb:29
+Redirected to http://localhost:3000/sessions/18?alert=Session+Created
+Completed 302 Found in 78ms (ActiveRecord: 61.8ms)
+
+
+Started GET "/sessions/18?alert=Session+Created" for 127.0.0.1 at 2018-10-03 16:16:03 +0300
+Processing by SessionsController#show as HTML
+  Parameters: {"alert"=>"Session Created", "id"=>"18"}
+  [1m[36mSession Load (0.4ms)[0m  [1m[34mSELECT  "sessions".* FROM "sessions" ORDER BY "sessions"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:16
+  Rendering sessions/show.html.erb within layouts/application
+  Rendered sessions/show.html.erb within layouts/application (0.7ms)
+Completed 500 Internal Server Error in 24871ms (ActiveRecord: 0.4ms)
+
+
+  
+ActionView::Template::Error (undefined method `flash_class' for #<#<Class:0x00007f9201948578>:0x00007f9201919b88>):
+    10:   </head>
+    11: 
+    12:   <% flash.each do |key, value| %>
+    13:       <div class="<%= flash_class(key) %>">
+    14:             <%= value %>
+    15:       </div>
+    16:   <% end %>
+  
+app/views/layouts/application.html.erb:13:in `block in _app_views_layouts_application_html_erb__514090427467854959_70132533944820'
+app/views/layouts/application.html.erb:12:in `_app_views_layouts_application_html_erb__514090427467854959_70132533944820'
+Started POST "/sessions" for 127.0.0.1 at 2018-10-03 16:17:00 +0300
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"k1/bXZIFcDodktSe0idaD4VZaSkfcpg3i0Vh+jIdAIcDF0pSbJ8vC8jpBJjByLSWwjXAIYmlQ+mXX5d1LcqkjQ==", "session"=>{"name"=>"creating ", "time(1i)"=>"2018", "time(2i)"=>"10", "time(3i)"=>"3", "details"=>"details", "invite"=>"inivets"}, "commit"=>"Create Session"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/sessions_controller.rb:29
+  [1m[36mSession Create (0.9ms)[0m  [1m[32mINSERT INTO "sessions" ("name", "time", "created_at", "updated_at", "details", "invite") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "creating "], ["time", "2018-10-03 00:00:00"], ["created_at", "2018-10-03 13:17:00.625837"], ["updated_at", "2018-10-03 13:17:00.625837"], ["details", "details"], ["invite", "inivets"]]
+  ↳ app/controllers/sessions_controller.rb:29
+  [1m[35m (90.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/sessions_controller.rb:29
+Redirected to http://localhost:3000/sessions/19?alert=Session+Created
+Completed 302 Found in 109ms (ActiveRecord: 92.7ms)
+
+
+Started GET "/sessions/19?alert=Session+Created" for 127.0.0.1 at 2018-10-03 16:17:00 +0300
+Processing by SessionsController#show as HTML
+  Parameters: {"alert"=>"Session Created", "id"=>"19"}
+  [1m[36mSession Load (0.4ms)[0m  [1m[34mSELECT  "sessions".* FROM "sessions" ORDER BY "sessions"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:16
+  Rendering sessions/show.html.erb within layouts/application
+  Rendered sessions/show.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 4471ms (Views: 48.6ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/sessions" for 127.0.0.1 at 2018-10-03 16:19:17 +0300
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"k1/bXZIFcDodktSe0idaD4VZaSkfcpg3i0Vh+jIdAIcDF0pSbJ8vC8jpBJjByLSWwjXAIYmlQ+mXX5d1LcqkjQ==", "session"=>{"name"=>"creating ", "time(1i)"=>"2018", "time(2i)"=>"10", "time(3i)"=>"3", "details"=>"details", "invite"=>"inivets"}, "commit"=>"Create Session"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/sessions_controller.rb:29
+  [1m[36mSession Create (0.3ms)[0m  [1m[32mINSERT INTO "sessions" ("name", "time", "created_at", "updated_at", "details", "invite") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "creating "], ["time", "2018-10-03 00:00:00"], ["created_at", "2018-10-03 13:19:17.269988"], ["updated_at", "2018-10-03 13:19:17.269988"], ["details", "details"], ["invite", "inivets"]]
+  ↳ app/controllers/sessions_controller.rb:29
+  [1m[35m (110.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/sessions_controller.rb:29
+Redirected to http://localhost:3000/sessions/20
+Completed 302 Found in 127ms (ActiveRecord: 110.9ms)
+
+
+Started GET "/sessions/20" for 127.0.0.1 at 2018-10-03 16:19:17 +0300
+Processing by SessionsController#show as HTML
+  Parameters: {"id"=>"20"}
+  [1m[36mSession Load (0.3ms)[0m  [1m[34mSELECT  "sessions".* FROM "sessions" ORDER BY "sessions"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:16
+  Rendering sessions/show.html.erb within layouts/application
+  Rendered sessions/show.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 4822ms (Views: 58.8ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/sessions" for 127.0.0.1 at 2018-10-03 16:20:57 +0300
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"k1/bXZIFcDodktSe0idaD4VZaSkfcpg3i0Vh+jIdAIcDF0pSbJ8vC8jpBJjByLSWwjXAIYmlQ+mXX5d1LcqkjQ==", "session"=>{"name"=>"creating ", "time(1i)"=>"2018", "time(2i)"=>"10", "time(3i)"=>"3", "details"=>"details", "invite"=>"inivets"}, "commit"=>"Create Session"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/sessions_controller.rb:29
+  [1m[36mSession Create (0.3ms)[0m  [1m[32mINSERT INTO "sessions" ("name", "time", "created_at", "updated_at", "details", "invite") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "creating "], ["time", "2018-10-03 00:00:00"], ["created_at", "2018-10-03 13:20:57.139959"], ["updated_at", "2018-10-03 13:20:57.139959"], ["details", "details"], ["invite", "inivets"]]
+  ↳ app/controllers/sessions_controller.rb:29
+  [1m[35m (89.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/sessions_controller.rb:29
+Redirected to http://localhost:3000/sessions/21
+Completed 302 Found in 121ms (ActiveRecord: 90.3ms)
+
+
+Started GET "/sessions/21" for 127.0.0.1 at 2018-10-03 16:20:57 +0300
+Processing by SessionsController#show as HTML
+  Parameters: {"id"=>"21"}
+  [1m[36mSession Load (0.2ms)[0m  [1m[34mSELECT  "sessions".* FROM "sessions" WHERE "sessions"."id" = ? LIMIT ?[0m  [["id", 21], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:16
+  Rendering sessions/show.html.erb within layouts/application
+  Rendered sessions/show.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 114ms (Views: 98.3ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/sessions" for 127.0.0.1 at 2018-10-03 16:22:47 +0300
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"k1/bXZIFcDodktSe0idaD4VZaSkfcpg3i0Vh+jIdAIcDF0pSbJ8vC8jpBJjByLSWwjXAIYmlQ+mXX5d1LcqkjQ==", "session"=>{"name"=>"creating ", "time(1i)"=>"2018", "time(2i)"=>"10", "time(3i)"=>"3", "details"=>"details", "invite"=>"inivets"}, "commit"=>"Create Session"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/sessions_controller.rb:29
+  [1m[36mSession Create (0.4ms)[0m  [1m[32mINSERT INTO "sessions" ("name", "time", "created_at", "updated_at", "details", "invite") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "creating "], ["time", "2018-10-03 00:00:00"], ["created_at", "2018-10-03 13:22:47.285601"], ["updated_at", "2018-10-03 13:22:47.285601"], ["details", "details"], ["invite", "inivets"]]
+  ↳ app/controllers/sessions_controller.rb:29
+  [1m[35m (83.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/sessions_controller.rb:29
+Redirected to http://localhost:3000/sessions/22
+Completed 302 Found in 101ms (ActiveRecord: 84.2ms)
+
+
+Started GET "/sessions/22" for 127.0.0.1 at 2018-10-03 16:22:47 +0300
+Processing by SessionsController#show as HTML
+  Parameters: {"id"=>"22"}
+  [1m[36mSession Load (0.4ms)[0m  [1m[34mSELECT  "sessions".* FROM "sessions" WHERE "sessions"."id" = ? LIMIT ?[0m  [["id", 22], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:16
+  Rendering sessions/show.html.erb within layouts/application
+  Rendered sessions/show.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 54ms (Views: 50.8ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/sessions/22" for 127.0.0.1 at 2018-10-03 16:24:50 +0300
+Processing by SessionsController#show as HTML
+  Parameters: {"id"=>"22"}
+  [1m[36mSession Load (0.2ms)[0m  [1m[34mSELECT  "sessions".* FROM "sessions" WHERE "sessions"."id" = ? LIMIT ?[0m  [["id", 22], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:16
+  Rendering sessions/show.html.erb within layouts/application
+  Rendered sessions/show.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 54ms (Views: 51.2ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/sessions/22" for 127.0.0.1 at 2018-10-03 16:30:28 +0300
+Processing by SessionsController#show as HTML
+  Parameters: {"id"=>"22"}
+  [1m[36mSession Load (0.1ms)[0m  [1m[34mSELECT  "sessions".* FROM "sessions" WHERE "sessions"."id" = ? LIMIT ?[0m  [["id", 22], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:16
+  Rendering sessions/show.html.erb within layouts/application
+  Rendered sessions/show.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 62ms (Views: 49.1ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-10-03 16:30:34 +0300
+Processing by SessionsController#home as HTML
+  Rendering sessions/home.html.erb within layouts/application
+  Rendered sessions/home.html.erb within layouts/application (13.0ms)
+Completed 200 OK in 61ms (Views: 59.6ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/sessions" for 127.0.0.1 at 2018-10-03 16:30:41 +0300
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"1Ye7AyjtXqEwTQuy/MvpRzC7DkprfUy9sGlMQyzs3XZFzyoM1ncBkOU227TvJAfed9enQv2ql2Osc7rMMzt5fA==", "session"=>{"name"=>"subject", "time(1i)"=>"2018", "time(2i)"=>"10", "time(3i)"=>"3", "details"=>"detaiss", "invite"=>""}, "commit"=>"Create Session"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/sessions_controller.rb:29
+  [1m[36mSession Create (8.1ms)[0m  [1m[32mINSERT INTO "sessions" ("name", "time", "created_at", "updated_at", "details", "invite") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "subject"], ["time", "2018-10-03 00:00:00"], ["created_at", "2018-10-03 13:30:41.770793"], ["updated_at", "2018-10-03 13:30:41.770793"], ["details", "detaiss"], ["invite", ""]]
+  ↳ app/controllers/sessions_controller.rb:29
+  [1m[35m (58.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/sessions_controller.rb:29
+Redirected to http://localhost:3000/sessions/23
+Completed 302 Found in 75ms (ActiveRecord: 66.6ms)
+
+
+Started GET "/sessions/23" for 127.0.0.1 at 2018-10-03 16:30:41 +0300
+Processing by SessionsController#show as HTML
+  Parameters: {"id"=>"23"}
+  [1m[36mSession Load (0.2ms)[0m  [1m[34mSELECT  "sessions".* FROM "sessions" WHERE "sessions"."id" = ? LIMIT ?[0m  [["id", 23], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:16
+  Rendering sessions/show.html.erb within layouts/application
+  Rendered sessions/show.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 56ms (Views: 52.9ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/sessions" for 127.0.0.1 at 2018-10-03 16:33:47 +0300
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"1Ye7AyjtXqEwTQuy/MvpRzC7DkprfUy9sGlMQyzs3XZFzyoM1ncBkOU227TvJAfed9enQv2ql2Osc7rMMzt5fA==", "session"=>{"name"=>"subject", "time(1i)"=>"2018", "time(2i)"=>"10", "time(3i)"=>"3", "details"=>"detaiss", "invite"=>""}, "commit"=>"Create Session"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/sessions_controller.rb:29
+  [1m[36mSession Create (0.3ms)[0m  [1m[32mINSERT INTO "sessions" ("name", "time", "created_at", "updated_at", "details", "invite") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "subject"], ["time", "2018-10-03 00:00:00"], ["created_at", "2018-10-03 13:33:47.378657"], ["updated_at", "2018-10-03 13:33:47.378657"], ["details", "detaiss"], ["invite", ""]]
+  ↳ app/controllers/sessions_controller.rb:29
+  [1m[35m (69.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/sessions_controller.rb:29
+Redirected to http://localhost:3000/sessions/24
+Completed 302 Found in 87ms (ActiveRecord: 70.9ms)
+
+
+Started GET "/sessions/24" for 127.0.0.1 at 2018-10-03 16:33:47 +0300
+Processing by SessionsController#show as HTML
+  Parameters: {"id"=>"24"}
+  [1m[36mSession Load (0.4ms)[0m  [1m[34mSELECT  "sessions".* FROM "sessions" WHERE "sessions"."id" = ? LIMIT ?[0m  [["id", 24], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:16
+  Rendering sessions/show.html.erb within layouts/application
+  Rendered sessions/show.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 68ms (Views: 61.0ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/sessions" for 127.0.0.1 at 2018-10-03 16:36:00 +0300
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"1Ye7AyjtXqEwTQuy/MvpRzC7DkprfUy9sGlMQyzs3XZFzyoM1ncBkOU227TvJAfed9enQv2ql2Osc7rMMzt5fA==", "session"=>{"name"=>"subject", "time(1i)"=>"2018", "time(2i)"=>"10", "time(3i)"=>"3", "details"=>"detaiss", "invite"=>""}, "commit"=>"Create Session"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/sessions_controller.rb:29
+  [1m[36mSession Create (0.5ms)[0m  [1m[32mINSERT INTO "sessions" ("name", "time", "created_at", "updated_at", "details", "invite") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "subject"], ["time", "2018-10-03 00:00:00"], ["created_at", "2018-10-03 13:36:00.138741"], ["updated_at", "2018-10-03 13:36:00.138741"], ["details", "detaiss"], ["invite", ""]]
+  ↳ app/controllers/sessions_controller.rb:29
+  [1m[35m (70.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/sessions_controller.rb:29
+Redirected to http://localhost:3000/sessions/25
+Completed 302 Found in 79ms (ActiveRecord: 71.3ms)
+
+
+Started GET "/sessions/25" for 127.0.0.1 at 2018-10-03 16:36:00 +0300
+Processing by SessionsController#show as HTML
+  Parameters: {"id"=>"25"}
+  [1m[36mSession Load (0.1ms)[0m  [1m[34mSELECT  "sessions".* FROM "sessions" WHERE "sessions"."id" = ? LIMIT ?[0m  [["id", 25], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:16
+  Rendering sessions/show.html.erb within layouts/application
+  Rendered sessions/show.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 72ms (Views: 68.6ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/sessions/25" for 127.0.0.1 at 2018-10-03 16:38:54 +0300
+Processing by SessionsController#show as HTML
+  Parameters: {"id"=>"25"}
+  [1m[36mSession Load (0.1ms)[0m  [1m[34mSELECT  "sessions".* FROM "sessions" WHERE "sessions"."id" = ? LIMIT ?[0m  [["id", 25], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:16
+  Rendering sessions/show.html.erb within layouts/application
+  Rendered sessions/show.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 95ms (Views: 92.3ms | ActiveRecord: 0.1ms)
+
+

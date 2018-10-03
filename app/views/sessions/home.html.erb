@@ -1,27 +1,7 @@
-<title>New Session</title>
 
-<body>
 <div class="container">
 
-  <nav class="nav nav-pills flex-column">
-    <ul class="nav nav-tabs nav-fill">
-      <li class="nav-item">
-        <a class="nav-link <%=@nosession%>" href="#new" data-toggle="tab">New Session</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link <%=@iscurrent%>" href="#current" data-toggle="tab">Current Session</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#archive" data-toggle="tab">Archive</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#settings" data-toggle="tab">Settings</a>
-      </li>
-    </ul>
-  </nav>
-<div class="tab-content">
-
-<div id="new" class="tab-pane fade-in">
+<div id="new" class="tab-pane fade-in <%=@nosession%>">
 
     <%= simple_form_for @session, :url => sessions_path, :method => :post, :action => :create  do |f| %>
       <div class="form-group">
@@ -36,18 +16,4 @@
     <% end %>
 </div>
 
-<div id="current" class="tab-pane fade-in">
-  <p>text Current</p>
 </div>
-
-<div id="archive" class="tab-pane fade-in">
-    <p>text atchive</p>
-</div>
-
-<div id="settings" class="tab-pane fade-in">
-  <p>settings</p>
-</div>
-
-</div>
-</div>
-</body>
