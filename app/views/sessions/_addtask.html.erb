@@ -1,0 +1,14 @@
+<div class="form">
+  <%= simple_form_for @task, :url => tasks_path, :method => :post, :action => :create  do |f| %>
+    <div class="form-group">
+    <%= f.error_notification :input_html => { class: ' alert alert-danger'}%>
+    <%= f.input :title, label: 'Subject', error: 'Please provide a Subject', input_html:{class:'form-control-lg'} %><br>
+    <% ##concat datetime or use default %>
+    <%= f.input :body, label: 'Proposal:', input_html:{class:'form-control'} %><br>
+    <%= f.input :type, collection: @sessiontypes, input_html: { multiple: true}, label_method: :second, value_method: :first %><br><//multiple selection !>
+    <%= f.input :link, label: 'Resources:', input_html:{class:'form-control'} %><br>
+    <%= f.input :session_id, :as => :hidden, :input_html => { :value => @session.id } %>
+    </div>
+    <%= f.button :submit, 'Add Item' , input_html:{ class:'btn btn-success'} %>
+  <% end %>
+</div>

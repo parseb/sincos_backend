@@ -1,0 +1,22 @@
+
+<% @tasks.each do |task| %>
+      <div class="panel panel-default">
+         <div class="panel-heading">
+            <h6><b><%= task.title %></b></h6>
+         </div><hr class="hr-primary" />
+        <div class="panel-body">
+            <p><%= task.body %> </p> <br> <hr>
+            <p>
+              <%=link_to task.link.to_s, task.link %>
+            </p>
+        </div>
+        <div class="panel-footer">
+          <p class="small small-text">
+            <%= task.type %>
+          </p>
+
+        </div>
+        <hr class="hr-primary" />
+      </div>
+
+<% end %>

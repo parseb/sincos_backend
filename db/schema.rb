@@ -10,35 +10,33 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_01_170103) do
-
-  create_table "agendas", force: :cascade do |t|
-    t.string "title"
-    t.integer "session_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["session_id"], name: "index_agendas_on_session_id"
-  end
+ActiveRecord::Schema.define(version: 2018_10_04_065522) do
 
   create_table "sessions", force: :cascade do |t|
     t.string "name"
     t.datetime "time"
     t.text "transcript"
-    t.integer "agenda_id"
+    t.integer "taks_id"
+    t.integer "users_id"
+    t.integer "votes_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.text "details"
     t.text "invite"
-    t.index ["agenda_id"], name: "index_sessions_on_agenda_id"
+    t.index ["taks_id"], name: "index_sessions_on_taks_id"
+    t.index ["users_id"], name: "index_sessions_on_users_id"
+    t.index ["votes_id"], name: "index_sessions_on_votes_id"
   end
 
   create_table "tasks", force: :cascade do |t|
     t.string "title"
     t.text "body"
-    t.integer "agenda_id"
+    t.integer "session_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["agenda_id"], name: "index_tasks_on_agenda_id"
+    t.string "type"
+    t.string "link"
+    t.index ["session_id"], name: "index_tasks_on_session_id"
   end
 
   create_table "users", force: :cascade do |t|

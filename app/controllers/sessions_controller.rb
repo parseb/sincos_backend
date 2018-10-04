@@ -14,8 +14,15 @@ before_action :showstate, only: [:show]
   def show
 
     @session= Session.find params[:id]         #find by id / find by code - for users/invited ++auth
-
+    if Task.any?
+      @tasks=Task.where session_id: @session.id
+      @list= true
+    else
+      @list= false
+    end
     #byebug
+    @task= Task.new
+    @sessiontypes= [["1", "Consultative"], ["2", "Simple Majority"], ["3","2/3 Majority"], ["4","Consensus"]]
   end
 
 

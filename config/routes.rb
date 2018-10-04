@@ -3,5 +3,6 @@ Rails.application.routes.draw do
 get '/', to: 'sessions#home'
 
 resources :sessions
+resources :tasks 
 
 end

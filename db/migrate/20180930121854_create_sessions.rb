@@ -5,8 +5,10 @@ class CreateSessions < ActiveRecord::Migration[5.2]
       t.datetime :time
       #t.participants :has_many
       t.text :transcript
-      t.references :agenda
-      
+      t.references :taks
+      t.references :users
+      t.references :votes
+
       t.timestamps
     end
   end

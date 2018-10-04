@@ -1,3 +1,3 @@
 class Task < ApplicationRecord
-  belongs_to :agenda
+  belongs_to :session
 end
