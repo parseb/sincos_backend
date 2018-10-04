@@ -1,3 +1,4 @@
 class Session < ApplicationRecord
-  validates_presence_of :name, :details #, :time  
+  validates_presence_of :name, :details #, :time
+  has_many :tasks
 end
