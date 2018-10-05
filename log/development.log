@@ -47776,3 +47776,304 @@ Completed 200 OK in 63ms (Views: 58.9ms | ActiveRecord: 0.6ms)
   [1m[36mSession Load (0.3ms)[0m  [1m[34mSELECT  "sessions".* FROM "sessions" ORDER BY "sessions"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
   [1m[36mSession Load (0.1ms)[0m  [1m[34mSELECT  "sessions".* FROM "sessions" ORDER BY "sessions"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
   [1m[36mTask Load (0.2ms)[0m  [1m[34mSELECT  "tasks".* FROM "tasks" WHERE "tasks"."session_id" = ? LIMIT ?[0m  [["session_id", 1], ["LIMIT", 11]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to AddHashidToUsers (20181005085342)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20181005085342"]]
+  ↳ bin/rails:9
+  [1m[35m (91.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /usr/local/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:10
+  [1m[36mUser Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."auth" = ? LIMIT ?[0m  [["auth", "fc1e1278"], ["LIMIT", 1]]
+  ↳ app/models/concerns/friendlyable.rb:16
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "auth", "phone", "bio", "email", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Erwin Cummerata"], ["auth", "fc1e1278"], ["phone", "(553) 263-4016"], ["bio", "Love is composed of a single soul inhabiting two bodies."], ["email", "lareekautzer@baumbach.org"], ["created_at", "2018-10-05 09:24:58.336681"], ["updated_at", "2018-10-05 09:24:58.336681"]]
+  ↳ db/seeds.rb:10
+  [1m[35m (103.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:10
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:10
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."auth" = ? LIMIT ?[0m  [["auth", "933340cc"], ["LIMIT", 1]]
+  ↳ app/models/concerns/friendlyable.rb:16
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "auth", "phone", "bio", "email", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Kassandra Hayes IV"], ["auth", "933340cc"], ["phone", "417-926-3049"], ["bio", "Beware the barrenness of a busy life."], ["email", "lura@hudson.net"], ["created_at", "2018-10-05 09:24:58.447605"], ["updated_at", "2018-10-05 09:24:58.447605"]]
+  ↳ db/seeds.rb:10
+  [1m[35m (113.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:10
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:10
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."auth" = ? LIMIT ?[0m  [["auth", "77faadc2"], ["LIMIT", 1]]
+  ↳ app/models/concerns/friendlyable.rb:16
+  [1m[36mUser Create (0.8ms)[0m  [1m[32mINSERT INTO "users" ("name", "auth", "phone", "bio", "email", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Mr. Saul Larkin"], ["auth", "77faadc2"], ["phone", "169.806.6608"], ["bio", "The virtue of justice consists in moderation, as regulated by wisdom."], ["email", "jordon@crist.info"], ["created_at", "2018-10-05 09:24:58.569784"], ["updated_at", "2018-10-05 09:24:58.569784"]]
+  ↳ db/seeds.rb:10
+  [1m[35m (121.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:10
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:10
+  [1m[36mUser Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."auth" = ? LIMIT ?[0m  [["auth", "553313b7"], ["LIMIT", 1]]
+  ↳ app/models/concerns/friendlyable.rb:16
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "auth", "phone", "bio", "email", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Rosario Koelpin PhD"], ["auth", "553313b7"], ["phone", "(174) 455-6012 x237"], ["bio", "Philosophy is the highest music."], ["email", "trent@king.net"], ["created_at", "2018-10-05 09:24:58.700141"], ["updated_at", "2018-10-05 09:24:58.700141"]]
+  ↳ db/seeds.rb:10
+  [1m[35m (107.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:10
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:10
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."auth" = ? LIMIT ?[0m  [["auth", "02961b35"], ["LIMIT", 1]]
+  ↳ app/models/concerns/friendlyable.rb:16
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "auth", "phone", "bio", "email", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Alethia Feil"], ["auth", "02961b35"], ["phone", "321.629.7364 x647"], ["bio", "Control thy passions lest they take vengence on thee."], ["email", "caseycronin@nolankihn.co"], ["created_at", "2018-10-05 09:24:58.811676"], ["updated_at", "2018-10-05 09:24:58.811676"]]
+  ↳ db/seeds.rb:10
+  [1m[35m (107.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:10
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:10
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."auth" = ? LIMIT ?[0m  [["auth", "5cf37d0b"], ["LIMIT", 1]]
+  ↳ app/models/concerns/friendlyable.rb:16
+  [1m[36mUser Create (0.6ms)[0m  [1m[32mINSERT INTO "users" ("name", "auth", "phone", "bio", "email", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Mr. Dortha Flatley"], ["auth", "5cf37d0b"], ["phone", "(389) 270-7688 x274"], ["bio", "Most people would rather give than get affection."], ["email", "marcelina@rogahn.org"], ["created_at", "2018-10-05 09:24:58.924478"], ["updated_at", "2018-10-05 09:24:58.924478"]]
+  ↳ db/seeds.rb:10
+  [1m[35m (125.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:10
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:10
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."auth" = ? LIMIT ?[0m  [["auth", "ea879db7"], ["LIMIT", 1]]
+  ↳ app/models/concerns/friendlyable.rb:16
+  [1m[36mUser Create (0.8ms)[0m  [1m[32mINSERT INTO "users" ("name", "auth", "phone", "bio", "email", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Joi Becker"], ["auth", "ea879db7"], ["phone", "(796) 702-4694"], ["bio", "The mind is not a vessel to be filled but a fire to be kindled."], ["email", "dulcie@krajcik.co"], ["created_at", "2018-10-05 09:24:59.059478"], ["updated_at", "2018-10-05 09:24:59.059478"]]
+  ↳ db/seeds.rb:10
+  [1m[35m (110.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:10
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:10
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."auth" = ? LIMIT ?[0m  [["auth", "48d30eb0"], ["LIMIT", 1]]
+  ↳ app/models/concerns/friendlyable.rb:16
+  [1m[36mUser Create (0.6ms)[0m  [1m[32mINSERT INTO "users" ("name", "auth", "phone", "bio", "email", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Malcom Lemke"], ["auth", "48d30eb0"], ["phone", "(265) 373-6119 x5067"], ["bio", "The virtue of justice consists in moderation, as regulated by wisdom."], ["email", "latrinaschoen@cummerata.org"], ["created_at", "2018-10-05 09:24:59.181215"], ["updated_at", "2018-10-05 09:24:59.181215"]]
+  ↳ db/seeds.rb:10
+  [1m[35m (123.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:10
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:10
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."auth" = ? LIMIT ?[0m  [["auth", "f895898d"], ["LIMIT", 1]]
+  ↳ app/models/concerns/friendlyable.rb:16
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "auth", "phone", "bio", "email", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Beatris Treutel"], ["auth", "f895898d"], ["phone", "361.715.5943 x3301"], ["bio", "Rhetoric is the art of ruling the minds of men."], ["email", "corneliussteuber@strosin.io"], ["created_at", "2018-10-05 09:24:59.325969"], ["updated_at", "2018-10-05 09:24:59.325969"]]
+  ↳ db/seeds.rb:10
+  [1m[35m (127.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:10
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:10
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."auth" = ? LIMIT ?[0m  [["auth", "4b98d0b9"], ["LIMIT", 1]]
+  ↳ app/models/concerns/friendlyable.rb:16
+  [1m[36mUser Create (0.8ms)[0m  [1m[32mINSERT INTO "users" ("name", "auth", "phone", "bio", "email", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Shavonda Wolf"], ["auth", "4b98d0b9"], ["phone", "629.347.4028"], ["bio", "The mind is not a vessel to be filled but a fire to be kindled."], ["email", "barneydeckow@kilback.net"], ["created_at", "2018-10-05 09:24:59.463013"], ["updated_at", "2018-10-05 09:24:59.463013"]]
+  ↳ db/seeds.rb:10
+  [1m[35m (109.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:10
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:10
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."auth" = ? LIMIT ?[0m  [["auth", "1d440968"], ["LIMIT", 1]]
+  ↳ app/models/concerns/friendlyable.rb:16
+  [1m[36mUser Create (0.6ms)[0m  [1m[32mINSERT INTO "users" ("name", "auth", "phone", "bio", "email", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Celsa Barton MD"], ["auth", "1d440968"], ["phone", "602.601.7955"], ["bio", "Rhetoric is the art of ruling the minds of men."], ["email", "glennissipes@wehner.biz"], ["created_at", "2018-10-05 09:24:59.581327"], ["updated_at", "2018-10-05 09:24:59.581327"]]
+  ↳ db/seeds.rb:10
+  [1m[35m (135.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:10
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:10
+  [1m[36mUser Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."auth" = ? LIMIT ?[0m  [["auth", "49e47a99"], ["LIMIT", 1]]
+  ↳ app/models/concerns/friendlyable.rb:16
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "auth", "phone", "bio", "email", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Gianna Hermiston"], ["auth", "49e47a99"], ["phone", "477.797.9500"], ["bio", "Quality is not an act, it is a habit."], ["email", "vernonmraz@hansennicolas.biz"], ["created_at", "2018-10-05 09:24:59.723201"], ["updated_at", "2018-10-05 09:24:59.723201"]]
+  ↳ db/seeds.rb:10
+  [1m[35m (117.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:10
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:10
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."auth" = ? LIMIT ?[0m  [["auth", "9a753b82"], ["LIMIT", 1]]
+  ↳ app/models/concerns/friendlyable.rb:16
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "auth", "phone", "bio", "email", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Claud Emard MD"], ["auth", "9a753b82"], ["phone", "768.380.6648 x413"], ["bio", "Rhetoric is the art of ruling the minds of men."], ["email", "austinkovacek@blockkub.co"], ["created_at", "2018-10-05 09:24:59.845570"], ["updated_at", "2018-10-05 09:24:59.845570"]]
+  ↳ db/seeds.rb:10
+  [1m[35m (106.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:10
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:10
+  [1m[36mUser Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."auth" = ? LIMIT ?[0m  [["auth", "5afa5d80"], ["LIMIT", 1]]
+  ↳ app/models/concerns/friendlyable.rb:16
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "auth", "phone", "bio", "email", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Miss Darnell Hane"], ["auth", "5afa5d80"], ["phone", "950-172-1435 x494"], ["bio", "There was never a genius without a tincture of madness."], ["email", "jeanmariegottlieb@lemke.co"], ["created_at", "2018-10-05 09:24:59.956260"], ["updated_at", "2018-10-05 09:24:59.956260"]]
+  ↳ db/seeds.rb:10
+  [1m[35m (107.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:10
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:10
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."auth" = ? LIMIT ?[0m  [["auth", "0a62ccd4"], ["LIMIT", 1]]
+  ↳ app/models/concerns/friendlyable.rb:16
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("name", "auth", "phone", "bio", "email", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Lauren Bogan"], ["auth", "0a62ccd4"], ["phone", "693.762.6300 x49356"], ["bio", "There was never a genius without a tincture of madness."], ["email", "kimberklocko@kautzer.info"], ["created_at", "2018-10-05 09:25:00.067379"], ["updated_at", "2018-10-05 09:25:00.067379"]]
+  ↳ db/seeds.rb:10
+  [1m[35m (107.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:10
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:10
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."auth" = ? LIMIT ?[0m  [["auth", "4e9a6fee"], ["LIMIT", 1]]
+  ↳ app/models/concerns/friendlyable.rb:16
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "auth", "phone", "bio", "email", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Mrs. Ollie Maggio"], ["auth", "4e9a6fee"], ["phone", "(675) 126-9781"], ["bio", "The secret to humor is surprise."], ["email", "hung@mrazmaggio.io"], ["created_at", "2018-10-05 09:25:00.178714"], ["updated_at", "2018-10-05 09:25:00.178714"]]
+  ↳ db/seeds.rb:10
+  [1m[35m (106.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:10
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:10
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."auth" = ? LIMIT ?[0m  [["auth", "e59490f3"], ["LIMIT", 1]]
+  ↳ app/models/concerns/friendlyable.rb:16
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "auth", "phone", "bio", "email", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Sunni Gutkowski"], ["auth", "e59490f3"], ["phone", "480.191.2890 x2063"], ["bio", "Pleasure in the job puts perfection in the work."], ["email", "antonegutmann@rohan.net"], ["created_at", "2018-10-05 09:25:00.289642"], ["updated_at", "2018-10-05 09:25:00.289642"]]
+  ↳ db/seeds.rb:10
+  [1m[35m (107.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:10
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:10
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."auth" = ? LIMIT ?[0m  [["auth", "f0dd6436"], ["LIMIT", 1]]
+  ↳ app/models/concerns/friendlyable.rb:16
+  [1m[36mUser Create (0.8ms)[0m  [1m[32mINSERT INTO "users" ("name", "auth", "phone", "bio", "email", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Davis Glover"], ["auth", "f0dd6436"], ["phone", "1-943-078-6668 x78889"], ["bio", "The unexamined life is not worth living."], ["email", "iankovacek@hegmann.name"], ["created_at", "2018-10-05 09:25:00.401685"], ["updated_at", "2018-10-05 09:25:00.401685"]]
+  ↳ db/seeds.rb:10
+  [1m[35m (105.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:10
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:10
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."auth" = ? LIMIT ?[0m  [["auth", "8c01cd3d"], ["LIMIT", 1]]
+  ↳ app/models/concerns/friendlyable.rb:16
+  [1m[36mUser Create (0.7ms)[0m  [1m[32mINSERT INTO "users" ("name", "auth", "phone", "bio", "email", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Lavinia Blick"], ["auth", "8c01cd3d"], ["phone", "860-176-3988 x6868"], ["bio", "Good habits formed at youth make all the difference."], ["email", "garret@kovacek.name"], ["created_at", "2018-10-05 09:25:00.515916"], ["updated_at", "2018-10-05 09:25:00.515916"]]
+  ↳ db/seeds.rb:10
+  [1m[35m (111.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:10
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:10
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."auth" = ? LIMIT ?[0m  [["auth", "59bae457"], ["LIMIT", 1]]
+  ↳ app/models/concerns/friendlyable.rb:16
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "auth", "phone", "bio", "email", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Gabriel Windler"], ["auth", "59bae457"], ["phone", "716-861-9992 x446"], ["bio", "The mind is not a vessel to be filled but a fire to be kindled."], ["email", "meaghan@rau.org"], ["created_at", "2018-10-05 09:25:00.634300"], ["updated_at", "2018-10-05 09:25:00.634300"]]
+  ↳ db/seeds.rb:10
+  [1m[35m (107.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:10
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to AddAvatarToUsers (20181005092610)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "user" ADD "avatar" varchar[0m
+  ↳ db/migrate/20181005092610_add_avatar_to_users.rb:3
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /usr/local/bin/rake:23
+Migrating to AddAvatarToUsers (20181005092610)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ /usr/local/bin/rake:23
+  [1m[35m (0.2ms)[0m  [1m[35mALTER TABLE "user" ADD "avatar" varchar[0m
+  ↳ db/migrate/20181005092610_add_avatar_to_users.rb:3
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  ↳ /usr/local/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /usr/local/bin/rake:23
+Migrating to AddAvatarToUsers (20181005092610)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ /usr/local/bin/rake:23
+  [1m[35m (0.4ms)[0m  [1m[35mALTER TABLE "users" ADD "avatar" varchar[0m
+  ↳ db/migrate/20181005092610_add_avatar_to_users.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20181005092610"]]
+  ↳ /usr/local/bin/rake:23
+  [1m[35m (113.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ /usr/local/bin/rake:23
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ /usr/local/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ /usr/local/bin/rake:23
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ /usr/local/bin/rake:23
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /usr/local/bin/rake:23
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mUser Load (1.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Update (0.3ms)[0m  [1m[33mUPDATE "users" SET "avatar" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["avatar", "https://robohash.org/fc1e1278.png?size=300x300&set=set1"], ["updated_at", "2018-10-05 09:32:28.419234"], ["id", 1]]
+  [1m[35m (77.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Update (0.3ms)[0m  [1m[33mUPDATE "users" SET "avatar" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["avatar", "https://robohash.org/933340cc.png?size=300x300&set=set1"], ["updated_at", "2018-10-05 09:32:28.511522"], ["id", 2]]
+  [1m[35m (75.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Update (0.3ms)[0m  [1m[33mUPDATE "users" SET "avatar" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["avatar", "https://robohash.org/77faadc2.png?size=300x300&set=set1"], ["updated_at", "2018-10-05 09:32:28.589453"], ["id", 3]]
+  [1m[35m (74.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Update (0.3ms)[0m  [1m[33mUPDATE "users" SET "avatar" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["avatar", "https://robohash.org/553313b7.png?size=300x300&set=set1"], ["updated_at", "2018-10-05 09:32:28.666044"], ["id", 4]]
+  [1m[35m (75.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Update (0.3ms)[0m  [1m[33mUPDATE "users" SET "avatar" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["avatar", "https://robohash.org/02961b35.png?size=300x300&set=set1"], ["updated_at", "2018-10-05 09:32:28.744016"], ["id", 5]]
+  [1m[35m (81.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Update (0.3ms)[0m  [1m[33mUPDATE "users" SET "avatar" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["avatar", "https://robohash.org/5cf37d0b.png?size=300x300&set=set1"], ["updated_at", "2018-10-05 09:32:28.832791"], ["id", 6]]
+  [1m[35m (75.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Update (0.3ms)[0m  [1m[33mUPDATE "users" SET "avatar" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["avatar", "https://robohash.org/ea879db7.png?size=300x300&set=set1"], ["updated_at", "2018-10-05 09:32:28.910658"], ["id", 7]]
+  [1m[35m (75.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Update (0.3ms)[0m  [1m[33mUPDATE "users" SET "avatar" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["avatar", "https://robohash.org/48d30eb0.png?size=300x300&set=set1"], ["updated_at", "2018-10-05 09:32:28.988407"], ["id", 8]]
+  [1m[35m (75.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Update (0.3ms)[0m  [1m[33mUPDATE "users" SET "avatar" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["avatar", "https://robohash.org/f895898d.png?size=300x300&set=set1"], ["updated_at", "2018-10-05 09:32:29.066238"], ["id", 9]]
+  [1m[35m (75.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Update (0.3ms)[0m  [1m[33mUPDATE "users" SET "avatar" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["avatar", "https://robohash.org/4b98d0b9.png?size=300x300&set=set1"], ["updated_at", "2018-10-05 09:32:29.144132"], ["id", 10]]
+  [1m[35m (106.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Update (0.3ms)[0m  [1m[33mUPDATE "users" SET "avatar" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["avatar", "https://robohash.org/1d440968.png?size=300x300&set=set1"], ["updated_at", "2018-10-05 09:32:29.252541"], ["id", 11]]
+  [1m[35m (86.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Update (0.3ms)[0m  [1m[33mUPDATE "users" SET "avatar" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["avatar", "https://robohash.org/49e47a99.png?size=300x300&set=set1"], ["updated_at", "2018-10-05 09:32:29.341348"], ["id", 12]]
+  [1m[35m (87.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Update (0.3ms)[0m  [1m[33mUPDATE "users" SET "avatar" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["avatar", "https://robohash.org/9a753b82.png?size=300x300&set=set1"], ["updated_at", "2018-10-05 09:32:29.430359"], ["id", 13]]
+  [1m[35m (86.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Update (0.3ms)[0m  [1m[33mUPDATE "users" SET "avatar" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["avatar", "https://robohash.org/5afa5d80.png?size=300x300&set=set1"], ["updated_at", "2018-10-05 09:32:29.519263"], ["id", 14]]
+  [1m[35m (86.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Update (0.2ms)[0m  [1m[33mUPDATE "users" SET "avatar" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["avatar", "https://robohash.org/0a62ccd4.png?size=300x300&set=set1"], ["updated_at", "2018-10-05 09:32:29.608182"], ["id", 15]]
+  [1m[35m (86.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Update (0.3ms)[0m  [1m[33mUPDATE "users" SET "avatar" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["avatar", "https://robohash.org/4e9a6fee.png?size=300x300&set=set1"], ["updated_at", "2018-10-05 09:32:29.696978"], ["id", 16]]
+  [1m[35m (86.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Update (0.3ms)[0m  [1m[33mUPDATE "users" SET "avatar" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["avatar", "https://robohash.org/e59490f3.png?size=300x300&set=set1"], ["updated_at", "2018-10-05 09:32:29.785907"], ["id", 17]]
+  [1m[35m (86.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Update (0.3ms)[0m  [1m[33mUPDATE "users" SET "avatar" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["avatar", "https://robohash.org/f0dd6436.png?size=300x300&set=set1"], ["updated_at", "2018-10-05 09:32:29.874589"], ["id", 18]]
+  [1m[35m (87.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Update (0.3ms)[0m  [1m[33mUPDATE "users" SET "avatar" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["avatar", "https://robohash.org/8c01cd3d.png?size=300x300&set=set1"], ["updated_at", "2018-10-05 09:32:29.963670"], ["id", 19]]
+  [1m[35m (86.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Update (0.3ms)[0m  [1m[33mUPDATE "users" SET "avatar" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["avatar", "https://robohash.org/59bae457.png?size=300x300&set=set1"], ["updated_at", "2018-10-05 09:32:30.052426"], ["id", 20]]
+  [1m[35m (86.9ms)[0m  [1m[36mcommit transaction[0m
