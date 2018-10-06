@@ -1,0 +1,2 @@
+class InsessionController < ApplicationController
+end

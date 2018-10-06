@@ -1,6 +1,6 @@
 
 <div class="container">
-
+<h1><%= $currentu.name %></h1>
 <div id="new" class="tab-pane fade-in <%=@nosession%>">
 
     <%= simple_form_for @session, :url => sessions_path, :method => :post, :action => :create  do |f| %>

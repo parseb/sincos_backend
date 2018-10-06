@@ -1,0 +1,10 @@
+<div class="container">
+  <div class="form-group">
+    <div class="col-9-md">
+      <%= simple_form_for @current do |f| %>
+      <%= f.input :auth, label:'Plese enter your authentication code', :input_html => {class: 'form-control'} %>
+      <%= f.button :submit, "Authenticate", :input_html => {class: 'btn btn-info'} %>
+      <% end %>
+    </div>
+  </div>
+</div>

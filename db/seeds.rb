@@ -5,6 +5,7 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+require 'digest'
 
 20.times do
   User.create([{
@@ -12,5 +13,23 @@
     email: Faker::Internet.email,
     phone: Faker::PhoneNumber.phone_number,
     bio: Faker::GreekPhilosophers.quote,
+    avatar: Faker::Avatar.image(Digest::SHA256.hexdigest (rand(1..50000)).to_s)
     }])
 end
+#
+# 5.times do
+#   Session.create([{
+#     name: Faker::Company.catch_phrase,
+#     transcript: Faker::Lebowski.quote,
+#     time: Time.now,
+#     details: Faker::Company.bs
+#   }])
+#     3.times do
+#     Task.create([{
+#       title: Faker::GameOfThrones.dragon,
+#       body: Faker::Hipster.paragraph(7),
+#       link: Faker::Internet.url,
+#       session_id: rand(1..5)
+#       }])
+#     end
+# end

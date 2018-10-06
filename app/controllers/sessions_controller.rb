@@ -1,14 +1,26 @@
 class SessionsController < ApplicationController
 before_action :showstate, only: [:show]
+before_action :currentu, only: [:home]
 
+
+
+  def uauth
+    if $currentu=User.find_by(auth: params[:auth])
+      redirect_to '/', method: 'get'
+      flash[:success]="Welcome #{$currentu.name}!"
+    end
+  end
 
 
   def home
-    @session= Session.new()
-    @sessions= Session.all()
-    @nosession="active"
-    @iscurrent="disabled"
-    #byebug
+      #@currentu= $currentu ###
+      @session= Session.new()
+      @sessions= Session.all()
+      @nosession="active"
+      @iscurrent="disabled"
+
+      #redirect_to 'sessions#home'
+      #byebug
   end
 
   def show
@@ -23,6 +35,7 @@ before_action :showstate, only: [:show]
     #byebug
     @task= Task.new
     @sessiontypes= [["1", "Consultative"], ["2", "Simple Majority"], ["3","2/3 Majority"], ["4","Consensus"]]
+
   end
 
 
@@ -33,6 +46,7 @@ before_action :showstate, only: [:show]
   def create
       create= Session.new(session_params)
       #byebug
+
        if create.save!
          flash[:success]="Session Created"
        end
@@ -43,7 +57,6 @@ before_action :showstate, only: [:show]
       #@state.sessionid= session_params[:id]
 
       redirect_to action: 'show', id: create.id #hardcoded
-
   end
 
   private
@@ -56,4 +69,15 @@ before_action :showstate, only: [:show]
     @iscurrent='active'
      #this is bad
   end
+
+  def currentu
+      if $currentu.class.name == "User" #differ from session -before-fornow
+        @currentu= $currentu
+      else
+        @current= ''
+        render partial: 'uauth'
+      end
+
+  end
+
 end

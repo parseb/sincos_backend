@@ -10,20 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_05_092610) do
+ActiveRecord::Schema.define(version: 2018_10_05_110725) do
 
   create_table "sessions", force: :cascade do |t|
     t.string "name"
     t.datetime "time"
     t.text "transcript"
-    t.integer "taks_id"
+    t.integer "task_ids"
     t.integer "users_id"
     t.integer "votes_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.text "details"
     t.text "invite"
-    t.index ["taks_id"], name: "index_sessions_on_taks_id"
+    t.string "auth"
+    t.index ["task_ids"], name: "index_sessions_on_task_ids"
     t.index ["users_id"], name: "index_sessions_on_users_id"
     t.index ["votes_id"], name: "index_sessions_on_votes_id"
   end

@@ -10,7 +10,12 @@ module Friendlyable
   def set_hash_id
     hash_id = nil
     loop do
-      emailstr= Digest::SHA256.hexdigest self.email
+       case self.class.name
+       when "User"
+         emailstr= Digest::SHA256.hexdigest self.email
+       when "Session"
+         emailstr= Digest::SHA256.hexdigest self.name
+       end
     #  hash_id = SecureRandom.urlsafe_base64(9).gsub(/-|_/,('a'..'z').to_a[rand(26)])
       hash_id= emailstr[0,8]
       break unless self.class.name.constantize.where(:auth => hash_id).exists?
