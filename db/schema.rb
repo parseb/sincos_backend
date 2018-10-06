@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_05_110725) do
+ActiveRecord::Schema.define(version: 2018_10_06_134443) do
 
   create_table "sessions", force: :cascade do |t|
     t.string "name"
@@ -24,9 +24,10 @@ ActiveRecord::Schema.define(version: 2018_10_05_110725) do
     t.text "details"
     t.text "invite"
     t.string "auth"
+    t.string "state"
     t.index ["task_ids"], name: "index_sessions_on_task_ids"
-    t.index ["users_id"], name: "index_sessions_on_users_id"
     t.index ["votes_id"], name: "index_sessions_on_votes_id"
+    t.index [nil], name: "index_sessions_on_user_id"
   end
 
   create_table "tasks", force: :cascade do |t|

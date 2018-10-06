@@ -51464,3 +51464,740 @@ Processing by SessionsController#home as HTML
 Completed 200 OK in 44ms (Views: 42.7ms | ActiveRecord: 0.0ms)
 
 
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to AddInitiatorToSession (20181006095858)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ db/migrate/20181006095858_add_initiator_to_session.rb:3
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE  INDEX "index_session_on_user_id" ON "session" ("user_id")[0m
+  ↳ db/migrate/20181006095858_add_initiator_to_session.rb:3
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to AddInitiatorToSession (20181006095858)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ db/migrate/20181006095858_add_initiator_to_session.rb:3
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE  INDEX "index_sessions_on_user_id" ON "sessions" ("user_id")[0m
+  ↳ db/migrate/20181006095858_add_initiator_to_session.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20181006095858"]]
+  ↳ bin/rails:9
+  [1m[35m (116.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to AddInitiatorToSession (20181006095858)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to AddInitiatorToSession (20181006095858)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to AddInitiatorToSession (20181006095858)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to AddInitiatorToSession (20181006095858)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[35mDROP INDEX "index_sessions_on_users_id"[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::SchemaMigration Destroy (0.2ms)[0m  [1m[31mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = ?[0m  [["version", "20181006095858"]]
+  ↳ bin/rails:9
+  [1m[35m (121.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /usr/local/bin/rake:23
+Migrating to AddInitiatorToSession (20181006095858)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ /usr/local/bin/rake:23
+  [1m[35m (0.4ms)[0m  [1m[35mALTER TABLE "sessions" ADD "user_id" integer[0m
+  ↳ db/migrate/20181006095858_add_initiator_to_session.rb:3
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ db/migrate/20181006095858_add_initiator_to_session.rb:3
+  [1m[35m (0.2ms)[0m  [1m[31mrollback transaction[0m
+  ↳ /usr/local/bin/rake:23
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /usr/local/bin/rake:23
+Migrating to AddInitiatorToSession (20181006095858)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ /usr/local/bin/rake:23
+  [1m[35m (0.4ms)[0m  [1m[35mALTER TABLE "sessions" ADD "user_id" integer[0m
+  ↳ db/migrate/20181006095858_add_initiator_to_session.rb:3
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ db/migrate/20181006095858_add_initiator_to_session.rb:3
+  [1m[35m (0.2ms)[0m  [1m[31mrollback transaction[0m
+  ↳ /usr/local/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /usr/local/bin/rake:23
+Migrating to AddInitiatorToSession (20181006095858)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ /usr/local/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ db/migrate/20181006095858_add_initiator_to_session.rb:3
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TEMPORARY TABLE "asessions" ("id" integer NOT NULL PRIMARY KEY, "name" varchar DEFAULT NULL, "time" datetime DEFAULT NULL, "transcript" text DEFAULT NULL, "task_ids" integer DEFAULT NULL, "user_ids" integer DEFAULT NULL, "votes_id" integer DEFAULT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "details" text DEFAULT NULL, "invite" text DEFAULT NULL, "auth" varchar DEFAULT NULL)[0m
+  ↳ db/migrate/20181006095858_add_initiator_to_session.rb:3
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "tindex_asessions_on_task_ids" ON "asessions" ("task_ids")[0m
+  ↳ db/migrate/20181006095858_add_initiator_to_session.rb:3
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "tindex_asessions_on_votes_id" ON "asessions" ("votes_id")[0m
+  ↳ db/migrate/20181006095858_add_initiator_to_session.rb:3
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "asessions" ("id","name","time","transcript","task_ids","user_ids","votes_id","created_at","updated_at","details","invite","auth")
+                     SELECT "id","name","time","transcript","task_ids","users_id","votes_id","created_at","updated_at","details","invite","auth" FROM "sessions"[0m
+  ↳ db/migrate/20181006095858_add_initiator_to_session.rb:3
+  [1m[35m (0.7ms)[0m  [1m[35mDROP TABLE "sessions"[0m
+  ↳ db/migrate/20181006095858_add_initiator_to_session.rb:3
+  [1m[35m (0.2ms)[0m  [1m[31mrollback transaction[0m
+  ↳ /usr/local/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /usr/local/bin/rake:23
+Migrating to AddInitiatorToSession (20181006095858)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ /usr/local/bin/rake:23
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ db/migrate/20181006095858_add_initiator_to_session.rb:3
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TEMPORARY TABLE "asessions" ("id" integer NOT NULL PRIMARY KEY, "name" varchar DEFAULT NULL, "time" datetime DEFAULT NULL, "transcript" text DEFAULT NULL, "task_ids" integer DEFAULT NULL, "user_id" integer DEFAULT NULL, "votes_id" integer DEFAULT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "details" text DEFAULT NULL, "invite" text DEFAULT NULL, "auth" varchar DEFAULT NULL)[0m
+  ↳ db/migrate/20181006095858_add_initiator_to_session.rb:3
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "tindex_asessions_on_task_ids" ON "asessions" ("task_ids")[0m
+  ↳ db/migrate/20181006095858_add_initiator_to_session.rb:3
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "tindex_asessions_on_votes_id" ON "asessions" ("votes_id")[0m
+  ↳ db/migrate/20181006095858_add_initiator_to_session.rb:3
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "asessions" ("id","name","time","transcript","task_ids","user_id","votes_id","created_at","updated_at","details","invite","auth")
+                     SELECT "id","name","time","transcript","task_ids","users_id","votes_id","created_at","updated_at","details","invite","auth" FROM "sessions"[0m
+  ↳ db/migrate/20181006095858_add_initiator_to_session.rb:3
+  [1m[35m (0.6ms)[0m  [1m[35mDROP TABLE "sessions"[0m
+  ↳ db/migrate/20181006095858_add_initiator_to_session.rb:3
+  [1m[35m (0.2ms)[0m  [1m[31mrollback transaction[0m
+  ↳ /usr/local/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /usr/local/bin/rake:23
+Migrating to AddInitiatorToSession (20181006095858)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ /usr/local/bin/rake:23
+  [1m[36mActiveRecord::SchemaMigration Create (2.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20181006095858"]]
+  ↳ /usr/local/bin/rake:23
+  [1m[35m (86.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ /usr/local/bin/rake:23
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ /usr/local/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ /usr/local/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ /usr/local/bin/rake:23
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /usr/local/bin/rake:23
+Started GET "/" for 127.0.0.1 at 2018-10-06 13:38:26 +0300
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /usr/local/lib/ruby/gems/2.5.0/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Processing by SessionsController#home as HTML
+  Rendered sessions/_uauth.html.erb (108.2ms)
+Filter chain halted as :currentu rendered or redirected
+Completed 200 OK in 119ms (Views: 112.5ms | ActiveRecord: 0.0ms)
+
+
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+Started POST "/" for 127.0.0.1 at 2018-10-06 13:38:53 +0300
+Processing by SessionsController#uauth as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"i3IB7YI6NrLeEIjmxi131wL6ynKxLsMNfor5qApKX3NrhA+amcmKNChztvqNKPrMOcTN3G1o1rpo1XvyZ3JiSQ==", "auth"=>"bc7b7166", "commit"=>"Authenticate"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."auth" = ? LIMIT ?[0m  [["auth", "bc7b7166"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:8
+Redirected to http://localhost:3000/
+Completed 302 Found in 13ms (ActiveRecord: 0.8ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-10-06 13:38:53 +0300
+Processing by SessionsController#home as HTML
+  Rendering sessions/home.html.erb within layouts/application
+  Rendered sessions/home.html.erb within layouts/application (7.9ms)
+Completed 200 OK in 221ms (Views: 208.0ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/sessions" for 127.0.0.1 at 2018-10-06 13:38:59 +0300
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"8cPGzu3460f88dgcSvJJDTDr953a6zK4JOYQmbSZBO8cbjAfn26XUO6Ic8Qnyn+a9FlVJKPfbCvCz8zA7ddXRQ==", "session"=>{"name"=>"aseasasdsad", "time(1i)"=>"2018", "time(2i)"=>"10", "time(3i)"=>"6", "details"=>"asffsadsdfa", "invite"=>"fdafsadfsd"}, "commit"=>"Create Session"}
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 0.0ms)
+
+
+  
+NoMethodError (undefined method `id' for nil:NilClass):
+  
+app/controllers/sessions_controller.rb:49:in `create'
+Started POST "/sessions" for 127.0.0.1 at 2018-10-06 13:39:26 +0300
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"8cPGzu3460f88dgcSvJJDTDr953a6zK4JOYQmbSZBO8cbjAfn26XUO6Ic8Qnyn+a9FlVJKPfbCvCz8zA7ddXRQ==", "session"=>{"name"=>"aseasasdsad", "time(1i)"=>"2018", "time(2i)"=>"10", "time(3i)"=>"6", "details"=>"asffsadsdfa", "invite"=>"fdafsadfsd"}, "commit"=>"Create Session"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/sessions_controller.rb:50
+  [1m[36mSession Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "sessions" WHERE "sessions"."auth" = ? LIMIT ?[0m  [["auth", "dd4d80f7"], ["LIMIT", 1]]
+  ↳ app/models/concerns/friendlyable.rb:21
+  [1m[36mSession Create (0.3ms)[0m  [1m[32mINSERT INTO "sessions" ("name", "time", "users_id", "created_at", "updated_at", "details", "invite", "auth") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "aseasasdsad"], ["time", "2018-10-06 00:00:00"], ["users_id", 160], ["created_at", "2018-10-06 10:39:26.770549"], ["updated_at", "2018-10-06 10:39:26.770549"], ["details", "asffsadsdfa"], ["invite", "fdafsadfsd"], ["auth", "dd4d80f7"]]
+  ↳ app/controllers/sessions_controller.rb:50
+  [1m[35m (110.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/sessions_controller.rb:50
+Redirected to http://localhost:3000/sessions/6
+Completed 302 Found in 147ms (ActiveRecord: 112.8ms)
+
+
+Started GET "/sessions/6" for 127.0.0.1 at 2018-10-06 13:39:26 +0300
+Processing by SessionsController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mSession Load (0.4ms)[0m  [1m[34mSELECT  "sessions".* FROM "sessions" WHERE "sessions"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:28
+  [1m[36mTask Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "tasks" LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:29
+  Rendering sessions/show.html.erb within layouts/application
+  [1m[36mTask Load (0.2ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."session_id" = ?[0m  [["session_id", 6]]
+  ↳ app/views/sessions/_tasks_loop.html.erb:2
+  Rendered sessions/_tasks_loop.html.erb (1.2ms)
+  Rendered sessions/_addtask.html.erb (20.4ms)
+  Rendered sessions/show.html.erb within layouts/application (36.1ms)
+Completed 200 OK in 113ms (Views: 71.7ms | ActiveRecord: 1.1ms)
+
+
+  [1m[36mSession Load (0.4ms)[0m  [1m[34mSELECT  "sessions".* FROM "sessions" ORDER BY "sessions"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 160], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+Started GET "/sessions/6" for 127.0.0.1 at 2018-10-06 14:16:08 +0300
+Processing by SessionsController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mSession Load (0.2ms)[0m  [1m[34mSELECT  "sessions".* FROM "sessions" WHERE "sessions"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:28
+  [1m[36mTask Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "tasks" LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:29
+  Rendering sessions/show.html.erb within layouts/application
+  [1m[36mTask Load (0.2ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."session_id" = ?[0m  [["session_id", 6]]
+  ↳ app/views/sessions/_tasks_loop.html.erb:2
+  Rendered sessions/_tasks_loop.html.erb (1.1ms)
+  Rendered sessions/_addtask.html.erb (9.3ms)
+  Rendered sessions/show.html.erb within layouts/application (12.6ms)
+Completed 200 OK in 51ms (Views: 48.9ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/sessions/6" for 127.0.0.1 at 2018-10-06 14:16:21 +0300
+Processing by SessionsController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mSession Load (0.2ms)[0m  [1m[34mSELECT  "sessions".* FROM "sessions" WHERE "sessions"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:28
+  [1m[36mTask Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "tasks" LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:29
+  Rendering sessions/show.html.erb within layouts/application
+  [1m[36mTask Load (0.3ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."session_id" = ?[0m  [["session_id", 6]]
+  ↳ app/views/sessions/_tasks_loop.html.erb:2
+  Rendered sessions/_tasks_loop.html.erb (1.7ms)
+  Rendered sessions/_addtask.html.erb (9.5ms)
+  Rendered sessions/show.html.erb within layouts/application (14.5ms)
+Completed 200 OK in 59ms (Views: 55.3ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/sessions/6" for 127.0.0.1 at 2018-10-06 14:16:30 +0300
+Processing by SessionsController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mSession Load (0.2ms)[0m  [1m[34mSELECT  "sessions".* FROM "sessions" WHERE "sessions"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:28
+  [1m[36mTask Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "tasks" LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:29
+  Rendering sessions/show.html.erb within layouts/application
+  [1m[36mTask Load (0.2ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."session_id" = ?[0m  [["session_id", 6]]
+  ↳ app/views/sessions/_tasks_loop.html.erb:2
+  Rendered sessions/_tasks_loop.html.erb (1.6ms)
+  Rendered sessions/_addtask.html.erb (8.3ms)
+  Rendered sessions/show.html.erb within layouts/application (13.1ms)
+Completed 200 OK in 52ms (Views: 48.7ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/sessions/6" for 127.0.0.1 at 2018-10-06 15:31:08 +0300
+Processing by SessionsController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mSession Load (0.1ms)[0m  [1m[34mSELECT  "sessions".* FROM "sessions" WHERE "sessions"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:28
+  [1m[36mTask Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "tasks" LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:29
+  Rendering sessions/show.html.erb within layouts/application
+  [1m[36mTask Load (0.2ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."session_id" = ?[0m  [["session_id", 6]]
+  ↳ app/views/sessions/_tasks_loop.html.erb:2
+  Rendered sessions/_tasks_loop.html.erb (1.1ms)
+  Rendered sessions/_addtask.html.erb (9.6ms)
+  Rendered sessions/show.html.erb within layouts/application (12.7ms)
+Completed 200 OK in 86ms (Views: 59.7ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/sessions/6" for 127.0.0.1 at 2018-10-06 15:31:25 +0300
+Processing by SessionsController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mSession Load (0.1ms)[0m  [1m[34mSELECT  "sessions".* FROM "sessions" WHERE "sessions"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:28
+  [1m[36mTask Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "tasks" LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:29
+  Rendering sessions/show.html.erb within layouts/application
+  [1m[36mTask Load (0.3ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."session_id" = ?[0m  [["session_id", 6]]
+  ↳ app/views/sessions/_tasks_loop.html.erb:2
+  Rendered sessions/_tasks_loop.html.erb (1.8ms)
+  Rendered sessions/_addtask.html.erb (7.4ms)
+  Rendered sessions/show.html.erb within layouts/application (11.1ms)
+Completed 200 OK in 57ms (Views: 52.6ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/sessions/6" for 127.0.0.1 at 2018-10-06 15:31:37 +0300
+Processing by SessionsController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mSession Load (0.1ms)[0m  [1m[34mSELECT  "sessions".* FROM "sessions" WHERE "sessions"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:28
+  [1m[36mTask Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "tasks" LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:29
+  Rendering sessions/show.html.erb within layouts/application
+  [1m[36mTask Load (0.2ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."session_id" = ?[0m  [["session_id", 6]]
+  ↳ app/views/sessions/_tasks_loop.html.erb:2
+  Rendered sessions/_tasks_loop.html.erb (1.5ms)
+  Rendered sessions/_addtask.html.erb (10.0ms)
+  Rendered sessions/show.html.erb within layouts/application (14.2ms)
+Completed 200 OK in 57ms (Views: 55.0ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/sessions/6" for 127.0.0.1 at 2018-10-06 15:31:51 +0300
+Processing by SessionsController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mSession Load (0.1ms)[0m  [1m[34mSELECT  "sessions".* FROM "sessions" WHERE "sessions"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:28
+  [1m[36mTask Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "tasks" LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:29
+  Rendering sessions/show.html.erb within layouts/application
+  [1m[36mTask Load (0.2ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."session_id" = ?[0m  [["session_id", 6]]
+  ↳ app/views/sessions/_tasks_loop.html.erb:2
+  Rendered sessions/_tasks_loop.html.erb (1.0ms)
+  Rendered sessions/_addtask.html.erb (8.9ms)
+  Rendered sessions/show.html.erb within layouts/application (11.5ms)
+Completed 200 OK in 51ms (Views: 48.6ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/sessions/6" for 127.0.0.1 at 2018-10-06 15:32:11 +0300
+Processing by SessionsController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mSession Load (0.1ms)[0m  [1m[34mSELECT  "sessions".* FROM "sessions" WHERE "sessions"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:28
+  [1m[36mTask Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "tasks" LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:29
+  Rendering sessions/show.html.erb within layouts/application
+  [1m[36mTask Load (0.1ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."session_id" = ?[0m  [["session_id", 6]]
+  ↳ app/views/sessions/_tasks_loop.html.erb:2
+  Rendered sessions/_tasks_loop.html.erb (0.9ms)
+  Rendered sessions/_addtask.html.erb (10.9ms)
+  Rendered sessions/show.html.erb within layouts/application (13.8ms)
+Completed 200 OK in 58ms (Views: 55.5ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/sessions/6" for 127.0.0.1 at 2018-10-06 15:32:34 +0300
+Processing by SessionsController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mSession Load (0.1ms)[0m  [1m[34mSELECT  "sessions".* FROM "sessions" WHERE "sessions"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:28
+  [1m[36mTask Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "tasks" LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:29
+  Rendering sessions/show.html.erb within layouts/application
+  [1m[36mTask Load (0.2ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."session_id" = ?[0m  [["session_id", 6]]
+  ↳ app/views/sessions/_tasks_loop.html.erb:2
+  Rendered sessions/_tasks_loop.html.erb (1.0ms)
+  Rendered sessions/_addtask.html.erb (7.5ms)
+  Rendered sessions/show.html.erb within layouts/application (10.7ms)
+Completed 200 OK in 64ms (Views: 61.3ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/insession" for 127.0.0.1 at 2018-10-06 15:33:00 +0300
+Processing by InsessionController#started as HTML
+  Rendering insession/started.html.erb within layouts/application
+  Rendered insession/started.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 44ms (Views: 42.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/sessions/6" for 127.0.0.1 at 2018-10-06 15:33:55 +0300
+Processing by SessionsController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mSession Load (0.1ms)[0m  [1m[34mSELECT  "sessions".* FROM "sessions" WHERE "sessions"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:28
+  [1m[36mTask Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "tasks" LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:29
+  Rendering sessions/show.html.erb within layouts/application
+  [1m[36mTask Load (0.2ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."session_id" = ?[0m  [["session_id", 6]]
+  ↳ app/views/sessions/_tasks_loop.html.erb:2
+  Rendered sessions/_tasks_loop.html.erb (1.4ms)
+  Rendered sessions/_addtask.html.erb (10.3ms)
+  Rendered sessions/show.html.erb within layouts/application (14.2ms)
+Completed 200 OK in 61ms (Views: 58.2ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/sessions/6" for 127.0.0.1 at 2018-10-06 15:35:00 +0300
+Processing by SessionsController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mSession Load (0.1ms)[0m  [1m[34mSELECT  "sessions".* FROM "sessions" WHERE "sessions"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:28
+  [1m[36mTask Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "tasks" LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:29
+  Rendering sessions/show.html.erb within layouts/application
+  [1m[36mTask Load (0.2ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."session_id" = ?[0m  [["session_id", 6]]
+  ↳ app/views/sessions/_tasks_loop.html.erb:2
+  Rendered sessions/_tasks_loop.html.erb (1.0ms)
+  Rendered sessions/_addtask.html.erb (11.4ms)
+  Rendered sessions/show.html.erb within layouts/application (14.1ms)
+Completed 200 OK in 51ms (Views: 48.7ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/sessions/6" for 127.0.0.1 at 2018-10-06 15:35:23 +0300
+Processing by SessionsController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mSession Load (0.1ms)[0m  [1m[34mSELECT  "sessions".* FROM "sessions" WHERE "sessions"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:28
+  [1m[36mTask Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "tasks" LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:29
+  Rendering sessions/show.html.erb within layouts/application
+  [1m[36mTask Load (0.3ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."session_id" = ?[0m  [["session_id", 6]]
+  ↳ app/views/sessions/_tasks_loop.html.erb:2
+  Rendered sessions/_tasks_loop.html.erb (2.0ms)
+  Rendered sessions/_addtask.html.erb (8.9ms)
+  Rendered sessions/show.html.erb within layouts/application (14.3ms)
+Completed 200 OK in 59ms (Views: 55.4ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/sessions/6" for 127.0.0.1 at 2018-10-06 15:36:17 +0300
+Processing by SessionsController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mSession Load (0.1ms)[0m  [1m[34mSELECT  "sessions".* FROM "sessions" WHERE "sessions"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:28
+  [1m[36mTask Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "tasks" LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:29
+  Rendering sessions/show.html.erb within layouts/application
+  [1m[36mTask Load (0.2ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."session_id" = ?[0m  [["session_id", 6]]
+  ↳ app/views/sessions/_tasks_loop.html.erb:2
+  Rendered sessions/_tasks_loop.html.erb (1.4ms)
+  Rendered sessions/_addtask.html.erb (9.8ms)
+  Rendered sessions/show.html.erb within layouts/application (13.8ms)
+Completed 200 OK in 58ms (Views: 55.5ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/insession" for 127.0.0.1 at 2018-10-06 15:36:22 +0300
+Processing by InsessionController#started as HTML
+  Rendering insession/started.html.erb within layouts/application
+  Rendered insession/started.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 53ms (Views: 52.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/sessions/6" for 127.0.0.1 at 2018-10-06 15:36:47 +0300
+Processing by SessionsController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mSession Load (0.1ms)[0m  [1m[34mSELECT  "sessions".* FROM "sessions" WHERE "sessions"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:28
+  [1m[36mTask Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "tasks" LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:29
+  Rendering sessions/show.html.erb within layouts/application
+  Rendered sessions/show.html.erb within layouts/application (0.8ms)
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.2ms)
+
+
+  
+SyntaxError (/home/pb/Sincos/app/views/sessions/show.html.erb:28: syntax error, unexpected tIDENTIFIER, expecting ')'
+..., class:'btn btn-primary' style:"width:100%" );@output_buffe...
+...                          ^~~~~):
+  
+app/views/sessions/show.html.erb:28: syntax error, unexpected tIDENTIFIER, expecting ')'
+Started GET "/sessions/6" for 127.0.0.1 at 2018-10-06 15:36:55 +0300
+Processing by SessionsController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mSession Load (0.2ms)[0m  [1m[34mSELECT  "sessions".* FROM "sessions" WHERE "sessions"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:28
+  [1m[36mTask Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "tasks" LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:29
+  Rendering sessions/show.html.erb within layouts/application
+  [1m[36mTask Load (0.2ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."session_id" = ?[0m  [["session_id", 6]]
+  ↳ app/views/sessions/_tasks_loop.html.erb:2
+  Rendered sessions/_tasks_loop.html.erb (1.9ms)
+  Rendered sessions/_addtask.html.erb (13.5ms)
+  Rendered sessions/show.html.erb within layouts/application (18.5ms)
+Completed 200 OK in 62ms (Views: 59.1ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/insession" for 127.0.0.1 at 2018-10-06 16:18:57 +0300
+Processing by InsessionController#started as HTML
+  Rendering insession/started.html.erb within layouts/application
+  Rendered insession/started.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 44ms (Views: 42.8ms | ActiveRecord: 0.0ms)
+
+
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /usr/local/bin/rake:23
+Migrating to AddStateToSession (20181006134443)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ /usr/local/bin/rake:23
+  [1m[35m (0.4ms)[0m  [1m[35mALTER TABLE "sessions" ADD "state" varchar[0m
+  ↳ db/migrate/20181006134443_add_state_to_session.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20181006134443"]]
+  ↳ /usr/local/bin/rake:23
+  [1m[35m (67.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ /usr/local/bin/rake:23
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ /usr/local/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ /usr/local/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ /usr/local/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /usr/local/bin/rake:23
+Started GET "/insession" for 127.0.0.1 at 2018-10-06 16:48:42 +0300
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /usr/local/lib/ruby/gems/2.5.0/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Processing by InsessionController#started as HTML
+  Rendering insession/started.html.erb within layouts/application
+  Rendered insession/started.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 48ms (Views: 47.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-10-06 16:48:56 +0300
+Processing by SessionsController#home as HTML
+  Rendering sessions/home.html.erb within layouts/application
+  Rendered sessions/home.html.erb within layouts/application (12.7ms)
+Completed 200 OK in 79ms (Views: 57.0ms | ActiveRecord: 1.2ms)
+
+
+Started POST "/sessions" for 127.0.0.1 at 2018-10-06 18:19:22 +0300
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"NBScy9l7XCb8OuTGLAXt1Ku6wRwDDEddbMxb7/PNvz/ZuWoaq+0gMe5DTx5BPdtDbwhjpXo4Gc6K5Ye2qoPslQ==", "session"=>{"name"=>"theSubject", "time(1i)"=>"2018", "time(2i)"=>"10", "time(3i)"=>"6", "details"=>"fsadf", "invite"=>"sdfa"}, "commit"=>"Create Session"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/sessions_controller.rb:50
+  [1m[36mSession Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "sessions" WHERE "sessions"."auth" = ? LIMIT ?[0m  [["auth", "17196fb5"], ["LIMIT", 1]]
+  ↳ app/models/concerns/friendlyable.rb:21
+  [1m[36mSession Create (1.0ms)[0m  [1m[32mINSERT INTO "sessions" ("name", "time", "users_id", "created_at", "updated_at", "details", "invite", "auth") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "theSubject"], ["time", "2018-10-06 00:00:00"], ["users_id", 160], ["created_at", "2018-10-06 15:19:22.425236"], ["updated_at", "2018-10-06 15:19:22.425236"], ["details", "fsadf"], ["invite", "sdfa"], ["auth", "17196fb5"]]
+  ↳ app/controllers/sessions_controller.rb:50
+  [1m[35m (107.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/sessions_controller.rb:50
+Redirected to http://localhost:3000/sessions/7
+Completed 302 Found in 117ms (ActiveRecord: 108.3ms)
+
+
+Started GET "/sessions/7" for 127.0.0.1 at 2018-10-06 18:19:22 +0300
+Processing by SessionsController#show as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mSession Load (0.2ms)[0m  [1m[34mSELECT  "sessions".* FROM "sessions" WHERE "sessions"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:28
+  [1m[36mTask Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "tasks" LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:29
+  Rendering sessions/show.html.erb within layouts/application
+  [1m[36mTask Load (0.2ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."session_id" = ?[0m  [["session_id", 7]]
+  ↳ app/views/sessions/_tasks_loop.html.erb:2
+  Rendered sessions/_tasks_loop.html.erb (1.2ms)
+  Rendered sessions/_addtask.html.erb (8.7ms)
+  Rendered sessions/show.html.erb within layouts/application (12.9ms)
+Completed 200 OK in 73ms (Views: 53.4ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/insession" for 127.0.0.1 at 2018-10-06 18:19:29 +0300
+Processing by InsessionController#started as HTML
+  Rendering insession/started.html.erb within layouts/application
+  Rendered insession/started.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 46ms (Views: 45.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/insession" for 127.0.0.1 at 2018-10-06 18:48:34 +0300
+Processing by InsessionController#started as HTML
+Completed 500 Internal Server Error in 93ms (ActiveRecord: 0.0ms)
+
+
+  
+NoMethodError (undefined method `genqr' for #<InsessionController:0x00007fbdc52fab18>):
+  
+app/controllers/insession_controller.rb:4:in `started'
+Started GET "/insession" for 127.0.0.1 at 2018-10-06 18:49:29 +0300
+Processing by InsessionController#started as HTML
+Completed 500 Internal Server Error in 152ms (ActiveRecord: 0.0ms)
+
+
+  
+NoMethodError (undefined method `genqr' for #<InsessionController:0x00007fbdc55ffd68>):
+  
+app/controllers/insession_controller.rb:4:in `started'
+Started GET "/insession" for 127.0.0.1 at 2018-10-06 18:51:04 +0300
+  
+ActionController::RoutingError (uninitialized constant InsessionController::QR):
+  
+app/controllers/insession_controller.rb:2:in `<class:InsessionController>'
+app/controllers/insession_controller.rb:1:in `<main>'
+Started GET "/insession" for 127.0.0.1 at 2018-10-06 18:51:57 +0300
+Processing by InsessionController#started as HTML
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.0ms)
+
+
+  
+RQRCode::QRCodeRunTimeError (code length overflow. (348>288). (Try a larger size!)):
+  
+app/helpers/insession_helper.rb:7:in `new'
+app/helpers/insession_helper.rb:7:in `genqr'
+app/controllers/insession_controller.rb:6:in `started'
+Started GET "/insession" for 127.0.0.1 at 2018-10-06 18:52:09 +0300
+Processing by InsessionController#started as HTML
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms)
+
+
+  
+RQRCode::QRCodeRunTimeError (code length overflow. (548>288). (Try a larger size!)):
+  
+app/helpers/insession_helper.rb:7:in `new'
+app/helpers/insession_helper.rb:7:in `genqr'
+app/controllers/insession_controller.rb:6:in `started'
+Started GET "/insession" for 127.0.0.1 at 2018-10-06 18:52:17 +0300
+Processing by InsessionController#started as HTML
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.0ms)
+
+
+  
+RQRCode::QRCodeRunTimeError (code length overflow. (572>288). (Try a larger size!)):
+  
+app/helpers/insession_helper.rb:7:in `new'
+app/helpers/insession_helper.rb:7:in `genqr'
+app/controllers/insession_controller.rb:6:in `started'
+Started GET "/insession" for 127.0.0.1 at 2018-10-06 18:52:23 +0300
+Processing by InsessionController#started as HTML
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.0ms)
+
+
+  
+RQRCode::QRCodeRunTimeError (code length overflow. (596>288). (Try a larger size!)):
+  
+app/helpers/insession_helper.rb:7:in `new'
+app/helpers/insession_helper.rb:7:in `genqr'
+app/controllers/insession_controller.rb:6:in `started'
+Started GET "/insession" for 127.0.0.1 at 2018-10-06 18:52:42 +0300
+Processing by InsessionController#started as HTML
+  Rendering insession/started.html.erb within layouts/application
+  Rendered insession/started.html.erb within layouts/application (4.6ms)
+Completed 200 OK in 172ms (Views: 41.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/insession" for 127.0.0.1 at 2018-10-06 18:52:53 +0300
+Processing by InsessionController#started as HTML
+  Rendering insession/started.html.erb within layouts/application
+  Rendered insession/started.html.erb within layouts/application (4.3ms)
+Completed 200 OK in 148ms (Views: 50.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/insession" for 127.0.0.1 at 2018-10-06 18:53:00 +0300
+Processing by InsessionController#started as HTML
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.0ms)
+
+
+  
+RQRCode::QRCodeRunTimeError (code length overflow. (596>480). (Try a larger size!)):
+  
+app/helpers/insession_helper.rb:7:in `new'
+app/helpers/insession_helper.rb:7:in `genqr'
+app/controllers/insession_controller.rb:6:in `started'
+Started GET "/insession" for 127.0.0.1 at 2018-10-06 18:53:09 +0300
+Processing by InsessionController#started as HTML
+  Rendering insession/started.html.erb within layouts/application
+  Rendered insession/started.html.erb within layouts/application (3.8ms)
+Completed 200 OK in 132ms (Views: 39.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/insession" for 127.0.0.1 at 2018-10-06 18:53:32 +0300
+Processing by InsessionController#started as HTML
+  Rendering insession/started.html.erb within layouts/application
+  Rendered insession/started.html.erb within layouts/application (4.2ms)
+Completed 200 OK in 141ms (Views: 47.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/insession" for 127.0.0.1 at 2018-10-06 18:54:01 +0300
+Processing by InsessionController#started as HTML
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.0ms)
+
+
+  
+RQRCode::QRCodeRunTimeError (code length overflow. (460>288). (Try a larger size!)):
+  
+app/helpers/insession_helper.rb:7:in `new'
+app/helpers/insession_helper.rb:7:in `genqr'
+app/controllers/insession_controller.rb:6:in `started'
+Started GET "/insession" for 127.0.0.1 at 2018-10-06 18:54:12 +0300
+Processing by InsessionController#started as HTML
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms)
+
+
+  
+RQRCode::QRCodeRunTimeError (code length overflow. (460>368). (Try a larger size!)):
+  
+app/helpers/insession_helper.rb:7:in `new'
+app/helpers/insession_helper.rb:7:in `genqr'
+app/controllers/insession_controller.rb:6:in `started'
+Started GET "/insession" for 127.0.0.1 at 2018-10-06 18:54:21 +0300
+Processing by InsessionController#started as HTML
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms)
+
+
+  
+RQRCode::QRCodeRunTimeError (code length overflow. (460>368). (Try a larger size!)):
+  
+app/helpers/insession_helper.rb:7:in `new'
+app/helpers/insession_helper.rb:7:in `genqr'
+app/controllers/insession_controller.rb:6:in `started'
+Started GET "/insession" for 127.0.0.1 at 2018-10-06 19:22:32 +0300
+Processing by InsessionController#started as HTML
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.0ms)
+
+
+  
+RQRCode::QRCodeRunTimeError (code length overflow. (460>368). (Try a larger size!)):
+  
+app/helpers/insession_helper.rb:7:in `new'
+app/helpers/insession_helper.rb:7:in `genqr'
+app/controllers/insession_controller.rb:6:in `started'
+Started GET "/insession" for 127.0.0.1 at 2018-10-06 19:28:13 +0300
+Processing by InsessionController#started as HTML
+  Rendering insession/started.html.erb within layouts/application
+  Rendered insession/started.html.erb within layouts/application (3.1ms)
+Completed 200 OK in 141ms (Views: 41.7ms | ActiveRecord: 0.0ms)
+
+

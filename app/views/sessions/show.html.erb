@@ -23,8 +23,12 @@
 </div>
       <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
         <div class="card-body">
-          <h6><%= @session.details %></h6>  <br>
-
+          <div class="col-12-md">
+            <button class="btn btn-primary" style="width:100%"> <!2 buttons >
+                <%= link_to 'Start', insession_path, class:'btn btn-primary', style:"width:100%" %>
+            </button>
+            <h6><%= @session.details %></h6>  <br>
+          </div>
         </div>
       </div>
 

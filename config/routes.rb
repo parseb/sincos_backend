@@ -4,6 +4,8 @@ get '/', to: 'sessions#home'
 
 post '/', to: 'sessions#uauth'
 
+get '/insession', to: 'insession#started'
+
 resources :sessions
 resources :tasks
 

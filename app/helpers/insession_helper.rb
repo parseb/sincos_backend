@@ -3,8 +3,8 @@ module InsessionHelper
 
 
   def genqr(link)
-      q= "http://localhost:3000/"+ link
-      qrcode= RQRCode::QRCode.new(q, :size => 4, :level => :h)
+      q= "http://localhost:3000/"+ link  #handle not localhost
+      @qrcode= RQRCode::QRCode.new(q, :size => 8, :level => :h)
 
   end
 

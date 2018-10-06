@@ -46,7 +46,7 @@ before_action :currentu, only: [:home]
   def create
       create= Session.new(session_params)
       #byebug
-
+      create.users_id = $currentu.id
        if create.save!
          flash[:success]="Session Created"
        end
