@@ -52201,3 +52201,1833 @@ Processing by InsessionController#started as HTML
 Completed 200 OK in 141ms (Views: 41.7ms | ActiveRecord: 0.0ms)
 
 
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /usr/local/bin/rake:23
+Migrating to GutentagTables (20181006164907)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ /usr/local/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ db/migrate/20181006164907_gutentag_tables.gutentag.rb:8
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE TABLE "gutentag_taggings" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "tag_id" integer NOT NULL, "taggable_id" integer NOT NULL, "taggable_type" varchar NOT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20181006164907_gutentag_tables.gutentag.rb:8
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "index_gutentag_taggings_on_tag_id" ON "gutentag_taggings" ("tag_id")[0m
+  ↳ db/migrate/20181006164907_gutentag_tables.gutentag.rb:15
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "index_gutentag_taggings_on_taggable_type_and_taggable_id" ON "gutentag_taggings" ("taggable_type", "taggable_id")[0m
+  ↳ db/migrate/20181006164907_gutentag_tables.gutentag.rb:16
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE UNIQUE INDEX "unique_taggings" ON "gutentag_taggings" ("taggable_type", "taggable_id", "tag_id")[0m
+  ↳ db/migrate/20181006164907_gutentag_tables.gutentag.rb:17
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "gutentag_tags" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar NOT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20181006164907_gutentag_tables.gutentag.rb:20
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_gutentag_tags_on_name" ON "gutentag_tags" ("name")[0m
+  ↳ db/migrate/20181006164907_gutentag_tables.gutentag.rb:25
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20181006164907"]]
+  ↳ /usr/local/bin/rake:23
+  [1m[35m (211.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ /usr/local/bin/rake:23
+Migrating to GutentagCacheCounter (20181006164908)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ /usr/local/bin/rake:23
+  [1m[35m (1.1ms)[0m  [1m[35mALTER TABLE "gutentag_tags" ADD "taggings_count" integer DEFAULT 0[0m
+  ↳ db/migrate/20181006164908_gutentag_cache_counter.gutentag.rb:8
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE  INDEX "index_gutentag_tags_on_taggings_count" ON "gutentag_tags" ("taggings_count")[0m
+  ↳ db/migrate/20181006164908_gutentag_cache_counter.gutentag.rb:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "gutentag_tags"."id" FROM "gutentag_tags"[0m
+  ↳ db/migrate/20181006164908_gutentag_cache_counter.gutentag.rb:12
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20181006164908"]]
+  ↳ /usr/local/bin/rake:23
+  [1m[35m (91.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ /usr/local/bin/rake:23
+Migrating to NoNullCounters (20181006164909)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ /usr/local/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TEMPORARY TABLE "agutentag_tags" ("id" integer NOT NULL PRIMARY KEY, "name" varchar NOT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "taggings_count" integer DEFAULT 0)[0m
+  ↳ db/migrate/20181006164909_no_null_counters.gutentag.rb:8
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "tindex_agutentag_tags_on_taggings_count" ON "agutentag_tags" ("taggings_count")[0m
+  ↳ db/migrate/20181006164909_no_null_counters.gutentag.rb:8
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE UNIQUE INDEX "tindex_agutentag_tags_on_name" ON "agutentag_tags" ("name")[0m
+  ↳ db/migrate/20181006164909_no_null_counters.gutentag.rb:8
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "agutentag_tags" ("id","name","created_at","updated_at","taggings_count")
+                     SELECT "id","name","created_at","updated_at","taggings_count" FROM "gutentag_tags"[0m
+  ↳ db/migrate/20181006164909_no_null_counters.gutentag.rb:8
+  [1m[35m (0.4ms)[0m  [1m[35mDROP TABLE "gutentag_tags"[0m
+  ↳ db/migrate/20181006164909_no_null_counters.gutentag.rb:8
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "gutentag_tags" ("id" integer NOT NULL PRIMARY KEY, "name" varchar NOT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "taggings_count" integer DEFAULT 0 NOT NULL)[0m
+  ↳ db/migrate/20181006164909_no_null_counters.gutentag.rb:8
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_gutentag_tags_on_name" ON "gutentag_tags" ("name")[0m
+  ↳ db/migrate/20181006164909_no_null_counters.gutentag.rb:8
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "index_gutentag_tags_on_taggings_count" ON "gutentag_tags" ("taggings_count")[0m
+  ↳ db/migrate/20181006164909_no_null_counters.gutentag.rb:8
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "gutentag_tags" ("id","name","created_at","updated_at","taggings_count")
+                     SELECT "id","name","created_at","updated_at","taggings_count" FROM "agutentag_tags"[0m
+  ↳ db/migrate/20181006164909_no_null_counters.gutentag.rb:8
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "agutentag_tags"[0m
+  ↳ db/migrate/20181006164909_no_null_counters.gutentag.rb:8
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20181006164909"]]
+  ↳ /usr/local/bin/rake:23
+  [1m[35m (67.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ /usr/local/bin/rake:23
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ /usr/local/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ /usr/local/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ /usr/local/bin/rake:23
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /usr/local/bin/rake:23
+  [1m[35m (39.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  [1m[35m (47.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "sessions"[0m
+  [1m[35m (6.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "tasks"[0m
+  [1m[36mTask Load (22.8ms)[0m  [1m[34mSELECT  "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mTask Load (22.5ms)[0m  [1m[34mSELECT  "tasks".* FROM "tasks" ORDER BY "tasks"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+Started GET "/" for 127.0.0.1 at 2018-10-07 12:00:58 +0300
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /usr/local/lib/ruby/gems/2.5.0/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Processing by SessionsController#home as HTML
+  Rendered sessions/_uauth.html.erb (364.6ms)
+Filter chain halted as :currentu rendered or redirected
+Completed 200 OK in 387ms (Views: 380.6ms | ActiveRecord: 0.0ms)
+
+
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+Started POST "/" for 127.0.0.1 at 2018-10-07 12:01:49 +0300
+Processing by SessionsController#uauth as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Qc6GsIx0Hm6AZjaCLj7PTrm7DYWu74PsKjv01kVsovbGRBuo4BUeitQ6RbO2GjfVAMfbEwO1B4lFMio4WOcnRQ==", "auth"=>"22b61465", "commit"=>"Authenticate"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."auth" = ? LIMIT ?[0m  [["auth", "22b61465"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:8
+Redirected to http://localhost:3000/
+Completed 302 Found in 12ms (ActiveRecord: 0.7ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-10-07 12:01:49 +0300
+Processing by SessionsController#home as HTML
+  Rendering sessions/home.html.erb within layouts/application
+  [1m[36mSession Load (13.1ms)[0m  [1m[34mSELECT  "sessions".* FROM "sessions" LIMIT ?[0m  [["LIMIT", 11]]
+  ↳ /usr/local/lib/ruby/gems/2.5.0/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+  [1m[36mCACHE Session Load (0.0ms)[0m  [1m[34mSELECT  "sessions".* FROM "sessions" LIMIT ?[0m  [["LIMIT", 11]]
+  ↳ /usr/local/lib/ruby/gems/2.5.0/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+  [1m[36mCACHE Session Load (0.0ms)[0m  [1m[34mSELECT  "sessions".* FROM "sessions" LIMIT ?[0m  [["LIMIT", 11]]
+  ↳ /usr/local/lib/ruby/gems/2.5.0/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+  [1m[36mCACHE Session Load (0.0ms)[0m  [1m[34mSELECT  "sessions".* FROM "sessions" LIMIT ?[0m  [["LIMIT", 11]]
+  ↳ /usr/local/lib/ruby/gems/2.5.0/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+  [1m[36mCACHE Session Load (0.0ms)[0m  [1m[34mSELECT  "sessions".* FROM "sessions" LIMIT ?[0m  [["LIMIT", 11]]
+  ↳ /usr/local/lib/ruby/gems/2.5.0/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+  [1m[36mCACHE Session Load (0.0ms)[0m  [1m[34mSELECT  "sessions".* FROM "sessions" LIMIT ?[0m  [["LIMIT", 11]]
+  ↳ /usr/local/lib/ruby/gems/2.5.0/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+  [1m[36mCACHE Session Load (0.0ms)[0m  [1m[34mSELECT  "sessions".* FROM "sessions" LIMIT ?[0m  [["LIMIT", 11]]
+  ↳ /usr/local/lib/ruby/gems/2.5.0/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+  [1m[36mCACHE Session Load (0.0ms)[0m  [1m[34mSELECT  "sessions".* FROM "sessions" LIMIT ?[0m  [["LIMIT", 11]]
+  ↳ /usr/local/lib/ruby/gems/2.5.0/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+  Rendered sessions/home.html.erb within layouts/application (367.2ms)
+Completed 500 Internal Server Error in 482ms (ActiveRecord: 13.9ms)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `session_tags_as_string' for #<#<Class:0x0000557cbd44ef50>:0x00007f596c3d1e28>
+Did you mean?  sessions_path):
+    10:         <% ##concat datetime or use default %>
+    11:         <%= f.input :time, label: 'When?', :as => :date, :input_html => {class: 'form-control'}, error: 'Please provide a date' %><br>
+    12:         <%= f.input :details, label: 'Details (example: Quaterly Shareholder Meeting)', input_html:{class:'form-control'} %><br>
+    13:         <%= f.input :tags_as_string, as: 'select', collection: @sessiontypes, label: 'Invite:', input_html:{class:'form-control disabled', multipe: true}, id: session_tags_as_string %><br>
+    14:       </div>
+    15:       <%= f.button :submit, input_html:{ class:'btn btn-success'} %>
+    16:     <% end %>
+  
+app/views/sessions/home.html.erb:13:in `block in _app_views_sessions_home_html_erb__9717830944561330_70011022382160'
+app/views/sessions/home.html.erb:6:in `_app_views_sessions_home_html_erb__9717830944561330_70011022382160'
+Started GET "/" for 127.0.0.1 at 2018-10-07 12:03:00 +0300
+Processing by SessionsController#home as HTML
+  Rendering sessions/home.html.erb within layouts/application
+  Rendered sessions/home.html.erb within layouts/application (190.0ms)
+Completed 200 OK in 1236ms (Views: 1234.3ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-10-07 12:03:39 +0300
+Processing by SessionsController#home as HTML
+  Rendering sessions/home.html.erb within layouts/application
+  Rendered sessions/home.html.erb within layouts/application (27.9ms)
+Completed 200 OK in 72ms (Views: 71.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-10-07 12:08:07 +0300
+Processing by SessionsController#home as HTML
+Completed 500 Internal Server Error in 27ms (ActiveRecord: 0.8ms)
+
+
+  
+NoMethodError (undefined method `each' for #<Class:0x00007f596cdf0f08>):
+  
+app/controllers/sessions_controller.rb:22:in `home'
+Started GET "/" for 127.0.0.1 at 2018-10-07 12:08:21 +0300
+Processing by SessionsController#home as HTML
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/sessions_controller.rb:22
+  Rendering sessions/home.html.erb within layouts/application
+  Rendered sessions/home.html.erb within layouts/application (16.0ms)
+Completed 200 OK in 116ms (Views: 60.3ms | ActiveRecord: 3.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-10-07 12:10:09 +0300
+Processing by SessionsController#home as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/sessions_controller.rb:22
+  Rendering sessions/home.html.erb within layouts/application
+  Rendered sessions/home.html.erb within layouts/application (16.8ms)
+Completed 200 OK in 87ms (Views: 60.7ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-10-07 12:10:15 +0300
+Processing by SessionsController#home as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/sessions_controller.rb:22
+  Rendering sessions/home.html.erb within layouts/application
+  Rendered sessions/home.html.erb within layouts/application (18.6ms)
+Completed 200 OK in 63ms (Views: 58.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-10-07 12:10:29 +0300
+Processing by SessionsController#home as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/sessions_controller.rb:22
+  Rendering sessions/home.html.erb within layouts/application
+  Rendered sessions/home.html.erb within layouts/application (13.4ms)
+Completed 200 OK in 55ms (Views: 53.3ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-10-07 12:11:09 +0300
+Processing by SessionsController#home as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/sessions_controller.rb:22
+  Rendering sessions/home.html.erb within layouts/application
+  Rendered sessions/home.html.erb within layouts/application (11.4ms)
+Completed 200 OK in 61ms (Views: 58.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-10-07 12:11:10 +0300
+Processing by SessionsController#home as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/sessions_controller.rb:22
+  Rendering sessions/home.html.erb within layouts/application
+  Rendered sessions/home.html.erb within layouts/application (10.0ms)
+Completed 200 OK in 49ms (Views: 47.0ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-10-07 12:11:11 +0300
+Processing by SessionsController#home as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/sessions_controller.rb:22
+  Rendering sessions/home.html.erb within layouts/application
+  Rendered sessions/home.html.erb within layouts/application (11.5ms)
+Completed 200 OK in 53ms (Views: 50.3ms | ActiveRecord: 0.3ms)
+
+
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT ? OFFSET ?[0m  [["LIMIT", 1], ["OFFSET", 1]]
+Started GET "/" for 127.0.0.1 at 2018-10-07 12:36:08 +0300
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /usr/local/lib/ruby/gems/2.5.0/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Processing by SessionsController#home as HTML
+  Rendered sessions/_uauth.html.erb (102.2ms)
+Filter chain halted as :currentu rendered or redirected
+Completed 200 OK in 112ms (Views: 105.9ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/" for 127.0.0.1 at 2018-10-07 12:36:15 +0300
+Processing by SessionsController#uauth as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"zYnsdvFhpvj5ceadv9NjuRyskfcLb8HjUL9VU521hQXW/qyNDSaNFFWO0GBfh6RZtmH51Wsbv1sVic7+gq9Wiw==", "auth"=>"d9066fc6", "commit"=>"Authenticate"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."auth" = ? LIMIT ?[0m  [["auth", "d9066fc6"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:8
+Redirected to http://localhost:3000/
+Completed 302 Found in 14ms (ActiveRecord: 0.7ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-10-07 12:36:15 +0300
+Processing by SessionsController#home as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/sessions_controller.rb:22
+  Rendering sessions/home.html.erb within layouts/application
+  Rendered sessions/home.html.erb within layouts/application (18.8ms)
+Completed 200 OK in 225ms (Views: 206.0ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-10-07 12:38:41 +0300
+Processing by SessionsController#home as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/sessions_controller.rb:22
+  Rendering sessions/home.html.erb within layouts/application
+  [1m[36mSession Load (0.2ms)[0m  [1m[34mSELECT  "sessions".* FROM "sessions" LIMIT ?[0m  [["LIMIT", 11]]
+  ↳ /usr/local/lib/ruby/gems/2.5.0/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+  [1m[36mCACHE Session Load (0.0ms)[0m  [1m[34mSELECT  "sessions".* FROM "sessions" LIMIT ?[0m  [["LIMIT", 11]]
+  ↳ /usr/local/lib/ruby/gems/2.5.0/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+  [1m[36mCACHE Session Load (0.0ms)[0m  [1m[34mSELECT  "sessions".* FROM "sessions" LIMIT ?[0m  [["LIMIT", 11]]
+  ↳ /usr/local/lib/ruby/gems/2.5.0/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+  [1m[36mCACHE Session Load (0.0ms)[0m  [1m[34mSELECT  "sessions".* FROM "sessions" LIMIT ?[0m  [["LIMIT", 11]]
+  ↳ /usr/local/lib/ruby/gems/2.5.0/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+  Rendered sessions/home.html.erb within layouts/application (190.4ms)
+Completed 500 Internal Server Error in 196ms (ActiveRecord: 0.6ms)
+
+
+  
+ActionView::Template::Error (undefined method `country_select' for #<SimpleForm::FormBuilder:0x00007f8ec6a02588>):
+    10:         <% ##concat datetime or use default %>
+    11:         <%= f.input :time, label: 'When?', :as => :date, :input_html => {class: 'form-control'}, error: 'Please provide a date' %><br>
+    12:         <%= f.input :details, label: 'Details (example: Quaterly Shareholder Meeting)', input_html:{class:'form-control'} %><br>
+    13:         <%= f.input :tags_as_string, as: :country, collection: @utags, label_method: :second, value_method: :first, label: 'Invite:', input_html:{class:'form-control', multipe: true, id: 'session_tags_as_strings'} %><br>
+    14:       </div>
+    15:       <%= f.button :submit, input_html:{ class:'btn btn-success'} %>
+    16:     <% end %>
+  
+app/views/sessions/home.html.erb:13:in `block in _app_views_sessions_home_html_erb___3359373863353938174_70125587551840'
+app/views/sessions/home.html.erb:6:in `_app_views_sessions_home_html_erb___3359373863353938174_70125587551840'
+Started GET "/" for 127.0.0.1 at 2018-10-07 12:39:54 +0300
+Processing by SessionsController#home as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/sessions_controller.rb:22
+  Rendering sessions/home.html.erb within layouts/application
+  Rendered sessions/home.html.erb within layouts/application (193.2ms)
+Completed 200 OK in 246ms (Views: 242.7ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/sessions" for 127.0.0.1 at 2018-10-07 12:40:40 +0300
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"s71ilW2KR0sv3n0h2dzFX2r8A8I0AJOicfjxLiS1IZDqzh5JcbYAH4iayzv+ICB90SMbb7A4Q5udaFMTTrFoYA==", "session"=>{"name"=>"Testing Tags", "time(1i)"=>"2018", "time(2i)"=>"10", "time(3i)"=>"7", "details"=>"checkboxes, nomultiple", "tags_as_string"=>["", "22b61465", "d9066fc6", "bc7b7166"]}, "commit"=>"Create Session"}
+Unpermitted parameter: :tags_as_string
+Unpermitted parameter: :tags_as_string
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/sessions_controller.rb:56
+  [1m[36mSession Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "sessions" WHERE "sessions"."auth" = ? LIMIT ?[0m  [["auth", "5786a23c"], ["LIMIT", 1]]
+  ↳ app/models/concerns/friendlyable.rb:21
+  [1m[36mSession Create (93.2ms)[0m  [1m[32mINSERT INTO "sessions" ("name", "time", "users_id", "created_at", "updated_at", "details", "auth") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Testing Tags"], ["time", "2018-10-07 00:00:00"], ["users_id", 142], ["created_at", "2018-10-07 09:40:40.291614"], ["updated_at", "2018-10-07 09:40:40.291614"], ["details", "checkboxes, nomultiple"], ["auth", "5786a23c"]]
+  ↳ app/controllers/sessions_controller.rb:56
+  [1m[36mGutentag::Tag Load (14.1ms)[0m  [1m[34mSELECT "gutentag_tags".* FROM "gutentag_tags" INNER JOIN "gutentag_taggings" ON "gutentag_tags"."id" = "gutentag_taggings"."tag_id" WHERE "gutentag_taggings"."taggable_id" = ? AND "gutentag_taggings"."taggable_type" = ?[0m  [["taggable_id", 8], ["taggable_type", "Session"]]
+  ↳ app/controllers/sessions_controller.rb:56
+  [1m[35m (138.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/sessions_controller.rb:56
+Redirected to http://localhost:3000/sessions/8
+Completed 302 Found in 339ms (ActiveRecord: 246.0ms)
+
+
+Started GET "/sessions/8" for 127.0.0.1 at 2018-10-07 12:40:40 +0300
+Processing by SessionsController#show as HTML
+  Parameters: {"id"=>"8"}
+  [1m[36mSession Load (0.2ms)[0m  [1m[34mSELECT  "sessions".* FROM "sessions" WHERE "sessions"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:32
+  [1m[36mTask Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "tasks" LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:33
+  Rendering sessions/show.html.erb within layouts/application
+  [1m[36mTask Load (0.2ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."session_id" = ?[0m  [["session_id", 8]]
+  ↳ app/views/sessions/_tasks_loop.html.erb:2
+  Rendered sessions/_tasks_loop.html.erb (1.1ms)
+  Rendered sessions/_addtask.html.erb (22.5ms)
+  Rendered sessions/show.html.erb within layouts/application (26.7ms)
+Completed 200 OK in 100ms (Views: 84.6ms | ActiveRecord: 1.3ms)
+
+
+  [1m[36mSession Load (0.5ms)[0m  [1m[34mSELECT  "sessions".* FROM "sessions" ORDER BY "sessions"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+Started POST "/sessions" for 127.0.0.1 at 2018-10-07 12:44:50 +0300
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"s71ilW2KR0sv3n0h2dzFX2r8A8I0AJOicfjxLiS1IZDqzh5JcbYAH4iayzv+ICB90SMbb7A4Q5udaFMTTrFoYA==", "session"=>{"name"=>"nomultiple?wzfz", "time(1i)"=>"2018", "time(2i)"=>"10", "time(3i)"=>"7", "details"=>"sfsdfsadfsdfdfs PERMIT", "tags_as_string"=>["", "22b61465", "d9066fc6", "bc7b7166"]}, "commit"=>"Create Session"}
+Unpermitted parameter: :tags_as_string
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/sessions_controller.rb:56
+  [1m[36mSession Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "sessions" WHERE "sessions"."auth" = ? LIMIT ?[0m  [["auth", "a2bffc79"], ["LIMIT", 1]]
+  ↳ app/models/concerns/friendlyable.rb:21
+  [1m[36mSession Create (0.3ms)[0m  [1m[32mINSERT INTO "sessions" ("name", "time", "users_id", "created_at", "updated_at", "details", "auth") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["name", "nomultiple?wzfz"], ["time", "2018-10-07 00:00:00"], ["users_id", 142], ["created_at", "2018-10-07 09:44:50.626659"], ["updated_at", "2018-10-07 09:44:50.626659"], ["details", "sfsdfsadfsdfdfs PERMIT"], ["auth", "a2bffc79"]]
+  ↳ app/controllers/sessions_controller.rb:56
+  [1m[36mGutentag::Tag Load (0.2ms)[0m  [1m[34mSELECT "gutentag_tags".* FROM "gutentag_tags" INNER JOIN "gutentag_taggings" ON "gutentag_tags"."id" = "gutentag_taggings"."tag_id" WHERE "gutentag_taggings"."taggable_id" = ? AND "gutentag_taggings"."taggable_type" = ?[0m  [["taggable_id", 9], ["taggable_type", "Session"]]
+  ↳ app/controllers/sessions_controller.rb:56
+  [1m[35m (127.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/sessions_controller.rb:56
+Redirected to http://localhost:3000/sessions/9
+Completed 302 Found in 167ms (ActiveRecord: 129.4ms)
+
+
+Started GET "/sessions/9" for 127.0.0.1 at 2018-10-07 12:44:50 +0300
+Processing by SessionsController#show as HTML
+  Parameters: {"id"=>"9"}
+  [1m[36mSession Load (0.2ms)[0m  [1m[34mSELECT  "sessions".* FROM "sessions" WHERE "sessions"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:32
+  [1m[36mTask Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "tasks" LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:33
+  Rendering sessions/show.html.erb within layouts/application
+  [1m[36mTask Load (0.2ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."session_id" = ?[0m  [["session_id", 9]]
+  ↳ app/views/sessions/_tasks_loop.html.erb:2
+  Rendered sessions/_tasks_loop.html.erb (1.2ms)
+  Rendered sessions/_addtask.html.erb (15.3ms)
+  Rendered sessions/show.html.erb within layouts/application (19.6ms)
+Completed 200 OK in 99ms (Views: 84.0ms | ActiveRecord: 1.6ms)
+
+
+  [1m[36mSession Load (0.2ms)[0m  [1m[34mSELECT  "sessions".* FROM "sessions" ORDER BY "sessions"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+Started GET "/" for 127.0.0.1 at 2018-10-07 12:54:46 +0300
+Processing by SessionsController#home as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/sessions_controller.rb:22
+  Rendering sessions/home.html.erb within layouts/application
+  Rendered sessions/home.html.erb within layouts/application (11.3ms)
+Completed 200 OK in 71ms (Views: 44.9ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-10-07 12:54:51 +0300
+Processing by SessionsController#home as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/sessions_controller.rb:22
+  Rendering sessions/home.html.erb within layouts/application
+  Rendered sessions/home.html.erb within layouts/application (16.2ms)
+Completed 200 OK in 62ms (Views: 59.3ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-10-07 12:54:59 +0300
+Processing by SessionsController#home as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/sessions_controller.rb:22
+  Rendering sessions/home.html.erb within layouts/application
+  Rendered sessions/home.html.erb within layouts/application (16.0ms)
+Completed 200 OK in 59ms (Views: 57.4ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-10-07 12:55:12 +0300
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /usr/local/lib/ruby/gems/2.5.0/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Processing by SessionsController#home as HTML
+  Rendered sessions/_uauth.html.erb (110.1ms)
+Filter chain halted as :currentu rendered or redirected
+Completed 200 OK in 120ms (Views: 113.6ms | ActiveRecord: 0.0ms)
+
+
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+Started POST "/" for 127.0.0.1 at 2018-10-07 12:55:29 +0300
+Processing by SessionsController#uauth as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"E9ERYShqY+0VUnsMW0fvOFdqH5pbLQ/immc79h4hQ7EIplGa1C1IAbmtTfG7EyjY/ad3uDtZcVrfUaBbATuQPw==", "auth"=>"22b61465", "commit"=>"Authenticate"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."auth" = ? LIMIT ?[0m  [["auth", "22b61465"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:8
+Redirected to http://localhost:3000/
+Completed 302 Found in 13ms (ActiveRecord: 0.8ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-10-07 12:55:29 +0300
+Processing by SessionsController#home as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/sessions_controller.rb:22
+  Rendering sessions/home.html.erb within layouts/application
+  Rendered sessions/home.html.erb within layouts/application (69.7ms)
+Completed 200 OK in 278ms (Views: 260.3ms | ActiveRecord: 0.7ms)
+
+
+Started POST "/sessions" for 127.0.0.1 at 2018-10-07 12:56:14 +0300
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"QSRa1+7Z/sRXRwwEqppUj/qy9oUBer0xjbzD7tqXC7gYVyYL8uW5kPADuh6NZrGtQW3uKIVCbQhhLGHTsJNCSA==", "session"=>{"name"=>"no tags just invite", "time(1i)"=>"2018", "time(2i)"=>"10", "time(3i)"=>"7", "details"=>"tags is at this point an overcomplication,", "invite"=>["", "22b61465", "d9066fc6", "bc7b7166"]}, "commit"=>"Create Session"}
+Unpermitted parameter: :invite
+  [1m[36mSession Load (0.2ms)[0m  [1m[34mSELECT  "sessions".* FROM "sessions" ORDER BY "sessions"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mSession Load (0.1ms)[0m  [1m[34mSELECT  "sessions".* FROM "sessions" ORDER BY "sessions"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mSession Load (0.2ms)[0m  [1m[34mSELECT  "sessions".* FROM "sessions" ORDER BY "sessions"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mSession Load (0.2ms)[0m  [1m[34mSELECT  "sessions".* FROM "sessions" ORDER BY "sessions"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/sessions_controller.rb:57
+  [1m[36mSession Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "sessions" WHERE "sessions"."auth" = ? LIMIT ?[0m  [["auth", "1135d2e8"], ["LIMIT", 1]]
+  ↳ app/models/concerns/friendlyable.rb:21
+  [1m[36mSession Create (0.3ms)[0m  [1m[32mINSERT INTO "sessions" ("name", "time", "users_id", "created_at", "updated_at", "details", "auth") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["name", "no tags just invite"], ["time", "2018-10-07 00:00:00"], ["users_id", 141], ["created_at", "2018-10-07 09:59:05.476784"], ["updated_at", "2018-10-07 09:59:05.476784"], ["details", "tags is at this point an overcomplication,"], ["auth", "1135d2e8"]]
+  ↳ app/controllers/sessions_controller.rb:57
+  [1m[36mGutentag::Tag Load (0.2ms)[0m  [1m[34mSELECT "gutentag_tags".* FROM "gutentag_tags" INNER JOIN "gutentag_taggings" ON "gutentag_tags"."id" = "gutentag_taggings"."tag_id" WHERE "gutentag_taggings"."taggable_id" = ? AND "gutentag_taggings"."taggable_type" = ?[0m  [["taggable_id", 10], ["taggable_type", "Session"]]
+  ↳ app/controllers/sessions_controller.rb:57
+  [1m[35m (114.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/sessions_controller.rb:57
+Redirected to http://localhost:3000/sessions/10
+Completed 302 Found in 171331ms (ActiveRecord: 115.8ms)
+
+
+Started GET "/sessions/10" for 127.0.0.1 at 2018-10-07 12:59:05 +0300
+  [1m[36mSession Load (0.3ms)[0m  [1m[34mSELECT  "sessions".* FROM "sessions" ORDER BY "sessions"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+Processing by SessionsController#show as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mSession Load (0.1ms)[0m  [1m[34mSELECT  "sessions".* FROM "sessions" WHERE "sessions"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:32
+  [1m[36mTask Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "tasks" LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:33
+  Rendering sessions/show.html.erb within layouts/application
+  [1m[36mTask Load (0.2ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."session_id" = ?[0m  [["session_id", 10]]
+  ↳ app/views/sessions/_tasks_loop.html.erb:2
+  Rendered sessions/_tasks_loop.html.erb (1.2ms)
+  Rendered sessions/_addtask.html.erb (7.9ms)
+  Rendered sessions/show.html.erb within layouts/application (11.0ms)
+Completed 200 OK in 112ms (Views: 82.7ms | ActiveRecord: 2.8ms)
+
+
+  [1m[36mSession Load (0.2ms)[0m  [1m[34mSELECT  "sessions".* FROM "sessions" ORDER BY "sessions"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mSession Load (0.4ms)[0m  [1m[34mSELECT  "sessions".* FROM "sessions" ORDER BY "sessions"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mSession Load (0.2ms)[0m  [1m[34mSELECT  "sessions".* FROM "sessions" ORDER BY "sessions"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mSession Load (0.2ms)[0m  [1m[34mSELECT  "sessions".* FROM "sessions" ORDER BY "sessions"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mSession Load (0.2ms)[0m  [1m[34mSELECT  "sessions".* FROM "sessions" ORDER BY "sessions"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+Started GET "/" for 127.0.0.1 at 2018-10-07 13:04:46 +0300
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /usr/local/lib/ruby/gems/2.5.0/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Processing by SessionsController#home as HTML
+  Rendered sessions/_uauth.html.erb (109.0ms)
+Filter chain halted as :currentu rendered or redirected
+Completed 200 OK in 119ms (Views: 112.6ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/" for 127.0.0.1 at 2018-10-07 13:04:50 +0300
+Processing by SessionsController#uauth as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"rm/CSxKsff7fU8inShsKx26piCkyedaXFEHUrv9lA2S1GIKw7utWEnOs/lqqT80nxGTgC1INqC9Rd08D4H/Q6g==", "auth"=>"22b61465", "commit"=>"Authenticate"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."auth" = ? LIMIT ?[0m  [["auth", "22b61465"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:8
+Redirected to http://localhost:3000/
+Completed 302 Found in 13ms (ActiveRecord: 0.8ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-10-07 13:04:50 +0300
+Processing by SessionsController#home as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/sessions_controller.rb:22
+  Rendering sessions/home.html.erb within layouts/application
+  Rendered sessions/home.html.erb within layouts/application (69.6ms)
+Completed 200 OK in 273ms (Views: 258.2ms | ActiveRecord: 0.8ms)
+
+
+Started POST "/sessions" for 127.0.0.1 at 2018-10-07 13:05:14 +0300
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"gFZVKMyWsrsGa//RnQuQP4WJEW3Prr9N20qRpmqbasbZJSn00Kr176EvScu693UdPlYJwEuWb3Q32jObAJ8jNg==", "session"=>{"name"=>"Does it permit invite?", "time(1i)"=>"2018", "time(2i)"=>"10", "time(3i)"=>"7", "details"=>"text?", "invite"=>["", "22b61465", "d9066fc6", "bc7b7166"]}, "commit"=>"Create Session"}
+Unpermitted parameter: :invite
+Unpermitted parameter: :invite
+Unpermitted parameter: :invite
+Unpermitted parameter: :invite
+Unpermitted parameter: :invite
+Unpermitted parameter: :invite
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/sessions_controller.rb:58
+  [1m[36mSession Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "sessions" WHERE "sessions"."auth" = ? LIMIT ?[0m  [["auth", "a6709bc9"], ["LIMIT", 1]]
+  ↳ app/models/concerns/friendlyable.rb:21
+  [1m[36mSession Create (0.4ms)[0m  [1m[32mINSERT INTO "sessions" ("name", "time", "users_id", "created_at", "updated_at", "details", "invite", "auth") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Does it permit invite?"], ["time", "2018-10-07 00:00:00"], ["users_id", 141], ["created_at", "2018-10-07 10:09:38.952284"], ["updated_at", "2018-10-07 10:09:38.952284"], ["details", "text?"], ["invite", ""], ["auth", "a6709bc9"]]
+  ↳ app/controllers/sessions_controller.rb:58
+  [1m[35m (99.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/sessions_controller.rb:58
+Redirected to http://localhost:3000/sessions/11
+Completed 302 Found in 264811ms (ActiveRecord: 100.0ms)
+
+
+Started GET "/sessions/11" for 127.0.0.1 at 2018-10-07 13:09:39 +0300
+Processing by SessionsController#show as HTML
+  Parameters: {"id"=>"11"}
+  [1m[36mSession Load (0.2ms)[0m  [1m[34mSELECT  "sessions".* FROM "sessions" WHERE "sessions"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:32
+  [1m[36mTask Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "tasks" LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:33
+  Rendering sessions/show.html.erb within layouts/application
+  [1m[36mTask Load (0.2ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."session_id" = ?[0m  [["session_id", 11]]
+  ↳ app/views/sessions/_tasks_loop.html.erb:2
+  Rendered sessions/_tasks_loop.html.erb (1.2ms)
+  Rendered sessions/_addtask.html.erb (10.7ms)
+  Rendered sessions/show.html.erb within layouts/application (13.6ms)
+Completed 200 OK in 89ms (Views: 57.2ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-10-07 13:10:00 +0300
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /usr/local/lib/ruby/gems/2.5.0/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Processing by SessionsController#home as HTML
+  Rendered sessions/_uauth.html.erb (128.9ms)
+Filter chain halted as :currentu rendered or redirected
+Completed 200 OK in 139ms (Views: 132.8ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/" for 127.0.0.1 at 2018-10-07 13:10:02 +0300
+Processing by SessionsController#uauth as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Y+JCe9OzM3TUMfARn8GFYAi/DSicreTXQCHT0HDmRg94lQKAL/QYmHjOxux/lUKAonJlCvzZmm8FF0h9b/yVgQ==", "auth"=>"22b61465", "commit"=>"Authenticate"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."auth" = ? LIMIT ?[0m  [["auth", "22b61465"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:8
+Redirected to http://localhost:3000/
+Completed 302 Found in 15ms (ActiveRecord: 1.7ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-10-07 13:10:02 +0300
+Processing by SessionsController#home as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/sessions_controller.rb:22
+  Rendering sessions/home.html.erb within layouts/application
+  Rendered sessions/home.html.erb within layouts/application (71.0ms)
+Completed 200 OK in 272ms (Views: 256.4ms | ActiveRecord: 0.7ms)
+
+
+Started POST "/sessions" for 127.0.0.1 at 2018-10-07 13:10:21 +0300
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"oYE6OL1lIyo1ddxb7cdNupjPVbTVEfEpGifKLbP8H7/48kbkoVlkfpIxakHKO6iYIxBNGVEpIRD2t2gQ2fhWTw==", "session"=>{"name"=>"stringgggg", "time(1i)"=>"2018", "time(2i)"=>"10", "time(3i)"=>"7", "details"=>"doublequotes?", "invite"=>["", "22b61465", "d9066fc6", "bc7b7166"]}, "commit"=>"Create Session"}
+Unpermitted parameter: :invite
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/sessions_controller.rb:58
+  [1m[36mSession Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "sessions" WHERE "sessions"."auth" = ? LIMIT ?[0m  [["auth", "9bcb8c2f"], ["LIMIT", 1]]
+  ↳ app/models/concerns/friendlyable.rb:21
+  [1m[36mSession Create (0.4ms)[0m  [1m[32mINSERT INTO "sessions" ("name", "time", "users_id", "created_at", "updated_at", "details", "invite", "auth") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "stringgggg"], ["time", "2018-10-07 00:00:00"], ["users_id", 141], ["created_at", "2018-10-07 10:16:13.870114"], ["updated_at", "2018-10-07 10:16:13.870114"], ["details", "doublequotes?"], ["invite", "\#{params[:invite]}"], ["auth", "9bcb8c2f"]]
+Started GET "/" for 127.0.0.1 at 2018-10-07 13:16:13 +0300
+  ↳ app/controllers/sessions_controller.rb:58
+Processing by SessionsController#home as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[35m (112.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/sessions_controller.rb:22
+  ↳ app/controllers/sessions_controller.rb:58
+Redirected to http://localhost:3000/sessions/12
+Completed 302 Found in 352489ms (ActiveRecord: 113.7ms)
+
+
+  Rendering sessions/home.html.erb within layouts/application
+  Rendered sessions/home.html.erb within layouts/application (14.3ms)
+Completed 200 OK in 57ms (Views: 52.6ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/sessions" for 127.0.0.1 at 2018-10-07 13:16:36 +0300
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"SZbuVGQJ14Jv7wRPKZpK9gcqmUmsijHAZZe83XjVSiehct8nN4PEc2Z7U41gV42Wa03BmP8gbIu7neuxsOr/rg==", "session"=>{"name"=>"cmoninvitez", "time(1i)"=>"2018", "time(2i)"=>"10", "time(3i)"=>"7", "details"=>"adsdsasad", "invite"=>["", "22b61465", "d9066fc6", "bc7b7166"]}, "commit"=>"Create Session"}
+Unpermitted parameter: :invite
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/sessions_controller.rb:58
+  [1m[36mSession Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "sessions" WHERE "sessions"."auth" = ? LIMIT ?[0m  [["auth", "c94e6634"], ["LIMIT", 1]]
+  ↳ app/models/concerns/friendlyable.rb:21
+  [1m[36mSession Create (0.9ms)[0m  [1m[32mINSERT INTO "sessions" ("name", "time", "users_id", "created_at", "updated_at", "details", "invite", "auth") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "cmoninvitez"], ["time", "2018-10-07 00:00:00"], ["users_id", 141], ["created_at", "2018-10-07 10:24:08.573191"], ["updated_at", "2018-10-07 10:24:08.573191"], ["details", "adsdsasad"], ["invite", "\#{params[:invite]}"], ["auth", "c94e6634"]]
+  ↳ app/controllers/sessions_controller.rb:58
+  [1m[35m (101.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/sessions_controller.rb:58
+Redirected to http://localhost:3000/sessions/13
+Completed 302 Found in 451741ms (ActiveRecord: 103.1ms)
+
+
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /usr/local/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /usr/local/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /usr/local/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /usr/local/bin/rake:23
+Migrating to NoNullCounters (20181006164909)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ /usr/local/bin/rake:23
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ db/migrate/20181006164909_no_null_counters.gutentag.rb:14
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TEMPORARY TABLE "agutentag_tags" ("id" integer NOT NULL PRIMARY KEY, "name" varchar NOT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "taggings_count" integer DEFAULT 0 NOT NULL)[0m
+  ↳ db/migrate/20181006164909_no_null_counters.gutentag.rb:14
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "tindex_agutentag_tags_on_taggings_count" ON "agutentag_tags" ("taggings_count")[0m
+  ↳ db/migrate/20181006164909_no_null_counters.gutentag.rb:14
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE UNIQUE INDEX "tindex_agutentag_tags_on_name" ON "agutentag_tags" ("name")[0m
+  ↳ db/migrate/20181006164909_no_null_counters.gutentag.rb:14
+  [1m[35m (15.8ms)[0m  [1m[32mINSERT INTO "agutentag_tags" ("id","name","created_at","updated_at","taggings_count")
+                     SELECT "id","name","created_at","updated_at","taggings_count" FROM "gutentag_tags"[0m
+  ↳ db/migrate/20181006164909_no_null_counters.gutentag.rb:14
+  [1m[35m (0.6ms)[0m  [1m[35mDROP TABLE "gutentag_tags"[0m
+  ↳ db/migrate/20181006164909_no_null_counters.gutentag.rb:14
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "gutentag_tags" ("id" integer NOT NULL PRIMARY KEY, "name" varchar NOT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "taggings_count" integer DEFAULT 0)[0m
+  ↳ db/migrate/20181006164909_no_null_counters.gutentag.rb:14
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_gutentag_tags_on_name" ON "gutentag_tags" ("name")[0m
+  ↳ db/migrate/20181006164909_no_null_counters.gutentag.rb:14
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "index_gutentag_tags_on_taggings_count" ON "gutentag_tags" ("taggings_count")[0m
+  ↳ db/migrate/20181006164909_no_null_counters.gutentag.rb:14
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "gutentag_tags" ("id","name","created_at","updated_at","taggings_count")
+                     SELECT "id","name","created_at","updated_at","taggings_count" FROM "agutentag_tags"[0m
+  ↳ db/migrate/20181006164909_no_null_counters.gutentag.rb:14
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE "agutentag_tags"[0m
+  ↳ db/migrate/20181006164909_no_null_counters.gutentag.rb:14
+  [1m[36mActiveRecord::SchemaMigration Destroy (0.3ms)[0m  [1m[31mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = ?[0m  [["version", "20181006164909"]]
+  ↳ /usr/local/bin/rake:23
+  [1m[35m (139.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ /usr/local/bin/rake:23
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /usr/local/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /usr/local/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /usr/local/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /usr/local/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /usr/local/bin/rake:23
+Migrating to GutentagCacheCounter (20181006164908)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ /usr/local/bin/rake:23
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ db/migrate/20181006164908_gutentag_cache_counter.gutentag.rb:18
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TEMPORARY TABLE "agutentag_tags" ("id" integer NOT NULL PRIMARY KEY, "name" varchar NOT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "taggings_count" integer DEFAULT 0)[0m
+  ↳ db/migrate/20181006164908_gutentag_cache_counter.gutentag.rb:18
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "tindex_agutentag_tags_on_taggings_count" ON "agutentag_tags" ("taggings_count")[0m
+  ↳ db/migrate/20181006164908_gutentag_cache_counter.gutentag.rb:18
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE UNIQUE INDEX "tindex_agutentag_tags_on_name" ON "agutentag_tags" ("name")[0m
+  ↳ db/migrate/20181006164908_gutentag_cache_counter.gutentag.rb:18
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "agutentag_tags" ("id","name","created_at","updated_at","taggings_count")
+                     SELECT "id","name","created_at","updated_at","taggings_count" FROM "gutentag_tags"[0m
+  ↳ db/migrate/20181006164908_gutentag_cache_counter.gutentag.rb:18
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE "gutentag_tags"[0m
+  ↳ db/migrate/20181006164908_gutentag_cache_counter.gutentag.rb:18
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "gutentag_tags" ("id" integer NOT NULL PRIMARY KEY, "name" varchar NOT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20181006164908_gutentag_cache_counter.gutentag.rb:18
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_gutentag_tags_on_name" ON "gutentag_tags" ("name")[0m
+  ↳ db/migrate/20181006164908_gutentag_cache_counter.gutentag.rb:18
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "gutentag_tags" ("id","name","created_at","updated_at")
+                     SELECT "id","name","created_at","updated_at" FROM "agutentag_tags"[0m
+  ↳ db/migrate/20181006164908_gutentag_cache_counter.gutentag.rb:18
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE "agutentag_tags"[0m
+  ↳ db/migrate/20181006164908_gutentag_cache_counter.gutentag.rb:18
+  [1m[36mActiveRecord::SchemaMigration Destroy (0.3ms)[0m  [1m[31mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = ?[0m  [["version", "20181006164908"]]
+  ↳ /usr/local/bin/rake:23
+  [1m[35m (55.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ /usr/local/bin/rake:23
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /usr/local/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /usr/local/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /usr/local/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /usr/local/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /usr/local/bin/rake:23
+Migrating to GutentagTables (20181006164907)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ /usr/local/bin/rake:23
+  [1m[35m (0.4ms)[0m  [1m[35mDROP TABLE "gutentag_tags"[0m
+  ↳ db/migrate/20181006164907_gutentag_tables.gutentag.rb:29
+  [1m[35m (0.6ms)[0m  [1m[35mDROP TABLE "gutentag_taggings"[0m
+  ↳ db/migrate/20181006164907_gutentag_tables.gutentag.rb:30
+  [1m[36mActiveRecord::SchemaMigration Destroy (0.3ms)[0m  [1m[31mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = ?[0m  [["version", "20181006164907"]]
+  ↳ /usr/local/bin/rake:23
+  [1m[35m (76.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ /usr/local/bin/rake:23
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /usr/local/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /usr/local/bin/rake:23
+Migrating to GutentagTables (20181006164907)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ /usr/local/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ db/migrate/gutten/20181006164907_gutentag_tables.gutentag.rb:8
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "gutentag_taggings" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "tag_id" integer NOT NULL, "taggable_id" integer NOT NULL, "taggable_type" varchar NOT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/gutten/20181006164907_gutentag_tables.gutentag.rb:8
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE  INDEX "index_gutentag_taggings_on_tag_id" ON "gutentag_taggings" ("tag_id")[0m
+  ↳ db/migrate/gutten/20181006164907_gutentag_tables.gutentag.rb:15
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "index_gutentag_taggings_on_taggable_type_and_taggable_id" ON "gutentag_taggings" ("taggable_type", "taggable_id")[0m
+  ↳ db/migrate/gutten/20181006164907_gutentag_tables.gutentag.rb:16
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE UNIQUE INDEX "unique_taggings" ON "gutentag_taggings" ("taggable_type", "taggable_id", "tag_id")[0m
+  ↳ db/migrate/gutten/20181006164907_gutentag_tables.gutentag.rb:17
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "gutentag_tags" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar NOT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/gutten/20181006164907_gutentag_tables.gutentag.rb:20
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_gutentag_tags_on_name" ON "gutentag_tags" ("name")[0m
+  ↳ db/migrate/gutten/20181006164907_gutentag_tables.gutentag.rb:25
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20181006164907"]]
+  ↳ /usr/local/bin/rake:23
+  [1m[35m (96.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ /usr/local/bin/rake:23
+Migrating to GutentagCacheCounter (20181006164908)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ /usr/local/bin/rake:23
+  [1m[35m (0.4ms)[0m  [1m[35mALTER TABLE "gutentag_tags" ADD "taggings_count" integer DEFAULT 0[0m
+  ↳ db/migrate/gutten/20181006164908_gutentag_cache_counter.gutentag.rb:8
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE  INDEX "index_gutentag_tags_on_taggings_count" ON "gutentag_tags" ("taggings_count")[0m
+  ↳ db/migrate/gutten/20181006164908_gutentag_cache_counter.gutentag.rb:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "gutentag_tags"."id" FROM "gutentag_tags"[0m
+  ↳ db/migrate/gutten/20181006164908_gutentag_cache_counter.gutentag.rb:12
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20181006164908"]]
+  ↳ /usr/local/bin/rake:23
+  [1m[35m (126.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ /usr/local/bin/rake:23
+Migrating to NoNullCounters (20181006164909)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ /usr/local/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TEMPORARY TABLE "agutentag_tags" ("id" integer NOT NULL PRIMARY KEY, "name" varchar NOT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "taggings_count" integer DEFAULT 0)[0m
+  ↳ db/migrate/gutten/20181006164909_no_null_counters.gutentag.rb:8
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "tindex_agutentag_tags_on_taggings_count" ON "agutentag_tags" ("taggings_count")[0m
+  ↳ db/migrate/gutten/20181006164909_no_null_counters.gutentag.rb:8
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE UNIQUE INDEX "tindex_agutentag_tags_on_name" ON "agutentag_tags" ("name")[0m
+  ↳ db/migrate/gutten/20181006164909_no_null_counters.gutentag.rb:8
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "agutentag_tags" ("id","name","created_at","updated_at","taggings_count")
+                     SELECT "id","name","created_at","updated_at","taggings_count" FROM "gutentag_tags"[0m
+  ↳ db/migrate/gutten/20181006164909_no_null_counters.gutentag.rb:8
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE "gutentag_tags"[0m
+  ↳ db/migrate/gutten/20181006164909_no_null_counters.gutentag.rb:8
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "gutentag_tags" ("id" integer NOT NULL PRIMARY KEY, "name" varchar NOT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "taggings_count" integer DEFAULT 0 NOT NULL)[0m
+  ↳ db/migrate/gutten/20181006164909_no_null_counters.gutentag.rb:8
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_gutentag_tags_on_name" ON "gutentag_tags" ("name")[0m
+  ↳ db/migrate/gutten/20181006164909_no_null_counters.gutentag.rb:8
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "index_gutentag_tags_on_taggings_count" ON "gutentag_tags" ("taggings_count")[0m
+  ↳ db/migrate/gutten/20181006164909_no_null_counters.gutentag.rb:8
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "gutentag_tags" ("id","name","created_at","updated_at","taggings_count")
+                     SELECT "id","name","created_at","updated_at","taggings_count" FROM "agutentag_tags"[0m
+  ↳ db/migrate/gutten/20181006164909_no_null_counters.gutentag.rb:8
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "agutentag_tags"[0m
+  ↳ db/migrate/gutten/20181006164909_no_null_counters.gutentag.rb:8
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20181006164909"]]
+  ↳ /usr/local/bin/rake:23
+  [1m[35m (92.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ /usr/local/bin/rake:23
+Migrating to ChangeInviteToS (20181007102438)
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ /usr/local/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ /usr/local/bin/rake:23
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /usr/local/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /usr/local/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /usr/local/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /usr/local/bin/rake:23
+Migrating to NoNullCounters (20181006164909)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ /usr/local/bin/rake:23
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ db/migrate/gutten/20181006164909_no_null_counters.gutentag.rb:14
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TEMPORARY TABLE "agutentag_tags" ("id" integer NOT NULL PRIMARY KEY, "name" varchar NOT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "taggings_count" integer DEFAULT 0 NOT NULL)[0m
+  ↳ db/migrate/gutten/20181006164909_no_null_counters.gutentag.rb:14
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "tindex_agutentag_tags_on_taggings_count" ON "agutentag_tags" ("taggings_count")[0m
+  ↳ db/migrate/gutten/20181006164909_no_null_counters.gutentag.rb:14
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE UNIQUE INDEX "tindex_agutentag_tags_on_name" ON "agutentag_tags" ("name")[0m
+  ↳ db/migrate/gutten/20181006164909_no_null_counters.gutentag.rb:14
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "agutentag_tags" ("id","name","created_at","updated_at","taggings_count")
+                     SELECT "id","name","created_at","updated_at","taggings_count" FROM "gutentag_tags"[0m
+  ↳ db/migrate/gutten/20181006164909_no_null_counters.gutentag.rb:14
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE "gutentag_tags"[0m
+  ↳ db/migrate/gutten/20181006164909_no_null_counters.gutentag.rb:14
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "gutentag_tags" ("id" integer NOT NULL PRIMARY KEY, "name" varchar NOT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "taggings_count" integer DEFAULT 0)[0m
+  ↳ db/migrate/gutten/20181006164909_no_null_counters.gutentag.rb:14
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_gutentag_tags_on_name" ON "gutentag_tags" ("name")[0m
+  ↳ db/migrate/gutten/20181006164909_no_null_counters.gutentag.rb:14
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "index_gutentag_tags_on_taggings_count" ON "gutentag_tags" ("taggings_count")[0m
+  ↳ db/migrate/gutten/20181006164909_no_null_counters.gutentag.rb:14
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "gutentag_tags" ("id","name","created_at","updated_at","taggings_count")
+                     SELECT "id","name","created_at","updated_at","taggings_count" FROM "agutentag_tags"[0m
+  ↳ db/migrate/gutten/20181006164909_no_null_counters.gutentag.rb:14
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "agutentag_tags"[0m
+  ↳ db/migrate/gutten/20181006164909_no_null_counters.gutentag.rb:14
+  [1m[36mActiveRecord::SchemaMigration Destroy (0.2ms)[0m  [1m[31mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = ?[0m  [["version", "20181006164909"]]
+  ↳ /usr/local/bin/rake:23
+  [1m[35m (74.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ /usr/local/bin/rake:23
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /usr/local/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /usr/local/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /usr/local/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /usr/local/bin/rake:23
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /usr/local/bin/rake:23
+Migrating to ChangeInviteToS (20181007102438)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ /usr/local/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ db/migrate/20181007102438_change_invite_to_s.rb:3
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TEMPORARY TABLE "asessions" ("id" integer NOT NULL PRIMARY KEY, "name" varchar DEFAULT NULL, "time" datetime DEFAULT NULL, "transcript" text DEFAULT NULL, "task_ids" integer DEFAULT NULL, "users_id" integer DEFAULT NULL, "votes_id" integer DEFAULT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "details" text DEFAULT NULL, "string" text DEFAULT NULL, "auth" varchar DEFAULT NULL, "state" varchar DEFAULT NULL)[0m
+  ↳ db/migrate/20181007102438_change_invite_to_s.rb:3
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "tindex_asessions_on_task_ids" ON "asessions" ("task_ids")[0m
+  ↳ db/migrate/20181007102438_change_invite_to_s.rb:3
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "tindex_asessions_on_votes_id" ON "asessions" ("votes_id")[0m
+  ↳ db/migrate/20181007102438_change_invite_to_s.rb:3
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "asessions" ("id","name","time","transcript","task_ids","users_id","votes_id","created_at","updated_at","details","string","auth","state")
+                     SELECT "id","name","time","transcript","task_ids","users_id","votes_id","created_at","updated_at","details","invite","auth","state" FROM "sessions"[0m
+  ↳ db/migrate/20181007102438_change_invite_to_s.rb:3
+  [1m[35m (0.7ms)[0m  [1m[35mDROP TABLE "sessions"[0m
+  ↳ db/migrate/20181007102438_change_invite_to_s.rb:3
+  [1m[35m (0.3ms)[0m  [1m[31mrollback transaction[0m
+  ↳ /usr/local/bin/rake:23
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /usr/local/bin/rake:23
+Migrating to ChangeInviteToS (20181007102438)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ /usr/local/bin/rake:23
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ db/migrate/20181007102438_change_invite_to_s.rb:3
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TEMPORARY TABLE "asessions" ("id" integer NOT NULL PRIMARY KEY, "name" varchar DEFAULT NULL, "time" datetime DEFAULT NULL, "transcript" text DEFAULT NULL, "task_ids" integer DEFAULT NULL, "users_id" integer DEFAULT NULL, "votes_id" integer DEFAULT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "details" text DEFAULT NULL, "string" text DEFAULT NULL, "auth" varchar DEFAULT NULL, "state" varchar DEFAULT NULL)[0m
+  ↳ db/migrate/20181007102438_change_invite_to_s.rb:3
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "tindex_asessions_on_task_ids" ON "asessions" ("task_ids")[0m
+  ↳ db/migrate/20181007102438_change_invite_to_s.rb:3
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "tindex_asessions_on_votes_id" ON "asessions" ("votes_id")[0m
+  ↳ db/migrate/20181007102438_change_invite_to_s.rb:3
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "asessions" ("id","name","time","transcript","task_ids","users_id","votes_id","created_at","updated_at","details","string","auth","state")
+                     SELECT "id","name","time","transcript","task_ids","users_id","votes_id","created_at","updated_at","details","invite","auth","state" FROM "sessions"[0m
+  ↳ db/migrate/20181007102438_change_invite_to_s.rb:3
+  [1m[35m (0.7ms)[0m  [1m[35mDROP TABLE "sessions"[0m
+  ↳ db/migrate/20181007102438_change_invite_to_s.rb:3
+  [1m[35m (0.2ms)[0m  [1m[31mrollback transaction[0m
+  ↳ /usr/local/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /usr/local/bin/rake:23
+Migrating to ChangeInviteToS (20181007102438)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ /usr/local/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ db/migrate/20181007102438_change_invite_to_s.rb:3
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TEMPORARY TABLE "asessions" ("id" integer NOT NULL PRIMARY KEY, "name" varchar DEFAULT NULL, "time" datetime DEFAULT NULL, "transcript" text DEFAULT NULL, "task_ids" integer DEFAULT NULL, "users_id" integer DEFAULT NULL, "votes_id" integer DEFAULT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "details" text DEFAULT NULL, "string" text DEFAULT NULL, "auth" varchar DEFAULT NULL, "state" varchar DEFAULT NULL)[0m
+  ↳ db/migrate/20181007102438_change_invite_to_s.rb:3
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "tindex_asessions_on_task_ids" ON "asessions" ("task_ids")[0m
+  ↳ db/migrate/20181007102438_change_invite_to_s.rb:3
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "tindex_asessions_on_votes_id" ON "asessions" ("votes_id")[0m
+  ↳ db/migrate/20181007102438_change_invite_to_s.rb:3
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "asessions" ("id","name","time","transcript","task_ids","users_id","votes_id","created_at","updated_at","details","string","auth","state")
+                     SELECT "id","name","time","transcript","task_ids","users_id","votes_id","created_at","updated_at","details","invite","auth","state" FROM "sessions"[0m
+  ↳ db/migrate/20181007102438_change_invite_to_s.rb:3
+  [1m[35m (0.7ms)[0m  [1m[35mDROP TABLE "sessions"[0m
+  ↳ db/migrate/20181007102438_change_invite_to_s.rb:3
+  [1m[35m (0.2ms)[0m  [1m[31mrollback transaction[0m
+  ↳ /usr/local/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /usr/local/bin/rake:23
+Migrating to ChangeInviteToS (20181007102438)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ /usr/local/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ db/migrate/20181007102438_change_invite_to_s.rb:3
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TEMPORARY TABLE "asessions" ("id" integer NOT NULL PRIMARY KEY, "name" varchar DEFAULT NULL, "time" datetime DEFAULT NULL, "transcript" text DEFAULT NULL, "task_ids" integer DEFAULT NULL, "users_id" integer DEFAULT NULL, "votes_id" integer DEFAULT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "details" text DEFAULT NULL, "invite" text DEFAULT NULL, "auth" varchar DEFAULT NULL, "state" varchar DEFAULT NULL)[0m
+  ↳ db/migrate/20181007102438_change_invite_to_s.rb:3
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "tindex_asessions_on_task_ids" ON "asessions" ("task_ids")[0m
+  ↳ db/migrate/20181007102438_change_invite_to_s.rb:3
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "tindex_asessions_on_votes_id" ON "asessions" ("votes_id")[0m
+  ↳ db/migrate/20181007102438_change_invite_to_s.rb:3
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "asessions" ("id","name","time","transcript","task_ids","users_id","votes_id","created_at","updated_at","details","invite","auth","state")
+                     SELECT "id","name","time","transcript","task_ids","users_id","votes_id","created_at","updated_at","details","invite","auth","state" FROM "sessions"[0m
+  ↳ db/migrate/20181007102438_change_invite_to_s.rb:3
+  [1m[35m (0.8ms)[0m  [1m[35mDROP TABLE "sessions"[0m
+  ↳ db/migrate/20181007102438_change_invite_to_s.rb:3
+  [1m[35m (0.2ms)[0m  [1m[31mrollback transaction[0m
+  ↳ /usr/local/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /usr/local/bin/rake:23
+Migrating to ChangeInviteToS (20181007102438)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ /usr/local/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ db/migrate/20181007102438_change_invite_to_s.rb:3
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TEMPORARY TABLE "asessions" ("id" integer NOT NULL PRIMARY KEY, "name" varchar DEFAULT NULL, "time" datetime DEFAULT NULL, "transcript" text DEFAULT NULL, "task_ids" integer DEFAULT NULL, "users_id" integer DEFAULT NULL, "votes_id" integer DEFAULT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "details" text DEFAULT NULL, "invite" text DEFAULT NULL, "auth" varchar DEFAULT NULL, "state" varchar DEFAULT NULL)[0m
+  ↳ db/migrate/20181007102438_change_invite_to_s.rb:3
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "tindex_asessions_on_task_ids" ON "asessions" ("task_ids")[0m
+  ↳ db/migrate/20181007102438_change_invite_to_s.rb:3
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "tindex_asessions_on_votes_id" ON "asessions" ("votes_id")[0m
+  ↳ db/migrate/20181007102438_change_invite_to_s.rb:3
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "asessions" ("id","name","time","transcript","task_ids","users_id","votes_id","created_at","updated_at","details","invite","auth","state")
+                     SELECT "id","name","time","transcript","task_ids","users_id","votes_id","created_at","updated_at","details","invite","auth","state" FROM "sessions"[0m
+  ↳ db/migrate/20181007102438_change_invite_to_s.rb:3
+  [1m[35m (0.6ms)[0m  [1m[35mDROP TABLE "sessions"[0m
+  ↳ db/migrate/20181007102438_change_invite_to_s.rb:3
+  [1m[35m (0.8ms)[0m  [1m[31mrollback transaction[0m
+  ↳ /usr/local/bin/rake:23
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Destroy (12.2ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 141]]
+  [1m[35m (90.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Destroy (0.3ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 142]]
+  [1m[35m (73.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Destroy (0.3ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 143]]
+  [1m[35m (87.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Destroy (0.3ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 144]]
+  [1m[35m (87.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Destroy (0.3ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 145]]
+  [1m[35m (87.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Destroy (0.2ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 146]]
+  [1m[35m (87.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Destroy (0.3ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 147]]
+  [1m[35m (132.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Destroy (0.3ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 148]]
+  [1m[35m (109.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Destroy (0.4ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 149]]
+  [1m[35m (98.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Destroy (0.3ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 150]]
+  [1m[35m (79.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Destroy (0.2ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 151]]
+  [1m[35m (65.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Destroy (0.3ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 152]]
+  [1m[35m (65.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Destroy (0.3ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 153]]
+  [1m[35m (65.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Destroy (0.3ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 154]]
+  [1m[35m (65.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Destroy (0.3ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 155]]
+  [1m[35m (65.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Destroy (0.3ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 156]]
+  [1m[35m (65.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Destroy (0.2ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 157]]
+  [1m[35m (65.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Destroy (0.3ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 158]]
+  [1m[35m (65.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Destroy (0.2ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 159]]
+  [1m[35m (65.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Destroy (0.3ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 160]]
+  [1m[35m (65.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mSession Load (0.5ms)[0m  [1m[34mSELECT "sessions".* FROM "sessions"[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mGutentag::Tagging Load (0.1ms)[0m  [1m[34mSELECT "gutentag_taggings".* FROM "gutentag_taggings" WHERE "gutentag_taggings"."taggable_id" = ? AND "gutentag_taggings"."taggable_type" = ?[0m  [["taggable_id", 1], ["taggable_type", "Session"]]
+  [1m[36mSession Destroy (0.8ms)[0m  [1m[31mDELETE FROM "sessions" WHERE "sessions"."id" = ?[0m  [["id", 1]]
+  [1m[35m (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mSession Load (0.4ms)[0m  [1m[34mSELECT "sessions".* FROM "sessions"[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mGutentag::Tagging Load (0.2ms)[0m  [1m[34mSELECT "gutentag_taggings".* FROM "gutentag_taggings" WHERE "gutentag_taggings"."taggable_id" = ? AND "gutentag_taggings"."taggable_type" = ?[0m  [["taggable_id", 1], ["taggable_type", "Session"]]
+  [1m[36mSession Destroy (2.2ms)[0m  [1m[31mDELETE FROM "sessions" WHERE "sessions"."id" = ?[0m  [["id", 1]]
+  [1m[35m (0.5ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTask Load (0.6ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks"[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTask Destroy (28.7ms)[0m  [1m[31mDELETE FROM "tasks" WHERE "tasks"."id" = ?[0m  [["id", 24]]
+  [1m[35m (70.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTask Destroy (0.4ms)[0m  [1m[31mDELETE FROM "tasks" WHERE "tasks"."id" = ?[0m  [["id", 25]]
+  [1m[35m (65.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTask Destroy (0.3ms)[0m  [1m[31mDELETE FROM "tasks" WHERE "tasks"."id" = ?[0m  [["id", 26]]
+  [1m[35m (65.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTask Destroy (0.3ms)[0m  [1m[31mDELETE FROM "tasks" WHERE "tasks"."id" = ?[0m  [["id", 27]]
+  [1m[35m (54.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTask Destroy (0.3ms)[0m  [1m[31mDELETE FROM "tasks" WHERE "tasks"."id" = ?[0m  [["id", 28]]
+  [1m[35m (53.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTask Destroy (0.5ms)[0m  [1m[31mDELETE FROM "tasks" WHERE "tasks"."id" = ?[0m  [["id", 29]]
+  [1m[35m (84.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTask Destroy (0.4ms)[0m  [1m[31mDELETE FROM "tasks" WHERE "tasks"."id" = ?[0m  [["id", 30]]
+  [1m[35m (56.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTask Destroy (0.4ms)[0m  [1m[31mDELETE FROM "tasks" WHERE "tasks"."id" = ?[0m  [["id", 31]]
+  [1m[35m (53.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTask Destroy (0.4ms)[0m  [1m[31mDELETE FROM "tasks" WHERE "tasks"."id" = ?[0m  [["id", 32]]
+  [1m[35m (54.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTask Destroy (0.4ms)[0m  [1m[31mDELETE FROM "tasks" WHERE "tasks"."id" = ?[0m  [["id", 33]]
+  [1m[35m (53.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mSession Load (0.3ms)[0m  [1m[34mSELECT "sessions".* FROM "sessions"[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mGutentag::Tagging Load (0.2ms)[0m  [1m[34mSELECT "gutentag_taggings".* FROM "gutentag_taggings" WHERE "gutentag_taggings"."taggable_id" = ? AND "gutentag_taggings"."taggable_type" = ?[0m  [["taggable_id", 1], ["taggable_type", "Session"]]
+  [1m[36mSession Destroy (1.9ms)[0m  [1m[31mDELETE FROM "sessions" WHERE "sessions"."id" = ?[0m  [["id", 1]]
+  [1m[35m (108.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mGutentag::Tagging Load (0.1ms)[0m  [1m[34mSELECT "gutentag_taggings".* FROM "gutentag_taggings" WHERE "gutentag_taggings"."taggable_id" = ? AND "gutentag_taggings"."taggable_type" = ?[0m  [["taggable_id", 2], ["taggable_type", "Session"]]
+  [1m[36mSession Destroy (0.3ms)[0m  [1m[31mDELETE FROM "sessions" WHERE "sessions"."id" = ?[0m  [["id", 2]]
+  [1m[35m (92.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mGutentag::Tagging Load (0.2ms)[0m  [1m[34mSELECT "gutentag_taggings".* FROM "gutentag_taggings" WHERE "gutentag_taggings"."taggable_id" = ? AND "gutentag_taggings"."taggable_type" = ?[0m  [["taggable_id", 3], ["taggable_type", "Session"]]
+  [1m[36mSession Destroy (0.7ms)[0m  [1m[31mDELETE FROM "sessions" WHERE "sessions"."id" = ?[0m  [["id", 3]]
+  [1m[35m (133.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mGutentag::Tagging Load (0.1ms)[0m  [1m[34mSELECT "gutentag_taggings".* FROM "gutentag_taggings" WHERE "gutentag_taggings"."taggable_id" = ? AND "gutentag_taggings"."taggable_type" = ?[0m  [["taggable_id", 4], ["taggable_type", "Session"]]
+  [1m[36mSession Destroy (0.3ms)[0m  [1m[31mDELETE FROM "sessions" WHERE "sessions"."id" = ?[0m  [["id", 4]]
+  [1m[35m (92.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mGutentag::Tagging Load (0.1ms)[0m  [1m[34mSELECT "gutentag_taggings".* FROM "gutentag_taggings" WHERE "gutentag_taggings"."taggable_id" = ? AND "gutentag_taggings"."taggable_type" = ?[0m  [["taggable_id", 5], ["taggable_type", "Session"]]
+  [1m[36mSession Destroy (0.3ms)[0m  [1m[31mDELETE FROM "sessions" WHERE "sessions"."id" = ?[0m  [["id", 5]]
+  [1m[35m (108.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mGutentag::Tagging Load (0.1ms)[0m  [1m[34mSELECT "gutentag_taggings".* FROM "gutentag_taggings" WHERE "gutentag_taggings"."taggable_id" = ? AND "gutentag_taggings"."taggable_type" = ?[0m  [["taggable_id", 6], ["taggable_type", "Session"]]
+  [1m[36mSession Destroy (0.3ms)[0m  [1m[31mDELETE FROM "sessions" WHERE "sessions"."id" = ?[0m  [["id", 6]]
+  [1m[35m (97.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mGutentag::Tagging Load (0.1ms)[0m  [1m[34mSELECT "gutentag_taggings".* FROM "gutentag_taggings" WHERE "gutentag_taggings"."taggable_id" = ? AND "gutentag_taggings"."taggable_type" = ?[0m  [["taggable_id", 7], ["taggable_type", "Session"]]
+  [1m[36mSession Destroy (0.3ms)[0m  [1m[31mDELETE FROM "sessions" WHERE "sessions"."id" = ?[0m  [["id", 7]]
+  [1m[35m (136.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mGutentag::Tagging Load (0.1ms)[0m  [1m[34mSELECT "gutentag_taggings".* FROM "gutentag_taggings" WHERE "gutentag_taggings"."taggable_id" = ? AND "gutentag_taggings"."taggable_type" = ?[0m  [["taggable_id", 8], ["taggable_type", "Session"]]
+  [1m[36mSession Destroy (0.3ms)[0m  [1m[31mDELETE FROM "sessions" WHERE "sessions"."id" = ?[0m  [["id", 8]]
+  [1m[35m (92.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mGutentag::Tagging Load (0.1ms)[0m  [1m[34mSELECT "gutentag_taggings".* FROM "gutentag_taggings" WHERE "gutentag_taggings"."taggable_id" = ? AND "gutentag_taggings"."taggable_type" = ?[0m  [["taggable_id", 9], ["taggable_type", "Session"]]
+  [1m[36mSession Destroy (0.2ms)[0m  [1m[31mDELETE FROM "sessions" WHERE "sessions"."id" = ?[0m  [["id", 9]]
+  [1m[35m (97.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mGutentag::Tagging Load (0.1ms)[0m  [1m[34mSELECT "gutentag_taggings".* FROM "gutentag_taggings" WHERE "gutentag_taggings"."taggable_id" = ? AND "gutentag_taggings"."taggable_type" = ?[0m  [["taggable_id", 10], ["taggable_type", "Session"]]
+  [1m[36mSession Destroy (0.3ms)[0m  [1m[31mDELETE FROM "sessions" WHERE "sessions"."id" = ?[0m  [["id", 10]]
+  [1m[35m (108.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mGutentag::Tagging Load (0.1ms)[0m  [1m[34mSELECT "gutentag_taggings".* FROM "gutentag_taggings" WHERE "gutentag_taggings"."taggable_id" = ? AND "gutentag_taggings"."taggable_type" = ?[0m  [["taggable_id", 11], ["taggable_type", "Session"]]
+  [1m[36mSession Destroy (0.3ms)[0m  [1m[31mDELETE FROM "sessions" WHERE "sessions"."id" = ?[0m  [["id", 11]]
+  [1m[35m (109.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mGutentag::Tagging Load (0.1ms)[0m  [1m[34mSELECT "gutentag_taggings".* FROM "gutentag_taggings" WHERE "gutentag_taggings"."taggable_id" = ? AND "gutentag_taggings"."taggable_type" = ?[0m  [["taggable_id", 12], ["taggable_type", "Session"]]
+  [1m[36mSession Destroy (0.3ms)[0m  [1m[31mDELETE FROM "sessions" WHERE "sessions"."id" = ?[0m  [["id", 12]]
+  [1m[35m (108.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mGutentag::Tagging Load (0.2ms)[0m  [1m[34mSELECT "gutentag_taggings".* FROM "gutentag_taggings" WHERE "gutentag_taggings"."taggable_id" = ? AND "gutentag_taggings"."taggable_type" = ?[0m  [["taggable_id", 13], ["taggable_type", "Session"]]
+  [1m[36mSession Destroy (0.3ms)[0m  [1m[31mDELETE FROM "sessions" WHERE "sessions"."id" = ?[0m  [["id", 13]]
+  [1m[35m (109.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /usr/local/bin/rake:23
+Migrating to ChangeInviteToS (20181007102438)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ /usr/local/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ db/migrate/20181007102438_change_invite_to_s.rb:3
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TEMPORARY TABLE "asessions" ("id" integer NOT NULL PRIMARY KEY, "name" varchar DEFAULT NULL, "time" datetime DEFAULT NULL, "transcript" text DEFAULT NULL, "task_ids" integer DEFAULT NULL, "users_id" integer DEFAULT NULL, "votes_id" integer DEFAULT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "details" text DEFAULT NULL, "invite" text DEFAULT NULL, "auth" varchar DEFAULT NULL, "state" varchar DEFAULT NULL)[0m
+  ↳ db/migrate/20181007102438_change_invite_to_s.rb:3
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "tindex_asessions_on_task_ids" ON "asessions" ("task_ids")[0m
+  ↳ db/migrate/20181007102438_change_invite_to_s.rb:3
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "tindex_asessions_on_votes_id" ON "asessions" ("votes_id")[0m
+  ↳ db/migrate/20181007102438_change_invite_to_s.rb:3
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "asessions" ("id","name","time","transcript","task_ids","users_id","votes_id","created_at","updated_at","details","invite","auth","state")
+                     SELECT "id","name","time","transcript","task_ids","users_id","votes_id","created_at","updated_at","details","invite","auth","state" FROM "sessions"[0m
+  ↳ db/migrate/20181007102438_change_invite_to_s.rb:3
+  [1m[35m (0.4ms)[0m  [1m[35mDROP TABLE "sessions"[0m
+  ↳ db/migrate/20181007102438_change_invite_to_s.rb:3
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "sessions" ("id" integer NOT NULL PRIMARY KEY, "name" varchar DEFAULT NULL, "time" datetime DEFAULT NULL, "transcript" text DEFAULT NULL, "task_ids" integer DEFAULT NULL, "users_id" integer DEFAULT NULL, "votes_id" integer DEFAULT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "details" text DEFAULT NULL, "invite" varchar DEFAULT NULL, "auth" varchar DEFAULT NULL, "state" varchar DEFAULT NULL)[0m
+  ↳ db/migrate/20181007102438_change_invite_to_s.rb:3
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "index_sessions_on_votes_id" ON "sessions" ("votes_id")[0m
+  ↳ db/migrate/20181007102438_change_invite_to_s.rb:3
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "index_sessions_on_task_ids" ON "sessions" ("task_ids")[0m
+  ↳ db/migrate/20181007102438_change_invite_to_s.rb:3
+  [1m[35m (0.2ms)[0m  [1m[32mINSERT INTO "sessions" ("id","name","time","transcript","task_ids","users_id","votes_id","created_at","updated_at","details","invite","auth","state")
+                     SELECT "id","name","time","transcript","task_ids","users_id","votes_id","created_at","updated_at","details","invite","auth","state" FROM "asessions"[0m
+  ↳ db/migrate/20181007102438_change_invite_to_s.rb:3
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE "asessions"[0m
+  ↳ db/migrate/20181007102438_change_invite_to_s.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20181007102438"]]
+  ↳ /usr/local/bin/rake:23
+  [1m[35m (140.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ /usr/local/bin/rake:23
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ /usr/local/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ /usr/local/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ /usr/local/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /usr/local/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /usr/local/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:11
+  [1m[36mUser Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."auth" = ? LIMIT ?[0m  [["auth", "04ed011d"], ["LIMIT", 1]]
+  ↳ app/models/concerns/friendlyable.rb:21
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "auth", "phone", "bio", "email", "created_at", "updated_at", "avatar") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Tatyana Wolff"], ["auth", "04ed011d"], ["phone", "984-438-3712"], ["bio", "The unexamined life is not worth living."], ["email", "perryabernathy@erdman.net"], ["created_at", "2018-10-07 10:55:34.120505"], ["updated_at", "2018-10-07 10:55:34.120505"], ["avatar", "https://robohash.org/7673aaa406b7f1a05678dc987d0db0a836df8c3bc72e7bd9740881c11023d12f.png?size=300x300&set=set1"]]
+  ↳ db/seeds.rb:11
+  [1m[35m (83.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:11
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:11
+  [1m[36mUser Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."auth" = ? LIMIT ?[0m  [["auth", "d4f30328"], ["LIMIT", 1]]
+  ↳ app/models/concerns/friendlyable.rb:21
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("name", "auth", "phone", "bio", "email", "created_at", "updated_at", "avatar") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Danny Weber"], ["auth", "d4f30328"], ["phone", "780-561-0290 x7049"], ["bio", "The unexamined life is not worth living."], ["email", "reginald@considine.name"], ["created_at", "2018-10-07 10:55:34.208676"], ["updated_at", "2018-10-07 10:55:34.208676"], ["avatar", "https://robohash.org/067eb10bda23eb93cd7ad768777582e4a322f2241e7e9c4306186ec7c25eab25.png?size=300x300&set=set1"]]
+  ↳ db/seeds.rb:11
+  [1m[35m (85.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:11
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:11
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."auth" = ? LIMIT ?[0m  [["auth", "9d5e9fd8"], ["LIMIT", 1]]
+  ↳ app/models/concerns/friendlyable.rb:21
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("name", "auth", "phone", "bio", "email", "created_at", "updated_at", "avatar") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Mitchell Romaguera"], ["auth", "9d5e9fd8"], ["phone", "(690) 717-7909 x060"], ["bio", "Quality is not an act, it is a habit."], ["email", "lavina@borer.net"], ["created_at", "2018-10-07 10:55:34.299635"], ["updated_at", "2018-10-07 10:55:34.299635"], ["avatar", "https://robohash.org/eddf7628345c04a1eba5389db6263222b9335efb58fd90d43237a98dc3ee02fe.png?size=300x300&set=set1"]]
+  ↳ db/seeds.rb:11
+  [1m[35m (81.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:11
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:11
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."auth" = ? LIMIT ?[0m  [["auth", "c2198ab5"], ["LIMIT", 1]]
+  ↳ app/models/concerns/friendlyable.rb:21
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("name", "auth", "phone", "bio", "email", "created_at", "updated_at", "avatar") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Isidro Moen"], ["auth", "c2198ab5"], ["phone", "473.369.6087 x4027"], ["bio", "Good habits formed at youth make all the difference."], ["email", "bryanleannon@cremin.net"], ["created_at", "2018-10-07 10:55:34.388836"], ["updated_at", "2018-10-07 10:55:34.388836"], ["avatar", "https://robohash.org/fd8e9a944b035e2034eba9fa3f03bbb5656e56ff46b90ef26de1dc9313a0c4a1.png?size=300x300&set=set1"]]
+  ↳ db/seeds.rb:11
+  [1m[35m (81.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:11
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:11
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."auth" = ? LIMIT ?[0m  [["auth", "0b66cadf"], ["LIMIT", 1]]
+  ↳ app/models/concerns/friendlyable.rb:21
+  [1m[36mUser Create (0.6ms)[0m  [1m[32mINSERT INTO "users" ("name", "auth", "phone", "bio", "email", "created_at", "updated_at", "avatar") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Shemika Marquardt DDS"], ["auth", "0b66cadf"], ["phone", "947.493.9441"], ["bio", "Beware the barrenness of a busy life."], ["email", "janisbernhard@gislason.name"], ["created_at", "2018-10-07 10:55:34.478828"], ["updated_at", "2018-10-07 10:55:34.478828"], ["avatar", "https://robohash.org/df80a1a8edcb480e865662174ecc296a390089469c47f2af7a83559b17419d31.png?size=300x300&set=set1"]]
+  ↳ db/seeds.rb:11
+  [1m[35m (78.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:11
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:11
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."auth" = ? LIMIT ?[0m  [["auth", "be51d201"], ["LIMIT", 1]]
+  ↳ app/models/concerns/friendlyable.rb:21
+  [1m[36mUser Create (0.8ms)[0m  [1m[32mINSERT INTO "users" ("name", "auth", "phone", "bio", "email", "created_at", "updated_at", "avatar") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Nakita Barrows Jr."], ["auth", "be51d201"], ["phone", "569.025.8212 x3313"], ["bio", "Beware the barrenness of a busy life."], ["email", "freddiequigley@dibbert.name"], ["created_at", "2018-10-07 10:55:34.568130"], ["updated_at", "2018-10-07 10:55:34.568130"], ["avatar", "https://robohash.org/5d213d9f2ceb9c39507c8da409256c7af0038b0ec46622dc03862aa57f55b60d.png?size=300x300&set=set1"]]
+  ↳ db/seeds.rb:11
+  [1m[35m (79.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:11
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:11
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."auth" = ? LIMIT ?[0m  [["auth", "a1b370c4"], ["LIMIT", 1]]
+  ↳ app/models/concerns/friendlyable.rb:21
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("name", "auth", "phone", "bio", "email", "created_at", "updated_at", "avatar") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Ms. Noriko Cormier"], ["auth", "a1b370c4"], ["phone", "150-448-9932 x130"], ["bio", "Control thy passions lest they take vengence on thee."], ["email", "williamswhite@hagenes.net"], ["created_at", "2018-10-07 10:55:34.657920"], ["updated_at", "2018-10-07 10:55:34.657920"], ["avatar", "https://robohash.org/728b24fe8b901152e5a048d8d40c8b15403c44cc2bef6c9fab3350fb7c9b085f.png?size=300x300&set=set1"]]
+  ↳ db/seeds.rb:11
+  [1m[35m (290.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:11
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:11
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."auth" = ? LIMIT ?[0m  [["auth", "3bb57b84"], ["LIMIT", 1]]
+  ↳ app/models/concerns/friendlyable.rb:21
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "auth", "phone", "bio", "email", "created_at", "updated_at", "avatar") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Miss Lorilee Bauch"], ["auth", "3bb57b84"], ["phone", "1-253-223-0847 x5834"], ["bio", "Control thy passions lest they take vengence on thee."], ["email", "larita@wyman.org"], ["created_at", "2018-10-07 10:55:34.957106"], ["updated_at", "2018-10-07 10:55:34.957106"], ["avatar", "https://robohash.org/a42137b1df436e56f4ef549d04f110b49bd443bbf50bda16c74dd04416ad25ce.png?size=300x300&set=set1"]]
+  ↳ db/seeds.rb:11
+  [1m[35m (79.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:11
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:11
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."auth" = ? LIMIT ?[0m  [["auth", "a8a9bcf3"], ["LIMIT", 1]]
+  ↳ app/models/concerns/friendlyable.rb:21
+  [1m[36mUser Create (0.6ms)[0m  [1m[32mINSERT INTO "users" ("name", "auth", "phone", "bio", "email", "created_at", "updated_at", "avatar") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Tamara Mante"], ["auth", "a8a9bcf3"], ["phone", "487.625.7357"], ["bio", "Only the educated are free."], ["email", "jerrodkshlerin@connellybrakus.info"], ["created_at", "2018-10-07 10:55:35.044931"], ["updated_at", "2018-10-07 10:55:35.044931"], ["avatar", "https://robohash.org/9232f0b58b03ce66387b60bd2b40d009ce2acbee7739efc74b185473a061e437.png?size=300x300&set=set1"]]
+  ↳ db/seeds.rb:11
+  [1m[35m (80.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:11
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:11
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."auth" = ? LIMIT ?[0m  [["auth", "86b290b0"], ["LIMIT", 1]]
+  ↳ app/models/concerns/friendlyable.rb:21
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("name", "auth", "phone", "bio", "email", "created_at", "updated_at", "avatar") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Roscoe Walker II"], ["auth", "86b290b0"], ["phone", "1-645-052-8001"], ["bio", "Pleasure in the job puts perfection in the work."], ["email", "elizabeth@hintzgrimes.net"], ["created_at", "2018-10-07 10:55:35.134063"], ["updated_at", "2018-10-07 10:55:35.134063"], ["avatar", "https://robohash.org/584a792839e2b454a72d7894d0ddacdef560acb35e4000a981a8205a39712740.png?size=300x300&set=set1"]]
+  ↳ db/seeds.rb:11
+  [1m[35m (80.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:11
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:11
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."auth" = ? LIMIT ?[0m  [["auth", "8d362bf2"], ["LIMIT", 1]]
+  ↳ app/models/concerns/friendlyable.rb:21
+  [1m[36mUser Create (0.7ms)[0m  [1m[32mINSERT INTO "users" ("name", "auth", "phone", "bio", "email", "created_at", "updated_at", "avatar") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Rebekah Harris"], ["auth", "8d362bf2"], ["phone", "1-684-217-9181 x996"], ["bio", "Dignity does not consist in possessing honors, but in deserving them."], ["email", "hilton@lebsack.org"], ["created_at", "2018-10-07 10:55:35.224403"], ["updated_at", "2018-10-07 10:55:35.224403"], ["avatar", "https://robohash.org/2181cc570872136d026dfc526621b9ec092bfb2effe888fba88a6c52f8965430.png?size=300x300&set=set1"]]
+  ↳ db/seeds.rb:11
+  [1m[35m (88.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:11
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:11
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."auth" = ? LIMIT ?[0m  [["auth", "56be4b29"], ["LIMIT", 1]]
+  ↳ app/models/concerns/friendlyable.rb:21
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "auth", "phone", "bio", "email", "created_at", "updated_at", "avatar") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Clarence Jones"], ["auth", "56be4b29"], ["phone", "806.669.9950 x403"], ["bio", "The secret to humor is surprise."], ["email", "goldenlarson@mcglynnokuneva.net"], ["created_at", "2018-10-07 10:55:35.326865"], ["updated_at", "2018-10-07 10:55:35.326865"], ["avatar", "https://robohash.org/bf174755d0db444c42aa5c1250b0c22558afb1d380c2ff570a28e63e5094620c.png?size=300x300&set=set1"]]
+  ↳ db/seeds.rb:11
+  [1m[35m (78.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:11
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:11
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."auth" = ? LIMIT ?[0m  [["auth", "b2783bdc"], ["LIMIT", 1]]
+  ↳ app/models/concerns/friendlyable.rb:21
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "auth", "phone", "bio", "email", "created_at", "updated_at", "avatar") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Alphonso Langosh Jr."], ["auth", "b2783bdc"], ["phone", "1-375-237-4717"], ["bio", "The mind is not a vessel to be filled but a fire to be kindled."], ["email", "reysatterfield@stoltenberg.name"], ["created_at", "2018-10-07 10:55:35.410488"], ["updated_at", "2018-10-07 10:55:35.410488"], ["avatar", "https://robohash.org/a159acced23915dea0753089bcb1ce12d485f87352654caad052b20fe5ff3222.png?size=300x300&set=set1"]]
+  ↳ db/seeds.rb:11
+  [1m[35m (93.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:11
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:11
+  [1m[36mUser Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."auth" = ? LIMIT ?[0m  [["auth", "da249972"], ["LIMIT", 1]]
+  ↳ app/models/concerns/friendlyable.rb:21
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("name", "auth", "phone", "bio", "email", "created_at", "updated_at", "avatar") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Mr. Neomi Adams"], ["auth", "da249972"], ["phone", "286.467.0920 x6468"], ["bio", "Know how to listen, and you will profit even from those who talk badly."], ["email", "angela@kuvalisleannon.io"], ["created_at", "2018-10-07 10:55:35.509569"], ["updated_at", "2018-10-07 10:55:35.509569"], ["avatar", "https://robohash.org/dd21f92d67b1291cf6f4a9bb7f64a4ab9830d214a67a9574b4a672c6a7517ad2.png?size=300x300&set=set1"]]
+  ↳ db/seeds.rb:11
+  [1m[35m (85.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:11
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:11
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."auth" = ? LIMIT ?[0m  [["auth", "28e2c2ad"], ["LIMIT", 1]]
+  ↳ app/models/concerns/friendlyable.rb:21
+  [1m[36mUser Create (0.9ms)[0m  [1m[32mINSERT INTO "users" ("name", "auth", "phone", "bio", "email", "created_at", "updated_at", "avatar") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Tracie Schuppe II"], ["auth", "28e2c2ad"], ["phone", "139.904.5500 x51143"], ["bio", "The virtue of justice consists in moderation, as regulated by wisdom."], ["email", "damion@veumdickens.info"], ["created_at", "2018-10-07 10:55:35.602168"], ["updated_at", "2018-10-07 10:55:35.602168"], ["avatar", "https://robohash.org/fc42f716c296b127850fbca1e103af089ecf2fb1f7c152d8d5440c6130bb6018.png?size=300x300&set=set1"]]
+  ↳ db/seeds.rb:11
+  [1m[35m (111.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:11
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:11
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."auth" = ? LIMIT ?[0m  [["auth", "c7f51762"], ["LIMIT", 1]]
+  ↳ app/models/concerns/friendlyable.rb:21
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("name", "auth", "phone", "bio", "email", "created_at", "updated_at", "avatar") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Mozella Schiller PhD"], ["auth", "c7f51762"], ["phone", "523.417.8473"], ["bio", "It's not what happens to you, but how you react to it that matters."], ["email", "connie@mills.com"], ["created_at", "2018-10-07 10:55:35.724600"], ["updated_at", "2018-10-07 10:55:35.724600"], ["avatar", "https://robohash.org/90a2b51b1e75d226f56e57edf479e5ccb8b4d70ebb134ad2be772badfb9ea67c.png?size=300x300&set=set1"]]
+  ↳ db/seeds.rb:11
+  [1m[35m (90.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:11
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:11
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."auth" = ? LIMIT ?[0m  [["auth", "6c5b0606"], ["LIMIT", 1]]
+  ↳ app/models/concerns/friendlyable.rb:21
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("name", "auth", "phone", "bio", "email", "created_at", "updated_at", "avatar") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Ms. Donella Conroy"], ["auth", "6c5b0606"], ["phone", "573.708.2931 x19217"], ["bio", "The secret to humor is surprise."], ["email", "jay@renner.net"], ["created_at", "2018-10-07 10:55:35.825007"], ["updated_at", "2018-10-07 10:55:35.825007"], ["avatar", "https://robohash.org/e2efda38b45966d4ee9987f6f5ecd8e1eb515fdafc2cd8963f7f8a154f375e0c.png?size=300x300&set=set1"]]
+  ↳ db/seeds.rb:11
+  [1m[35m (77.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:11
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:11
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."auth" = ? LIMIT ?[0m  [["auth", "72190cc7"], ["LIMIT", 1]]
+  ↳ app/models/concerns/friendlyable.rb:21
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "auth", "phone", "bio", "email", "created_at", "updated_at", "avatar") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Miss Zachariah Treutel"], ["auth", "72190cc7"], ["phone", "1-770-924-1924 x385"], ["bio", "Most people would rather give than get affection."], ["email", "harlandwolff@volkman.co"], ["created_at", "2018-10-07 10:55:35.911773"], ["updated_at", "2018-10-07 10:55:35.911773"], ["avatar", "https://robohash.org/b630babcbdb1bc9eae05ad38caaf56e5b0f2e8f32e11d2a11c6c1576cb66309a.png?size=300x300&set=set1"]]
+  ↳ db/seeds.rb:11
+  [1m[35m (80.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:11
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:11
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."auth" = ? LIMIT ?[0m  [["auth", "c12513da"], ["LIMIT", 1]]
+  ↳ app/models/concerns/friendlyable.rb:21
+  [1m[36mUser Create (0.6ms)[0m  [1m[32mINSERT INTO "users" ("name", "auth", "phone", "bio", "email", "created_at", "updated_at", "avatar") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Grady Schmidt"], ["auth", "c12513da"], ["phone", "531-060-2415 x4327"], ["bio", "Rhetoric is the art of ruling the minds of men."], ["email", "tom@kilback.co"], ["created_at", "2018-10-07 10:55:35.999916"], ["updated_at", "2018-10-07 10:55:35.999916"], ["avatar", "https://robohash.org/14bc33c0f01c50400af4395f3811f18624cf606be0e7ce3760c6fae9ed26d4bb.png?size=300x300&set=set1"]]
+  ↳ db/seeds.rb:11
+  [1m[35m (91.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:11
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:11
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."auth" = ? LIMIT ?[0m  [["auth", "9e6dd8c1"], ["LIMIT", 1]]
+  ↳ app/models/concerns/friendlyable.rb:21
+  [1m[36mUser Create (0.8ms)[0m  [1m[32mINSERT INTO "users" ("name", "auth", "phone", "bio", "email", "created_at", "updated_at", "avatar") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Miss Leana Borer"], ["auth", "9e6dd8c1"], ["phone", "788.010.8494 x112"], ["bio", "Only the educated are free."], ["email", "suannedicki@toymoore.com"], ["created_at", "2018-10-07 10:55:36.102658"], ["updated_at", "2018-10-07 10:55:36.102658"], ["avatar", "https://robohash.org/b2cdf3953ca13e3b4c76081eff6049e69aaa9dbbcfae7d3fa9c1ba756c415a21.png?size=300x300&set=set1"]]
+  ↳ db/seeds.rb:11
+  [1m[35m (77.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:11
+  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Destroy (0.5ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 161]]
+  [1m[35m (111.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Destroy (0.3ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 162]]
+  [1m[35m (73.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Destroy (0.3ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 163]]
+  [1m[35m (87.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Destroy (0.3ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 164]]
+  [1m[35m (87.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Destroy (0.3ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 165]]
+  [1m[35m (87.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Destroy (0.6ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 166]]
+  [1m[35m (88.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Destroy (0.7ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 167]]
+  [1m[35m (75.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Destroy (0.6ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 168]]
+  [1m[35m (61.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Destroy (0.5ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 169]]
+  [1m[35m (87.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Destroy (1.0ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 170]]
+  [1m[35m (88.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Destroy (0.7ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 171]]
+  [1m[35m (62.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Destroy (0.8ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 172]]
+  [1m[35m (52.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Destroy (0.5ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 173]]
+  [1m[35m (53.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Destroy (0.3ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 174]]
+  [1m[35m (65.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Destroy (0.3ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 175]]
+  [1m[35m (65.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Destroy (0.3ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 176]]
+  [1m[35m (65.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Destroy (0.3ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 177]]
+  [1m[35m (65.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Destroy (0.3ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 178]]
+  [1m[35m (65.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Destroy (0.3ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 179]]
+  [1m[35m (65.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Destroy (0.3ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 180]]
+  [1m[35m (65.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /usr/local/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:11
+  [1m[36mUser Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."auth" = ? LIMIT ?[0m  [["auth", "00a5c683"], ["LIMIT", 1]]
+  ↳ app/models/concerns/friendlyable.rb:21
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "auth", "phone", "bio", "email", "created_at", "updated_at", "avatar") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Isobel Quigley PhD"], ["auth", "00a5c683"], ["phone", "156.055.8348 x793"], ["bio", "The secret to humor is surprise."], ["email", "hermanrolfson@effertz.info"], ["created_at", "2018-10-07 10:56:30.368966"], ["updated_at", "2018-10-07 10:56:30.368966"], ["avatar", "https://robohash.org/9c78b427d8c41d46ded3acfa4e004103f331d557f7c6d6b66ba6380acd4eb6ba.png?size=300x300&set=set1"]]
+  ↳ db/seeds.rb:11
+  [1m[35m (93.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:11
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:11
+  [1m[36mUser Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."auth" = ? LIMIT ?[0m  [["auth", "87c590fc"], ["LIMIT", 1]]
+  ↳ app/models/concerns/friendlyable.rb:21
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("name", "auth", "phone", "bio", "email", "created_at", "updated_at", "avatar") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Austin Erdman"], ["auth", "87c590fc"], ["phone", "915.082.6954 x568"], ["bio", "Most people would rather give than get affection."], ["email", "luiginitzsche@cartwright.co"], ["created_at", "2018-10-07 10:56:30.467988"], ["updated_at", "2018-10-07 10:56:30.467988"], ["avatar", "https://robohash.org/9147617de7463ae43688100a3e986950148a39a517b5093d5509e9ef23bee471.png?size=300x300&set=set1"]]
+  ↳ db/seeds.rb:11
+  [1m[35m (95.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:11
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:11
+  [1m[36mUser Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."auth" = ? LIMIT ?[0m  [["auth", "9823f038"], ["LIMIT", 1]]
+  ↳ app/models/concerns/friendlyable.rb:21
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "auth", "phone", "bio", "email", "created_at", "updated_at", "avatar") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Jarred Littel"], ["auth", "9823f038"], ["phone", "1-517-484-2476 x575"], ["bio", "It's not what happens to you, but how you react to it that matters."], ["email", "corina@bodeluettgen.net"], ["created_at", "2018-10-07 10:56:30.567430"], ["updated_at", "2018-10-07 10:56:30.567430"], ["avatar", "https://robohash.org/8ff6f30af0b0db7f3cb4ad008960a4068688a9fa26c9b2ccd98bf78badbe0982.png?size=300x300&set=set1"]]
+  ↳ db/seeds.rb:11
+  [1m[35m (74.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:11
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:11
+  [1m[36mUser Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."auth" = ? LIMIT ?[0m  [["auth", "9d152a4e"], ["LIMIT", 1]]
+  ↳ app/models/concerns/friendlyable.rb:21
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "auth", "phone", "bio", "email", "created_at", "updated_at", "avatar") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Mellisa Howe"], ["auth", "9d152a4e"], ["phone", "451-993-3997 x7237"], ["bio", "Dignity does not consist in possessing honors, but in deserving them."], ["email", "lyman@will.org"], ["created_at", "2018-10-07 10:56:30.645741"], ["updated_at", "2018-10-07 10:56:30.645741"], ["avatar", "https://robohash.org/857770863b7818560010af9ca943fd6654cc70a22d33de2180910c0ceb02216d.png?size=300x300&set=set1"]]
+  ↳ db/seeds.rb:11
+  [1m[35m (73.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:11
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:11
+  [1m[36mUser Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."auth" = ? LIMIT ?[0m  [["auth", "13b61e91"], ["LIMIT", 1]]
+  ↳ app/models/concerns/friendlyable.rb:21
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("name", "auth", "phone", "bio", "email", "created_at", "updated_at", "avatar") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Sheryl McDermott"], ["auth", "13b61e91"], ["phone", "1-372-124-6708 x197"], ["bio", "Quality is not an act, it is a habit."], ["email", "dirk@kemmer.co"], ["created_at", "2018-10-07 10:56:30.722793"], ["updated_at", "2018-10-07 10:56:30.722793"], ["avatar", "https://robohash.org/80d28d16089d9c209677b173954032b09fd0cd8ca519f0763710621d2aea7406.png?size=300x300&set=set1"]]
+  ↳ db/seeds.rb:11
+  [1m[35m (74.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:11
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:11
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."auth" = ? LIMIT ?[0m  [["auth", "b1c95377"], ["LIMIT", 1]]
+  ↳ app/models/concerns/friendlyable.rb:21
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "auth", "phone", "bio", "email", "created_at", "updated_at", "avatar") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Jimmy Powlowski"], ["auth", "b1c95377"], ["phone", "524.598.6800"], ["bio", "Most people would rather give than get affection."], ["email", "noahgreenholt@bradtkeconn.co"], ["created_at", "2018-10-07 10:56:30.800841"], ["updated_at", "2018-10-07 10:56:30.800841"], ["avatar", "https://robohash.org/53c008a429fbae5f607fe5caa35f040f971ef775e82fbbe8a48e9e8ac4cbb52a.png?size=300x300&set=set1"]]
+  ↳ db/seeds.rb:11
+  [1m[35m (73.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:11
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:11
+  [1m[36mUser Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."auth" = ? LIMIT ?[0m  [["auth", "f632e4f2"], ["LIMIT", 1]]
+  ↳ app/models/concerns/friendlyable.rb:21
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "auth", "phone", "bio", "email", "created_at", "updated_at", "avatar") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Ahmad Boyer"], ["auth", "f632e4f2"], ["phone", "(686) 258-4522"], ["bio", "A few vices are sufficient to darken many virtues."], ["email", "eloylittle@wehner.biz"], ["created_at", "2018-10-07 10:56:30.878641"], ["updated_at", "2018-10-07 10:56:30.878641"], ["avatar", "https://robohash.org/a32925992ff8006a6031cdcd9f19c82ba28fd4e4090bccc6dd0212136c39faa3.png?size=300x300&set=set1"]]
+  ↳ db/seeds.rb:11
+  [1m[35m (84.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:11
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:11
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."auth" = ? LIMIT ?[0m  [["auth", "9c34e583"], ["LIMIT", 1]]
+  ↳ app/models/concerns/friendlyable.rb:21
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "auth", "phone", "bio", "email", "created_at", "updated_at", "avatar") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Wiley Sanford II"], ["auth", "9c34e583"], ["phone", "(849) 967-3622"], ["bio", "There was never a genius without a tincture of madness."], ["email", "kayleneblanda@howellheidenreich.info"], ["created_at", "2018-10-07 10:56:30.967657"], ["updated_at", "2018-10-07 10:56:30.967657"], ["avatar", "https://robohash.org/bac183a4f233b8c4e87063013a5ff4f4007f409bc612c4197ed921797eb2346c.png?size=300x300&set=set1"]]
+  ↳ db/seeds.rb:11
+  [1m[35m (73.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:11
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:11
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."auth" = ? LIMIT ?[0m  [["auth", "b15d4127"], ["LIMIT", 1]]
+  ↳ app/models/concerns/friendlyable.rb:21
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "auth", "phone", "bio", "email", "created_at", "updated_at", "avatar") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Howard Rice"], ["auth", "b15d4127"], ["phone", "517.091.2097 x3960"], ["bio", "Philosophy is the highest music."], ["email", "fredahettinger@schuppegutkowski.info"], ["created_at", "2018-10-07 10:56:31.044687"], ["updated_at", "2018-10-07 10:56:31.044687"], ["avatar", "https://robohash.org/7c9c0c36979256d1990bb10e2f0dd4fbfeb381a4fff6a676335d1ca1398ea846.png?size=300x300&set=set1"]]
+  ↳ db/seeds.rb:11
+  [1m[35m (74.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:11
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:11
+  [1m[36mUser Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."auth" = ? LIMIT ?[0m  [["auth", "ef8f1d5c"], ["LIMIT", 1]]
+  ↳ app/models/concerns/friendlyable.rb:21
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("name", "auth", "phone", "bio", "email", "created_at", "updated_at", "avatar") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Ms. Trey Koch"], ["auth", "ef8f1d5c"], ["phone", "1-790-263-1576 x2126"], ["bio", "The mind is not a vessel to be filled but a fire to be kindled."], ["email", "reedchamplin@stark.net"], ["created_at", "2018-10-07 10:56:31.122943"], ["updated_at", "2018-10-07 10:56:31.122943"], ["avatar", "https://robohash.org/5115faeecc0db1adcfda7bb7a3ffd0bbc008309e0e1dba112ba3fce020ca1788.png?size=300x300&set=set1"]]
+  ↳ db/seeds.rb:11
+  [1m[35m (73.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:11
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:11
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."auth" = ? LIMIT ?[0m  [["auth", "0c8857ca"], ["LIMIT", 1]]
+  ↳ app/models/concerns/friendlyable.rb:21
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "auth", "phone", "bio", "email", "created_at", "updated_at", "avatar") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Daron O'Hara I"], ["auth", "0c8857ca"], ["phone", "889.565.0880"], ["bio", "Most people would rather give than get affection."], ["email", "leif@sawaynjacobson.biz"], ["created_at", "2018-10-07 10:56:31.200482"], ["updated_at", "2018-10-07 10:56:31.200482"], ["avatar", "https://robohash.org/c602a90465c1cf4a1a52fed5e2d0f0fb441f63039092db4361eae09d6c94eefc.png?size=300x300&set=set1"]]
+  ↳ db/seeds.rb:11
+  [1m[35m (81.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:11
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:11
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."auth" = ? LIMIT ?[0m  [["auth", "d6d92669"], ["LIMIT", 1]]
+  ↳ app/models/concerns/friendlyable.rb:21
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "auth", "phone", "bio", "email", "created_at", "updated_at", "avatar") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Billi Wiza"], ["auth", "d6d92669"], ["phone", "801-293-3328"], ["bio", "Most people would rather give than get affection."], ["email", "armand@andersonjones.biz"], ["created_at", "2018-10-07 10:56:31.286329"], ["updated_at", "2018-10-07 10:56:31.286329"], ["avatar", "https://robohash.org/504fa19567bbc2b78ef159360a53c81ac87bf69b03aa18aaa5faf2f1f63dc56e.png?size=300x300&set=set1"]]
+  ↳ db/seeds.rb:11
+  [1m[35m (87.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:11
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:11
+  [1m[36mUser Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."auth" = ? LIMIT ?[0m  [["auth", "0b82d844"], ["LIMIT", 1]]
+  ↳ app/models/concerns/friendlyable.rb:21
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "auth", "phone", "bio", "email", "created_at", "updated_at", "avatar") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Mr. Wesley Cole"], ["auth", "0b82d844"], ["phone", "(220) 039-7797 x58679"], ["bio", "Good habits formed at youth make all the difference."], ["email", "sydney@rolfsoncarter.net"], ["created_at", "2018-10-07 10:56:31.378534"], ["updated_at", "2018-10-07 10:56:31.378534"], ["avatar", "https://robohash.org/0b18bde73b6099663ea868305322a080399f9c44b613ed9515ab09fae120520d.png?size=300x300&set=set1"]]
+  ↳ db/seeds.rb:11
+  [1m[35m (84.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:11
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:11
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."auth" = ? LIMIT ?[0m  [["auth", "bb072c65"], ["LIMIT", 1]]
+  ↳ app/models/concerns/friendlyable.rb:21
+  [1m[36mUser Create (0.9ms)[0m  [1m[32mINSERT INTO "users" ("name", "auth", "phone", "bio", "email", "created_at", "updated_at", "avatar") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Adele Lind"], ["auth", "bb072c65"], ["phone", "1-750-530-5270"], ["bio", "Philosophy is the highest music."], ["email", "moraherman@robertsrath.org"], ["created_at", "2018-10-07 10:56:31.474192"], ["updated_at", "2018-10-07 10:56:31.474192"], ["avatar", "https://robohash.org/a61c5cdf78281955d9ab0ef81d8d6d84d6aa758d9d2da6d2ba1e0a84920ccb15.png?size=300x300&set=set1"]]
+  ↳ db/seeds.rb:11
+  [1m[35m (98.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:11
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:11
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."auth" = ? LIMIT ?[0m  [["auth", "94d2cfc4"], ["LIMIT", 1]]
+  ↳ app/models/concerns/friendlyable.rb:21
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "auth", "phone", "bio", "email", "created_at", "updated_at", "avatar") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Inga Leannon"], ["auth", "94d2cfc4"], ["phone", "1-943-440-9347"], ["bio", "The virtue of justice consists in moderation, as regulated by wisdom."], ["email", "troy@robel.co"], ["created_at", "2018-10-07 10:56:31.582612"], ["updated_at", "2018-10-07 10:56:31.582612"], ["avatar", "https://robohash.org/40dd2b010d461c24e48783a18bd6d051d7e24c8b32079bb913a27860f83295e9.png?size=300x300&set=set1"]]
+  ↳ db/seeds.rb:11
+  [1m[35m (109.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:11
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:11
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."auth" = ? LIMIT ?[0m  [["auth", "d3bb5e31"], ["LIMIT", 1]]
+  ↳ app/models/concerns/friendlyable.rb:21
+  [1m[36mUser Create (0.7ms)[0m  [1m[32mINSERT INTO "users" ("name", "auth", "phone", "bio", "email", "created_at", "updated_at", "avatar") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Taunya Leffler"], ["auth", "d3bb5e31"], ["phone", "985-717-6344"], ["bio", "The mind is not a vessel to be filled but a fire to be kindled."], ["email", "evelincollier@klocko.name"], ["created_at", "2018-10-07 10:56:31.701122"], ["updated_at", "2018-10-07 10:56:31.701122"], ["avatar", "https://robohash.org/619f02801a62f81b3b1f53bff8243db3b6cdd41d756a5477db9446464ec45133.png?size=300x300&set=set1"]]
+  ↳ db/seeds.rb:11
+  [1m[35m (90.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:11
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:11
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."auth" = ? LIMIT ?[0m  [["auth", "6e387443"], ["LIMIT", 1]]
+  ↳ app/models/concerns/friendlyable.rb:21
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "auth", "phone", "bio", "email", "created_at", "updated_at", "avatar") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Sadye Harvey"], ["auth", "6e387443"], ["phone", "816-881-5526"], ["bio", "There was never a genius without a tincture of madness."], ["email", "raymondeschneider@considine.net"], ["created_at", "2018-10-07 10:56:31.802457"], ["updated_at", "2018-10-07 10:56:31.802457"], ["avatar", "https://robohash.org/8bdb4fc4d7debe1e46936f9c9cf5bac3b526d86498e40a705a9175b5d597b076.png?size=300x300&set=set1"]]
+  ↳ db/seeds.rb:11
+  [1m[35m (101.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:11
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:11
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."auth" = ? LIMIT ?[0m  [["auth", "55e61fa4"], ["LIMIT", 1]]
+  ↳ app/models/concerns/friendlyable.rb:21
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "auth", "phone", "bio", "email", "created_at", "updated_at", "avatar") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Isaac Maggio"], ["auth", "55e61fa4"], ["phone", "1-343-234-3828 x190"], ["bio", "The virtue of justice consists in moderation, as regulated by wisdom."], ["email", "dellang@ryanbosco.net"], ["created_at", "2018-10-07 10:56:31.913304"], ["updated_at", "2018-10-07 10:56:31.913304"], ["avatar", "https://robohash.org/a1545d1fcafee8ee42fa7a62f165fa950d1fa3031c9147e75bbfface0a0b7bbc.png?size=300x300&set=set1"]]
+  ↳ db/seeds.rb:11
+  [1m[35m (89.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:11
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:11
+  [1m[36mUser Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."auth" = ? LIMIT ?[0m  [["auth", "ba08bdf0"], ["LIMIT", 1]]
+  ↳ app/models/concerns/friendlyable.rb:21
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "auth", "phone", "bio", "email", "created_at", "updated_at", "avatar") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Mr. Clay Jaskolski"], ["auth", "ba08bdf0"], ["phone", "631-202-2653"], ["bio", "A few vices are sufficient to darken many virtues."], ["email", "tyson@cain.com"], ["created_at", "2018-10-07 10:56:32.008286"], ["updated_at", "2018-10-07 10:56:32.008286"], ["avatar", "https://robohash.org/8a2bed6d1efce64d43a7b241bf8e8d6db55daacc382ac93bcbbed7eef3ebdeda.png?size=300x300&set=set1"]]
+  ↳ db/seeds.rb:11
+  [1m[35m (95.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:11
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:11
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."auth" = ? LIMIT ?[0m  [["auth", "b7302c1a"], ["LIMIT", 1]]
+  ↳ app/models/concerns/friendlyable.rb:21
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("name", "auth", "phone", "bio", "email", "created_at", "updated_at", "avatar") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Alva Dietrich"], ["auth", "b7302c1a"], ["phone", "746-161-3846"], ["bio", "Pleasure in the job puts perfection in the work."], ["email", "freddie@cummeratamaggio.io"], ["created_at", "2018-10-07 10:56:32.108581"], ["updated_at", "2018-10-07 10:56:32.108581"], ["avatar", "https://robohash.org/6d875394197bd4ff75158af91999b6b1613ee0b867e92d6a68688c51bd933f64.png?size=300x300&set=set1"]]
+  ↳ db/seeds.rb:11
+  [1m[35m (100.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:11
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:21
+  [1m[36mSession Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "sessions" WHERE "sessions"."auth" = ? LIMIT ?[0m  [["auth", "7eb5b424"], ["LIMIT", 1]]
+  ↳ app/models/concerns/friendlyable.rb:21
+  [1m[36mSession Create (0.3ms)[0m  [1m[32mINSERT INTO "sessions" ("name", "time", "transcript", "created_at", "updated_at", "details", "auth") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Universal uniform ability"], ["time", "2018-10-07 10:56:32.213496"], ["transcript", "The Dude abides."], ["created_at", "2018-10-07 10:56:32.226089"], ["updated_at", "2018-10-07 10:56:32.226089"], ["details", "facilitate best-of-breed communities"], ["auth", "7eb5b424"]]
+  ↳ db/seeds.rb:21
+  [1m[35m (59.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:21
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:28
+  [1m[36mSession Load (0.2ms)[0m  [1m[34mSELECT  "sessions".* FROM "sessions" WHERE "sessions"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ db/seeds.rb:28
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  ↳ db/seeds.rb:28
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:28
+  [1m[36mSession Load (0.1ms)[0m  [1m[34mSELECT  "sessions".* FROM "sessions" WHERE "sessions"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ db/seeds.rb:28
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  ↳ db/seeds.rb:28
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:28
+  [1m[36mSession Load (0.1ms)[0m  [1m[34mSELECT  "sessions".* FROM "sessions" WHERE "sessions"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ db/seeds.rb:28
+  [1m[36mTask Create (0.9ms)[0m  [1m[32mINSERT INTO "tasks" ("title", "body", "session_id", "created_at", "updated_at", "link") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "Valryon"], ["body", "Craft beer retro ethical kinfolk post-ironic truffaut hashtag health. Cray hella seitan irony cleanse deep v blog. Hashtag poutine williamsburg celiac. Sriracha normcore chambray post-ironic deep v fixie yolo. Food truck squid pork belly. Trust fund poutine shoreditch. Brooklyn dreamcatcher lomo fanny pack ugh readymade artisan twee. Quinoa brunch tousled. Kale chips williamsburg heirloom messenger bag pop-up sriracha listicle."], ["session_id", 1], ["created_at", "2018-10-07 10:56:32.318417"], ["updated_at", "2018-10-07 10:56:32.318417"], ["link", "http://keelingconroy.com/ania"]]
+  ↳ db/seeds.rb:28
+  [1m[35m (66.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:28
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:21
+  [1m[36mSession Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "sessions" WHERE "sessions"."auth" = ? LIMIT ?[0m  [["auth", "c9ee2c92"], ["LIMIT", 1]]
+  ↳ app/models/concerns/friendlyable.rb:21
+  [1m[36mSession Create (0.5ms)[0m  [1m[32mINSERT INTO "sessions" ("name", "time", "transcript", "created_at", "updated_at", "details", "auth") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Intuitive grid-enabled capacity"], ["time", "2018-10-07 10:56:32.387981"], ["transcript", "Oh, the usual. I bowl. Drive around. The occasional acid flashback."], ["created_at", "2018-10-07 10:56:32.389934"], ["updated_at", "2018-10-07 10:56:32.389934"], ["details", "unleash out-of-the-box networks"], ["auth", "c9ee2c92"]]
+  ↳ db/seeds.rb:21
+  [1m[35m (96.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:21
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:28
+  [1m[36mSession Load (0.2ms)[0m  [1m[34mSELECT  "sessions".* FROM "sessions" WHERE "sessions"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ db/seeds.rb:28
+  [1m[36mTask Create (0.5ms)[0m  [1m[32mINSERT INTO "tasks" ("title", "body", "session_id", "created_at", "updated_at", "link") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "Vhagar"], ["body", "Freegan austin pop-up taxidermy phlogiston. Wes anderson brooklyn neutra small batch retro bicycle rights single-origin coffee artisan. Artisan blog ugh mumblecore you probably haven't heard of them chambray crucifix meh. Plaid ennui sriracha freegan lumbersexual. Wayfarers mixtape farm-to-table. Fingerstache mumblecore actually. Readymade truffaut lo-fi locavore muggle magic squid. Tattooed authentic neutra knausgaard waistcoat freegan pop-up."], ["session_id", 1], ["created_at", "2018-10-07 10:56:32.495896"], ["updated_at", "2018-10-07 10:56:32.495896"], ["link", "http://cole.co/jeia"]]
+  ↳ db/seeds.rb:28
+  [1m[35m (66.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:28
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:28
+  [1m[36mSession Load (0.2ms)[0m  [1m[34mSELECT  "sessions".* FROM "sessions" WHERE "sessions"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ db/seeds.rb:28
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ db/seeds.rb:28
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:28
+  [1m[36mSession Load (0.1ms)[0m  [1m[34mSELECT  "sessions".* FROM "sessions" WHERE "sessions"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ db/seeds.rb:28
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ db/seeds.rb:28
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:21
+  [1m[36mSession Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "sessions" WHERE "sessions"."auth" = ? LIMIT ?[0m  [["auth", "3a945d07"], ["LIMIT", 1]]
+  ↳ app/models/concerns/friendlyable.rb:21
+  [1m[36mSession Create (0.4ms)[0m  [1m[32mINSERT INTO "sessions" ("name", "time", "transcript", "created_at", "updated_at", "details", "auth") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Fundamental motivating archive"], ["time", "2018-10-07 10:56:32.576370"], ["transcript", "Hey, I know that guy. He's a nihilist. Karl Hungus."], ["created_at", "2018-10-07 10:56:32.577279"], ["updated_at", "2018-10-07 10:56:32.577279"], ["details", "transition clicks-and-mortar platforms"], ["auth", "3a945d07"]]
+  ↳ db/seeds.rb:21
+  [1m[35m (85.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:21
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:28
+  [1m[36mSession Load (0.1ms)[0m  [1m[34mSELECT  "sessions".* FROM "sessions" WHERE "sessions"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ db/seeds.rb:28
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ db/seeds.rb:28
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:28
+  [1m[36mSession Load (0.1ms)[0m  [1m[34mSELECT  "sessions".* FROM "sessions" WHERE "sessions"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ db/seeds.rb:28
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ db/seeds.rb:28
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:28
+  [1m[36mSession Load (0.1ms)[0m  [1m[34mSELECT  "sessions".* FROM "sessions" WHERE "sessions"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ db/seeds.rb:28
+  [1m[36mTask Create (0.4ms)[0m  [1m[32mINSERT INTO "tasks" ("title", "body", "session_id", "created_at", "updated_at", "link") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "Caraxes"], ["body", "Scenester tote bag skateboard flexitarian selvage austin fixie pug. You probably haven't heard of them selvage disrupt carry flexitarian marfa. Keffiyeh vinyl post-ironic pork belly sriracha retro everyday artisan. Readymade cred pickled whatever vhs. Diy bicycle rights gentrify yuccie pbr&b. Poutine flannel thundercats. 90's squid retro franzen drinking bespoke street deep v."], ["session_id", 3], ["created_at", "2018-10-07 10:56:32.676193"], ["updated_at", "2018-10-07 10:56:32.676193"], ["link", "http://ward.co/cecelia"]]
+  ↳ db/seeds.rb:28
+  [1m[35m (65.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:28
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:21
+  [1m[36mSession Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "sessions" WHERE "sessions"."auth" = ? LIMIT ?[0m  [["auth", "c48fb649"], ["LIMIT", 1]]
+  ↳ app/models/concerns/friendlyable.rb:21
+  [1m[36mSession Create (0.7ms)[0m  [1m[32mINSERT INTO "sessions" ("name", "time", "transcript", "created_at", "updated_at", "details", "auth") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Future-proofed tangible protocol"], ["time", "2018-10-07 10:56:32.745198"], ["transcript", "I don't roll on Shabbos!"], ["created_at", "2018-10-07 10:56:32.746742"], ["updated_at", "2018-10-07 10:56:32.746742"], ["details", "exploit seamless communities"], ["auth", "c48fb649"]]
+  ↳ db/seeds.rb:21
+  [1m[35m (69.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:21
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:28
+  [1m[36mSession Load (0.2ms)[0m  [1m[34mSELECT  "sessions".* FROM "sessions" WHERE "sessions"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ db/seeds.rb:28
+  [1m[36mTask Create (0.4ms)[0m  [1m[32mINSERT INTO "tasks" ("title", "body", "session_id", "created_at", "updated_at", "link") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "Essovius"], ["body", "Tacos blog ramps lumbersexual. Hashtag pitchfork readymade whatever. Kombucha knausgaard occupy swag photo booth actually freegan skateboard. Swag diy portland biodiesel vhs lumbersexual pug cred. Organic irony crucifix. Pork belly chambray 8-bit hoodie keytar tousled letterpress. Biodiesel tofu beard poutine scenester flannel tousled. Typewriter kinfolk kickstarter direct trade health."], ["session_id", 3], ["created_at", "2018-10-07 10:56:32.826669"], ["updated_at", "2018-10-07 10:56:32.826669"], ["link", "http://klocko.name/kyla_littel"]]
+  ↳ db/seeds.rb:28
+  [1m[35m (71.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:28
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:28
+  [1m[36mSession Load (0.3ms)[0m  [1m[34mSELECT  "sessions".* FROM "sessions" WHERE "sessions"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ db/seeds.rb:28
+  [1m[36mTask Create (0.8ms)[0m  [1m[32mINSERT INTO "tasks" ("title", "body", "session_id", "created_at", "updated_at", "link") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "Meleys"], ["body", "Gluten-free whatever wes anderson pickled. Cronut scenester pbr&b hella xoxo readymade. Poutine roof green juice blog whatever twee. Truffaut cred franzen mixtape vice 3 wolf moon ramps. Cliche hammock asymmetrical neutra. Bitters mustache photo booth pitchfork. Pop-up deep v health. Yr diy cardigan kinfolk."], ["session_id", 2], ["created_at", "2018-10-07 10:56:32.906269"], ["updated_at", "2018-10-07 10:56:32.906269"], ["link", "http://gleichner.io/louanne"]]
+  ↳ db/seeds.rb:28
+  [1m[35m (65.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:28
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:28
+  [1m[36mSession Load (0.1ms)[0m  [1m[34mSELECT  "sessions".* FROM "sessions" WHERE "sessions"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ db/seeds.rb:28
+  [1m[36mTask Create (0.3ms)[0m  [1m[32mINSERT INTO "tasks" ("title", "body", "session_id", "created_at", "updated_at", "link") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "Tyraxes"], ["body", "Tilde marfa selvage chillwave church-key. Xoxo shabby chic occupy thundercats sartorial blog fixie. Schlitz wes anderson salvia cleanse literally tote bag phlogiston tilde. Irony before they sold out marfa crucifix small batch brunch yuccie chicharrones. Actually bushwick deep v chia art party cold-pressed viral roof. Meh beard kickstarter ethical. Venmo next level meh."], ["session_id", 3], ["created_at", "2018-10-07 10:56:32.978685"], ["updated_at", "2018-10-07 10:56:32.978685"], ["link", "http://hartmann.info/stacy"]]
+  ↳ db/seeds.rb:28
+  [1m[35m (61.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:28
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:21
+  [1m[36mSession Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "sessions" WHERE "sessions"."auth" = ? LIMIT ?[0m  [["auth", "e9ffcbc7"], ["LIMIT", 1]]
+  ↳ app/models/concerns/friendlyable.rb:21
+  [1m[36mSession Create (0.3ms)[0m  [1m[32mINSERT INTO "sessions" ("name", "time", "transcript", "created_at", "updated_at", "details", "auth") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Profound grid-enabled knowledge user"], ["time", "2018-10-07 10:56:33.043277"], ["transcript", "Calmer than you are."], ["created_at", "2018-10-07 10:56:33.043959"], ["updated_at", "2018-10-07 10:56:33.043959"], ["details", "cultivate open-source solutions"], ["auth", "e9ffcbc7"]]
+  ↳ db/seeds.rb:21
+  [1m[35m (86.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:21
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:28
+  [1m[36mSession Load (0.1ms)[0m  [1m[34mSELECT  "sessions".* FROM "sessions" WHERE "sessions"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ db/seeds.rb:28
+  [1m[36mTask Create (0.3ms)[0m  [1m[32mINSERT INTO "tasks" ("title", "body", "session_id", "created_at", "updated_at", "link") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "Essovius"], ["body", "Fingerstache brooklyn tacos cray keffiyeh 3 wolf moon phlogiston cornhole. Artisan sustainable waistcoat slow-carb xoxo forage pug. Shabby chic yuccie gentrify typewriter. Try-hard pug yr actually echo meh. Gentrify shabby chic organic flannel tofu kombucha. Mumblecore meggings five dollar toast. Pitchfork dreamcatcher jean shorts butcher squid flannel. Fashion axe kinfolk squid retro phlogiston shoreditch bushwick. Normcore swag truffaut kickstarter blue bottle organic twee."], ["session_id", 1], ["created_at", "2018-10-07 10:56:33.135902"], ["updated_at", "2018-10-07 10:56:33.135902"], ["link", "http://tremblay.net/albert.schoen"]]
+  ↳ db/seeds.rb:28
+  [1m[35m (83.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:28
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:28
+  [1m[36mSession Load (0.1ms)[0m  [1m[34mSELECT  "sessions".* FROM "sessions" WHERE "sessions"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ db/seeds.rb:28
+  [1m[36mTask Create (0.3ms)[0m  [1m[32mINSERT INTO "tasks" ("title", "body", "session_id", "created_at", "updated_at", "link") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "Caraxes"], ["body", "Yolo 90's keytar pinterest. Church-key echo authentic poutine dreamcatcher distillery. Shabby chic try-hard ethical scenester raw denim messenger bag cred tilde. Retro authentic pitchfork you probably haven't heard of them. Green juice sartorial migas wes anderson tousled truffaut. Tofu keytar lomo selvage waistcoat. Letterpress asymmetrical messenger bag thundercats."], ["session_id", 1], ["created_at", "2018-10-07 10:56:33.223322"], ["updated_at", "2018-10-07 10:56:33.223322"], ["link", "http://langworth.info/kaie_cain"]]
+  ↳ db/seeds.rb:28
+  [1m[35m (72.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:28
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:28
+  [1m[36mSession Load (0.1ms)[0m  [1m[34mSELECT  "sessions".* FROM "sessions" WHERE "sessions"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ db/seeds.rb:28
+  [1m[36mTask Create (0.3ms)[0m  [1m[32mINSERT INTO "tasks" ("title", "body", "session_id", "created_at", "updated_at", "link") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "Sunfyre"], ["body", "Wes anderson cornhole hella seitan mumblecore vinyl skateboard. Cliche direct trade offal biodiesel viral. Tattooed pug church-key carry bespoke. Next level normcore yuccie fanny pack try-hard master. Lomo iphone heirloom retro wes anderson. Yuccie craft beer yolo fanny pack slow-carb locavore. Craft beer messenger bag cold-pressed leggings hashtag. Vegan pitchfork pop-up single-origin coffee brunch."], ["session_id", 5], ["created_at", "2018-10-07 10:56:33.301072"], ["updated_at", "2018-10-07 10:56:33.301072"], ["link", "http://labadie.com/chris_jacobson"]]
+  ↳ db/seeds.rb:28
+  [1m[35m (137.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:28
+Started GET "/" for 127.0.0.1 at 2018-10-07 14:49:17 +0300
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /usr/local/lib/ruby/gems/2.5.0/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Processing by SessionsController#home as HTML
+  Rendered sessions/_uauth.html.erb (104.2ms)
+Filter chain halted as :currentu rendered or redirected
+Completed 200 OK in 114ms (Views: 107.7ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/" for 127.0.0.1 at 2018-10-07 14:49:23 +0300
+Processing by SessionsController#uauth as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"S40nKX0a0P2o4PH7MQ46yXsmCMdnBjG2+sJ+fwfetiPMB7oxEXvQGfy8gsqpKsJSwlreUcpctdOVy6CRGlUzkA==", "auth"=>"22b61465", "commit"=>"Authenticate"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."auth" = ? LIMIT ?[0m  [["auth", "22b61465"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:8
+No template found for SessionsController#uauth, rendering head :no_content
+Completed 204 No Content in 20ms (ActiveRecord: 0.4ms)
+
+
+Started POST "/" for 127.0.0.1 at 2018-10-07 14:49:28 +0300
+Processing by SessionsController#uauth as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"S40nKX0a0P2o4PH7MQ46yXsmCMdnBjG2+sJ+fwfetiPMB7oxEXvQGfy8gsqpKsJSwlreUcpctdOVy6CRGlUzkA==", "auth"=>"22b61465", "commit"=>"Authenticate"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."auth" = ? LIMIT ?[0m  [["auth", "22b61465"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:8
+No template found for SessionsController#uauth, rendering head :no_content
+Completed 204 No Content in 15ms (ActiveRecord: 0.2ms)
+
+
+Started POST "/" for 127.0.0.1 at 2018-10-07 14:49:29 +0300
+Processing by SessionsController#uauth as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"S40nKX0a0P2o4PH7MQ46yXsmCMdnBjG2+sJ+fwfetiPMB7oxEXvQGfy8gsqpKsJSwlreUcpctdOVy6CRGlUzkA==", "auth"=>"22b61465", "commit"=>"Authenticate"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."auth" = ? LIMIT ?[0m  [["auth", "22b61465"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:8
+No template found for SessionsController#uauth, rendering head :no_content
+Completed 204 No Content in 16ms (ActiveRecord: 0.1ms)
+
+
+Started POST "/" for 127.0.0.1 at 2018-10-07 14:53:27 +0300
+Processing by SessionsController#uauth as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"S40nKX0a0P2o4PH7MQ46yXsmCMdnBjG2+sJ+fwfetiPMB7oxEXvQGfy8gsqpKsJSwlreUcpctdOVy6CRGlUzkA==", "auth"=>"22b61465", "commit"=>"Authenticate"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."auth" = ? LIMIT ?[0m  [["auth", "22b61465"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:8
+No template found for SessionsController#uauth, rendering head :no_content
+Completed 204 No Content in 17ms (ActiveRecord: 0.2ms)
+
+
+Started POST "/" for 127.0.0.1 at 2018-10-07 14:53:29 +0300
+Processing by SessionsController#uauth as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"S40nKX0a0P2o4PH7MQ46yXsmCMdnBjG2+sJ+fwfetiPMB7oxEXvQGfy8gsqpKsJSwlreUcpctdOVy6CRGlUzkA==", "auth"=>"22b61465", "commit"=>"Authenticate"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."auth" = ? LIMIT ?[0m  [["auth", "22b61465"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:8
+No template found for SessionsController#uauth, rendering head :no_content
+Completed 204 No Content in 15ms (ActiveRecord: 0.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-10-07 14:53:30 +0300
+Processing by SessionsController#home as HTML
+  Rendered sessions/_uauth.html.erb (3.7ms)
+Filter chain halted as :currentu rendered or redirected
+Completed 200 OK in 8ms (Views: 7.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-10-07 14:53:31 +0300
+Processing by SessionsController#home as HTML
+  Rendered sessions/_uauth.html.erb (3.3ms)
+Filter chain halted as :currentu rendered or redirected
+Completed 200 OK in 8ms (Views: 7.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-10-07 14:53:31 +0300
+Processing by SessionsController#home as HTML
+  Rendered sessions/_uauth.html.erb (3.2ms)
+Filter chain halted as :currentu rendered or redirected
+Completed 200 OK in 7ms (Views: 6.7ms | ActiveRecord: 0.0ms)
+
+
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+Started POST "/" for 127.0.0.1 at 2018-10-07 14:53:55 +0300
+Processing by SessionsController#uauth as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"6xoJAUCgQg2sj8OeDfMUshJoQ4UECc2prODF85l3oFhskJQZLMFC6fjTsK+V1+wpqxSVE6lTSczD6RsdhPwl6w==", "auth"=>"b7302c1a", "commit"=>"Authenticate"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."auth" = ? LIMIT ?[0m  [["auth", "b7302c1a"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:8
+Redirected to http://localhost:3000/
+Completed 302 Found in 14ms (ActiveRecord: 0.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-10-07 14:53:55 +0300
+Processing by SessionsController#home as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/sessions_controller.rb:22
+  Rendering sessions/home.html.erb within layouts/application
+  Rendered sessions/home.html.erb within layouts/application (69.6ms)
+Completed 200 OK in 275ms (Views: 260.7ms | ActiveRecord: 0.8ms)
+
+
+Started POST "/sessions" for 127.0.0.1 at 2018-10-07 14:54:35 +0300
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"uGalbvCkI4tHpvkRywJgT2whFVbbUt1kKST8lKLRuqFQgpQdoy4wek4yrtOCz6cvAEZNh4j4gC/3Lqv4au4PKA==", "session"=>{"name"=>"Redone", "time(1i)"=>"2018", "time(2i)"=>"10", "time(3i)"=>"7", "details"=>"migrated, ressededddd", "invite"=>["", "00a5c683", "87c590fc", "9823f038"]}, "commit"=>"Create Session"}
+Unpermitted parameter: :invite
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/sessions_controller.rb:58
+  [1m[36mSession Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "sessions" WHERE "sessions"."auth" = ? LIMIT ?[0m  [["auth", "6579cb17"], ["LIMIT", 1]]
+  ↳ app/models/concerns/friendlyable.rb:21
+  [1m[36mSession Create (0.4ms)[0m  [1m[32mINSERT INTO "sessions" ("name", "time", "users_id", "created_at", "updated_at", "details", "invite", "auth") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Redone"], ["time", "2018-10-07 00:00:00"], ["users_id", 200], ["created_at", "2018-10-07 11:54:55.073169"], ["updated_at", "2018-10-07 11:54:55.073169"], ["details", "migrated, ressededddd"], ["invite", ""], ["auth", "6579cb17"]]
+  ↳ app/controllers/sessions_controller.rb:58
+  [1m[35m (85.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/sessions_controller.rb:58
+Redirected to http://localhost:3000/sessions/6
+Completed 302 Found in 19400ms (ActiveRecord: 85.9ms)
+
+
+Started GET "/sessions/6" for 127.0.0.1 at 2018-10-07 14:54:55 +0300
+Processing by SessionsController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mSession Load (0.3ms)[0m  [1m[34mSELECT  "sessions".* FROM "sessions" WHERE "sessions"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:32
+  [1m[36mTask Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "tasks" LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:33
+  Rendering sessions/show.html.erb within layouts/application
+  [1m[36mTask Load (0.4ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."session_id" = ?[0m  [["session_id", 6]]
+  ↳ app/views/sessions/_tasks_loop.html.erb:2
+  Rendered sessions/_tasks_loop.html.erb (2.3ms)
+  Rendered sessions/_addtask.html.erb (7.8ms)
+  Rendered sessions/show.html.erb within layouts/application (12.7ms)
+Completed 200 OK in 74ms (Views: 59.9ms | ActiveRecord: 1.3ms)
+
+
+  [1m[36mSession Load (0.4ms)[0m  [1m[34mSELECT  "sessions".* FROM "sessions" ORDER BY "sessions"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+Started GET "/" for 127.0.0.1 at 2018-10-07 15:05:19 +0300
+Processing by SessionsController#home as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/sessions_controller.rb:22
+  Rendering sessions/home.html.erb within layouts/application
+  Rendered sessions/home.html.erb within layouts/application (20.3ms)
+Completed 200 OK in 125ms (Views: 93.5ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-10-07 15:05:39 +0300
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /usr/local/lib/ruby/gems/2.5.0/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Processing by SessionsController#home as HTML
+  Rendered sessions/_uauth.html.erb (113.4ms)
+Filter chain halted as :currentu rendered or redirected
+Completed 200 OK in 123ms (Views: 117.8ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/" for 127.0.0.1 at 2018-10-07 15:05:43 +0300
+Processing by SessionsController#uauth as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"sdhuwvFdGJcChO9k1nrbY4Gw1gMGCLyDmzKKS0NhArk2UvPanTwYc1bYnFVOXiP4OMwAlatSOOb0O1SlXuqHCg==", "auth"=>"b7302c1a", "commit"=>"Authenticate"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."auth" = ? LIMIT ?[0m  [["auth", "b7302c1a"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:8
+Redirected to http://localhost:3000/
+Completed 302 Found in 15ms (ActiveRecord: 1.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-10-07 15:05:43 +0300
+Processing by SessionsController#home as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/sessions_controller.rb:22
+  Rendering sessions/home.html.erb within layouts/application
+  Rendered sessions/home.html.erb within layouts/application (72.4ms)
+Completed 200 OK in 281ms (Views: 265.6ms | ActiveRecord: 0.7ms)
+
+
+Started POST "/sessions" for 127.0.0.1 at 2018-10-07 15:06:08 +0300
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"enNx+P/uIBQNCBDgX8khjdfQm58CUlCiZyHlNNBxBhCSl0CLrGQz5QScRyIWBObtu7fDTlH4Dem5K7JYGE6zmQ==", "session"=>{"name"=>"creating ", "time(1i)"=>"2018", "time(2i)"=>"10", "time(3i)"=>"7", "details"=>"asfsad", "invite"=>["", "00a5c683", "87c590fc"]}, "commit"=>"Create Session"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/sessions_controller.rb:58
+  [1m[36mSession Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "sessions" WHERE "sessions"."auth" = ? LIMIT ?[0m  [["auth", "a456d9e4"], ["LIMIT", 1]]
+  ↳ app/models/concerns/friendlyable.rb:21
+  [1m[36mSession Create (0.6ms)[0m  [1m[32mINSERT INTO "sessions" ("name", "time", "users_id", "created_at", "updated_at", "details", "invite", "auth") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "creating "], ["time", "2018-10-07 00:00:00"], ["users_id", 200], ["created_at", "2018-10-07 12:06:17.121790"], ["updated_at", "2018-10-07 12:06:17.121790"], ["details", "asfsad"], ["invite", "[\"\", \"00a5c683\", \"87c590fc\"]"], ["auth", "a456d9e4"]]
+  ↳ app/controllers/sessions_controller.rb:58
+  [1m[35m (72.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/sessions_controller.rb:58
+Redirected to http://localhost:3000/sessions/7
+Completed 302 Found in 8469ms (ActiveRecord: 73.3ms)
+
+
+Started GET "/sessions/7" for 127.0.0.1 at 2018-10-07 15:06:17 +0300
+Processing by SessionsController#show as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mSession Load (0.2ms)[0m  [1m[34mSELECT  "sessions".* FROM "sessions" WHERE "sessions"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:32
+  [1m[36mTask Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "tasks" LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:33
+  Rendering sessions/show.html.erb within layouts/application
+  [1m[36mTask Load (0.2ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."session_id" = ?[0m  [["session_id", 7]]
+  ↳ app/views/sessions/_tasks_loop.html.erb:2
+  Rendered sessions/_tasks_loop.html.erb (1.4ms)
+  Rendered sessions/_addtask.html.erb (9.3ms)
+  Rendered sessions/show.html.erb within layouts/application (13.0ms)
+Completed 200 OK in 92ms (Views: 74.2ms | ActiveRecord: 1.0ms)
+
+
+  [1m[36mSession Load (0.3ms)[0m  [1m[34mSELECT  "sessions".* FROM "sessions" ORDER BY "sessions"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]

@@ -18,6 +18,12 @@ before_action :currentu, only: [:home]
       @sessions= Session.all()
       @nosession="active"
       @iscurrent="disabled"
+      @utags=[]
+      User.all.each do |u|  #maybe not here, not everytime
+        unless u.auth == $currentu.auth
+          @utags << [u.auth, u.name]
+        end
+      end
 
       #redirect_to 'sessions#home'
       #byebug
@@ -46,7 +52,12 @@ before_action :currentu, only: [:home]
   def create
       create= Session.new(session_params)
       #byebug
+      #session_params[:tags_as_string]
       create.users_id = $currentu.id
+      #create.t= ctags
+      #create.invite = params[:invite].to_s
+      #byebug
+      create.invite << $currentu.auth
        if create.save!
          flash[:success]="Session Created"
        end
@@ -61,7 +72,8 @@ before_action :currentu, only: [:home]
 
   private
   def session_params
-    params.require(:session).permit(:name, :details, :time, :invite)
+    params[:session][:invite] ||= []
+    params.require(:session).permit(:name, :details, :time, invite:[])
   end
 
   def showstate

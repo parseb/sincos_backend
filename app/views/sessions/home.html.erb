@@ -5,12 +5,12 @@
 
     <%= simple_form_for @session, :url => sessions_path, :method => :post, :action => :create  do |f| %>
       <div class="form-group">
-      <%= f.error_notification :input_html => { class: 'alert-danger'}%>
-      <%= f.input :name, label: 'Subject', error: 'Please provide a Title', input_html:{class:'form-control'} %><br>
-      <% ##concat datetime or use default %>
-      <%= f.input :time, label: 'When?', :as => :date, :input_html => {class: 'form-control'}, error: 'Please provide a date' %><br>
-      <%= f.input :details, label: 'Details (example: Quaterly Shareholder Meeting)', input_html:{class:'form-control'} %><br>
-      <%= f.input :invite, label: 'Invite:', input_html:{class:'form-control disabled'} %><br>
+        <%= f.error_notification :input_html => { class: 'alert-danger'}%>
+        <%= f.input :name, label: 'Subject', error: 'Please provide a Title', input_html:{class:'form-control'} %><br>
+        <% ##concat datetime or use default %>
+        <%= f.input :time, label: 'When?', :as => :date, :input_html => {class: 'form-control'}, error: 'Please provide a date' %><br>
+        <%= f.input :details, label: 'Details (example: Quaterly Shareholder Meeting)', input_html:{class:'form-control'} %><br>
+        <%= f.input :invite, as: :check_boxes, collection: @utags, label_method: :second, value_method: :first, label: 'Invite:', input_html:{class:'form-control', multiple: true, id: 'session_tags_as_strings'} %><br>
       </div>
       <%= f.button :submit, input_html:{ class:'btn btn-success'} %>
     <% end %>

@@ -10,7 +10,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_06_134443) do
+ActiveRecord::Schema.define(version: 2018_10_07_102438) do
+
+  create_table "gutentag_taggings", force: :cascade do |t|
+    t.integer "tag_id", null: false
+    t.integer "taggable_id", null: false
+    t.string "taggable_type", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["tag_id"], name: "index_gutentag_taggings_on_tag_id"
+    t.index ["taggable_type", "taggable_id", "tag_id"], name: "unique_taggings", unique: true
+    t.index ["taggable_type", "taggable_id"], name: "index_gutentag_taggings_on_taggable_type_and_taggable_id"
+  end
+
+  create_table "gutentag_tags", force: :cascade do |t|
+    t.string "name", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "taggings_count", default: 0
+    t.index ["name"], name: "index_gutentag_tags_on_name", unique: true
+    t.index ["taggings_count"], name: "index_gutentag_tags_on_taggings_count"
+  end
 
   create_table "sessions", force: :cascade do |t|
     t.string "name"
@@ -22,12 +42,11 @@ ActiveRecord::Schema.define(version: 2018_10_06_134443) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.text "details"
-    t.text "invite"
+    t.string "invite"
     t.string "auth"
     t.string "state"
     t.index ["task_ids"], name: "index_sessions_on_task_ids"
     t.index ["votes_id"], name: "index_sessions_on_votes_id"
-    t.index [nil], name: "index_sessions_on_user_id"
   end
 
   create_table "tasks", force: :cascade do |t|
