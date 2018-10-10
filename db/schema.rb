@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_07_102438) do
+ActiveRecord::Schema.define(version: 2018_10_08_154711) do
 
   create_table "gutentag_taggings", force: :cascade do |t|
     t.integer "tag_id", null: false
@@ -30,6 +30,16 @@ ActiveRecord::Schema.define(version: 2018_10_07_102438) do
     t.integer "taggings_count", default: 0
     t.index ["name"], name: "index_gutentag_tags_on_name", unique: true
     t.index ["taggings_count"], name: "index_gutentag_tags_on_taggings_count"
+  end
+
+  create_table "sessionrecords", force: :cascade do |t|
+    t.string "joincode"
+    t.integer "session_id"
+    t.string "userauth"
+    t.text "transcript"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["session_id"], name: "index_sessionrecords_on_session_id"
   end
 
   create_table "sessions", force: :cascade do |t|

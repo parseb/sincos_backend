@@ -8,12 +8,14 @@ before_action :currentu, only: [:home]
     if $currentu=User.find_by(auth: params[:auth])
       redirect_to '/', method: 'get'
       flash[:success]="Welcome #{$currentu.name}!"
+      session[:htu_usa]= $currentu.auth
     end
   end
 
 
   def home
       #@currentu= $currentu ###
+      @joins= ''
       @session= Session.new()
       @sessions= Session.all()
       @nosession="active"
@@ -32,11 +34,14 @@ before_action :currentu, only: [:home]
   def show
 
     @session= Session.find params[:id]         #find by id / find by code - for users/invited ++auth
-    if Task.any?
+    if @session.tasks.any?
       @tasks=Task.where session_id: @session.id
       @list= true
+      @canstart=''
+      session[:htu_s] = @session.auth
     else
       @list= false
+      @canstart= 'disabled'
     end
     #byebug
     @task= Task.new

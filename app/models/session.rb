@@ -2,6 +2,7 @@ class Session < ApplicationRecord
   include Friendlyable
   validates_presence_of :name, :details #, :time
   has_many :tasks
+  has_one :sessionrecord 
 #   Gutentag::ActiveRecord.call self
 #   #belongs_to :user
 #

@@ -4,7 +4,9 @@ get '/', to: 'sessions#home'
 
 post '/', to: 'sessions#uauth'
 
-get '/insession', to: 'insession#started'
+get 'insession', to: 'insession#started'
+
+post 'joins', to: 'insession#joins' #as: 'joins_path'
 
 resources :sessions
 resources :tasks

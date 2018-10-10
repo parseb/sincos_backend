@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  joincode: MyString
+  session_id: 
+  users: 
+  transcript: MyText
+
+two:
+  joincode: MyString
+  session_id: 
+  users: 
+  transcript: MyText
