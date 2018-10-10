@@ -11,4 +11,14 @@ post 'joins', to: 'insession#joins' #as: 'joins_path'
 resources :sessions
 resources :tasks
 
+#API
+
+namespace :api, defaults: { format: :json }, :controller => 'insession' do
+  post 'joins', action: 'apijoins'
+  post 'act',  action: 'sessionaction'
+  get 'data',  action: 'data'
+  post 'endsession', action: 'endssession'
+end
+
+
 end

@@ -28,7 +28,27 @@ def joins
   end
 end
 
+### API ######
 
+def apijoins
+
+end
+
+def sessionaction
+  #code
+end
+
+def sessiondata
+
+end
+
+
+
+
+
+
+
+### END API ####
 
 
 def setvar
@@ -37,5 +57,7 @@ def setvar
   @joinscode= Sessionrecord.new(joincode: params[:code]).joincode
   #@accesscode=
 end
+
+
 
 end
