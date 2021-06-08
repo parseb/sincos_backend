@@ -87,3 +87,7 @@ gem 'faker', :git => 'https://github.com/stympy/faker.git', :branch => 'master'
 gem 'rqrcode'
 
 gem 'gutentag', '~> 2.4'
+
+
+#gem "paperclip", "~> 6.0.0"
+
